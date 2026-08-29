@@ -53,6 +53,7 @@ const base = import.meta.env.BASE_URL;
 				<div class="product-card">
 					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20h18L12 5 3 20z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M12 5v15" stroke="currentColor" stroke-width="1.2"/></svg></div>
 					<div class="product-body">
+						<p class="condition-label">構成のシンプルさ・実績のある耐風性を重視するなら</p>
 						<p class="brand-name">NEMO Equipment</p>
 						<p class="model-name">Tani OSMO 1P</p>
 						<p class="spec-line"><span>最小重量 <b>約1.12kg</b></span><span>床面積 <b>2.2㎡</b></span><span>前室 <b>約0.8㎡</b></span></p>
@@ -65,6 +66,7 @@ const base = import.meta.env.BASE_URL;
 				<div class="product-card">
 					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20h18L12 5 3 20z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M12 5v15" stroke="currentColor" stroke-width="1.2"/></svg></div>
 					<div class="product-body">
+						<p class="condition-label">収納力・室内空間の使い勝手を重視するなら</p>
 						<p class="brand-name">MSR</p>
 						<p class="model-name">Hubba Hubba LT1</p>
 						<p class="spec-line"><span>トレイル重量 <b>約1.07kg</b></span><span>床面積 <b>1.82㎡</b></span><span>ポール <b>3ハブ構造</b></span></p>
@@ -112,10 +114,20 @@ const base = import.meta.env.BASE_URL;
 		<section id="verdict">
 			<h2>結論</h2>
 			<div class="verdict">
-				<p class="kicker">総合評価（現時点では未決着）</p>
-				<p><strong>収納力はHubba Hubba LT1が明確に優位</strong>。頭上ギアロフトとサイドメッシュポケットにより、Taniの「ポケット1箇所」を大きく上回る。設営もハブ構造ゆえに部品点数は多いものの、対称設計のため設営難易度が上がっているという報告は見当たらなかった。</p>
-				<p>一方で<strong>耐風性は「Hubba Hubbaが明確に優位」とは言えない</strong>。単位を揃えて比較すると、Taniの実測報告（15m/s）はHubba Hubbaの「一般的に対応可能」とされる範囲を上回っており、少なくとも互角以上と見るのが妥当。ポール部品点数の多さは理論的な破損リスクの増加を意味するため、信頼性を最優先するならTaniの単純な2本ポール構造に分がある。</p>
-				<p>収納力・室内空間の使い勝手を重視するなら<strong>Hubba Hubba LT1</strong>、構成のシンプルさと実績のある耐風性を重視するなら<strong>Tani OSMO 1P</strong>という、優先順位次第で結論が変わる比較になった。無理に一本化せず、両論併記のまま記録しておく。</p>
+				<p class="kicker">条件別の整理</p>
+				<p>3機種ではなく2機種のみだが、単純な優劣ではなく優先順位次第で結論が変わる比較になった。</p>
+
+				<div class="verdict-point">
+					<p class="point-label">収納力・室内空間の使い勝手を重視するなら</p>
+					<p><strong>Hubba Hubba LT1</strong>が候補になる。頭上ギアロフトとサイドメッシュポケットにより、Taniの「ポケット1箇所」を大きく上回る。設営もハブ構造ゆえに部品点数は多いものの、対称設計のため設営難易度が上がっているという報告は見当たらない。</p>
+				</div>
+
+				<div class="verdict-point">
+					<p class="point-label">構成のシンプルさ・実績のある耐風性を重視するなら</p>
+					<p><strong>Tani OSMO 1P</strong>が候補になる。単位を揃えて比較すると、Taniの実測報告（15m/s）はHubba Hubbaの「一般的に対応可能」とされる範囲を上回っており、耐風性は少なくとも互角以上と見るのが妥当。ポール部品点数の少なさも、理論上の破損リスクの低さにつながる。</p>
+				</div>
+
+				<p>収納力を取るか、構成のシンプルさを取るかで結論が変わる比較であり、無理に一本化せず両論併記のまま記録しておく。</p>
 			</div>
 		</section>
 
