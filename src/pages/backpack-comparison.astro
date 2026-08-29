@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+	title="UL系40〜45Lザック3機種、テント泊装備との相性で比べる | 稜線ノート"
+	description="登山装備の見直し記録を、実際に検討した一次情報に基づいて公開する軽量化シリーズ。第1回はザック比較。"
+	currentCategory="ザック"
+>
+	<main>
+		<p class="breadcrumb"><a href={base}>ホーム</a> &gt; ザック &gt; UL系40〜45Lザック比較</p>
+
+		<div class="meta-row">
+			<span class="cat-tag">ザック</span>
+			<span class="pub-date">2026.08.19 更新</span>
+		</div>
+
+		<h1 class="title">UL系40〜45Lザック3機種、テント泊装備との相性で比べる</h1>
+
+		<div class="hero">
+			<svg viewBox="0 0 900 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="山の稜線イラスト">
+				<defs>
+					<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+						<stop offset="0%" stop-color="#235953"/>
+						<stop offset="100%" stop-color="#3f7a72"/>
+					</linearGradient>
+				</defs>
+				<rect width="900" height="260" fill="url(#sky)"/>
+				<path d="M0,190 L120,90 L200,150 L300,60 L420,170 L520,100 L650,190 L760,120 L900,180 L900,260 L0,260 Z" fill="#1a413c" opacity="0.9"/>
+				<path d="M0,220 L150,150 L260,200 L380,120 L500,210 L630,150 L780,215 L900,170 L900,260 L0,260 Z" fill="#123430"/>
+			</svg>
+		</div>
+
+		<p class="lede">
+			2泊3日のテント泊装備を基準に、Hyperlite Mountain Gear Southwest 40・Black Diamond Beta Light 45・ゼログラム Lost Creek LT45 の3機種を実装備条件で比較しました。数値だけでなく、防水性・日本でのサポート体制・在庫状況まで含めて評価しています。
+		</p>
+
+		<div class="toc">
+			<p class="toc-label">目次</p>
+			<ol>
+				<li><a href="#candidates">候補3機種</a></li>
+				<li><a href="#spec">詳細スペック比較</a></li>
+				<li><a href="#verdict">結論</a></li>
+			</ol>
+		</div>
+
+		<section id="candidates">
+			<h2>候補3機種</h2>
+			<div class="product-list">
+
+				<div class="product-card winner">
+					<span class="badge">有力候補</span>
+					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20l3-14h10l3 14z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M9 6V4h6v2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+					<div class="product-body">
+						<p class="brand-name">Black Diamond</p>
+						<p class="model-name">Beta Light 45</p>
+						<p class="spec-line"><span>重量 <b>890g</b>（最小521g）</span><span>価格 <b>¥62,000</b></span><span>トルソー <b>4段階</b></span></p>
+						<div class="shop-buttons">
+							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="product-card">
+					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20l3-14h10l3 14z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M9 6V4h6v2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+					<div class="product-body">
+						<p class="brand-name">Hyperlite Mountain Gear</p>
+						<p class="model-name">Southwest 40</p>
+						<p class="spec-line"><span>重量 <b>860〜890g</b></span><span>価格 <b>¥71,500</b></span><span>耐荷重 <b>約18kg</b></span></p>
+						<div class="shop-buttons">
+							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="product-card">
+					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20l3-14h10l3 14z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M9 6V4h6v2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+					<div class="product-body">
+						<p class="brand-name">ゼログラム</p>
+						<p class="model-name">Lost Creek LT45</p>
+						<p class="spec-line"><span>重量 <b>1,153g</b></span><span>価格 <b>¥39,600</b></span><span>在庫 <b>完売中</b></span></p>
+						<div class="shop-buttons">
+							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<section id="spec">
+			<h2>詳細スペック比較</h2>
+			<div class="table-wrap">
+				<table>
+					<caption>2026-08-19時点の調査データ</caption>
+					<thead>
+						<tr><th scope="col">項目</th><th scope="col">Southwest 40</th><th scope="col">Beta Light 45</th><th scope="col">Lost Creek LT45</th></tr>
+					</thead>
+					<tbody>
+						<tr><th scope="row">容量</th><td class="num">40L（+外部9.8L）</td><td class="num best">45L</td><td class="num">45〜54L</td></tr>
+						<tr><th scope="row">重量</th><td class="num">890g</td><td class="num best">890g / 最小521g</td><td class="num">1,153g</td></tr>
+						<tr><th scope="row">価格</th><td class="num">¥71,500</td><td class="num best">¥62,000</td><td class="num">¥39,600</td></tr>
+						<tr><th scope="row">トルソー調整</th><td>2段階</td><td class="best">4段階</td><td>固定48cm(±2cm)</td></tr>
+						<tr><th scope="row">防水性</th><td class="best">完全防水・シームテープ</td><td class="best">完全防水・シームテープ</td><td>別体レインカバー前提</td></tr>
+						<tr><th scope="row">最大耐荷重</th><td class="num best">約18kg（明記）</td><td class="num">記載なし</td><td class="num">14kg</td></tr>
+						<tr><th scope="row">日本サポート</th><td>Moonlight Gear</td><td class="best">ロストアロー正規</td><td>公式直販・GLAGH等</td></tr>
+						<tr><th scope="row">在庫</th><td>あり</td><td class="best">あり</td><td>完売中</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section id="verdict">
+			<h2>結論</h2>
+			<div class="verdict">
+				<p class="kicker">総合評価</p>
+				<p>防水性能に差がないことが判明した時点で、<strong>Beta Light 45</strong>が価格・日本国内サポート・トルソー展開の3点で優位に立つ。Southwest 40を積極的に選ぶ理由は「耐荷重18kgの明記」のみで、通常のテント泊装備であれば決定打にならない。</p>
+				<p>Lost Creek LT45は価格の魅力が大きいが、フル重量1,153gは軽量化の目標から外れるうえ防水も別体カバー前提。加えて現在完売中のため、比較対象としては残しつつ選定候補からは外れる。</p>
+			</div>
+		</section>
+
+		<section style="margin-top: 3.2rem;">
+			<div class="author-box">
+				<div class="author-avatar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20l5-11 4 6 3-5 6 10H3z" fill="currentColor"/></svg></div>
+				<div>
+					<p class="author-label">Editor's Profile</p>
+					<p class="author-name">峰岸 悠人</p>
+					<p class="author-bio">北アルプスを中心に、ソロでのテント泊登山を続けています。「軽ければ良い」ではなく、山での信頼性とのバランスを考えながら装備を見直すのが好きで、実際に検討した装備選びの過程を数字と一次情報に基づいて記録しています。</p>
+					<div class="author-tags"><span>ソロ登山10年</span><span>UL志向</span><span>3シーズン中心</span></div>
+				</div>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
