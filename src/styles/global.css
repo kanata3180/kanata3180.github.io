@@ -351,6 +351,9 @@ footer.site-foot { border-top: 1px solid var(--line); background: var(--surface)
 .foot-links a { text-decoration: none; color: var(--ink-soft); }
 .foot-disclosure { font-size: 0.78rem; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 1.1rem; margin-top: 0.4rem; }
 .foot-disclosure strong { color: var(--ink); }
+.foot-feedback { font-size: 0.72rem; margin-top: 0.8rem; }
+.foot-feedback a { color: var(--ink-faint); text-decoration: underline; text-underline-offset: 2px; }
+.foot-feedback a:hover { color: var(--brand); }
 
 @media (max-width: 600px) {
 	.masthead-inner { padding: 1rem 1.1rem 0.9rem; }
