@@ -46,22 +46,24 @@ const base = import.meta.env.BASE_URL;
 			<p class="search-empty" id="search-empty">該当する記事が見つかりませんでした。</p>
 		</section>
 
-		<section class="topics-section">
-			<h2>今後のトピックス</h2>
-			<p class="topics-desc">同じ軽量化プロジェクトの一環として、以下のカテゴリも記事化を進めています。</p>
-			<div class="topics-grid">
-				{upcomingTopics.map((topic) => (
-					<div class="topic-card">
-						<div class="topic-thumb soon">
-							<svg viewBox="0 0 300 110" preserveAspectRatio="xMidYMid slice"><rect width="300" height="110" fill={topic.color} /></svg>
-							<span class="tag">{topic.category}</span>
-							<span class="soon-badge">準備中</span>
+		{upcomingTopics.length > 0 && (
+			<section class="topics-section">
+				<h2>今後のトピックス</h2>
+				<p class="topics-desc">同じ軽量化プロジェクトの一環として、以下のカテゴリも記事化を進めています。</p>
+				<div class="topics-grid">
+					{upcomingTopics.map((topic) => (
+						<div class="topic-card">
+							<div class="topic-thumb soon">
+								<svg viewBox="0 0 300 110" preserveAspectRatio="xMidYMid slice"><rect width="300" height="110" fill={topic.color} /></svg>
+								<span class="tag">{topic.category}</span>
+								<span class="soon-badge">準備中</span>
+							</div>
+							<p class="topic-title">{topic.title}</p>
 						</div>
-						<p class="topic-title">{topic.title}</p>
-					</div>
-				))}
-			</div>
-		</section>
+					))}
+				</div>
+			</section>
+		)}
 	</main>
 </BaseLayout>
 

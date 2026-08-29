@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+	title="主室スタッフバッグ3個運用、湿気を隔離するパッキング設計 | 稜線ノート"
+	description="ジャンル別からシーン別へのパッキング再設計。Beta Light 45の実ポケット構成に当てはめた、スタッフバッグ選定と収納配置の記録。"
+	currentCategory="パッキング"
+>
+	<main>
+		<p class="breadcrumb"><a href={base}>ホーム</a> &gt; パッキング &gt; シーン別パッキング設計</p>
+
+		<div class="meta-row">
+			<span class="cat-tag">パッキング</span>
+			<span class="pub-date">2026.08.19 更新（仮記事）</span>
+		</div>
+
+		<h1 class="title">主室スタッフバッグ3個運用、湿気を隔離するパッキング設計</h1>
+
+		<div class="hero">
+			<svg viewBox="0 0 900 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="パッキングのイラスト">
+				<defs>
+					<linearGradient id="sky5" x1="0" y1="0" x2="0" y2="1">
+						<stop offset="0%" stop-color="#4b978a"/>
+						<stop offset="100%" stop-color="#235953"/>
+					</linearGradient>
+				</defs>
+				<rect width="900" height="260" fill="url(#sky5)"/>
+				<rect x="330" y="70" width="240" height="160" rx="30" fill="#163e3a" opacity="0.6"/>
+			</svg>
+		</div>
+
+		<p class="lede">
+			「ジャンル別」に分けていたスタッフバッグを、「シーン別・使用タイミング別」に再設計しました。テントを取り出すために他の荷物を出す必要がある、という設営時の不便を解消するのが目的です。Beta Light 45の実ポケット構成に当てはめて検証しています。
+		</p>
+
+		<div class="toc">
+			<p class="toc-label">目次</p>
+			<ol>
+				<li><a href="#packing-map">パッキングマップ</a></li>
+				<li><a href="#candidates">テント用スタッフバッグ候補</a></li>
+				<li><a href="#spec">詳細スペック比較</a></li>
+				<li><a href="#verdict">結論</a></li>
+			</ol>
+		</div>
+
+		<section id="packing-map">
+			<h2>パッキングマップ</h2>
+			<div class="table-wrap">
+				<table>
+					<caption>Beta Light 45の実ポケット構成に当てはめた配置</caption>
+					<thead>
+						<tr><th scope="col">収納場所</th><th scope="col">収納物</th></tr>
+					</thead>
+					<tbody>
+						<tr><th scope="row">ショルダーハーネス（SNAP）</th><td>スマホ、行動食、サングラス、グローブ</td></tr>
+						<tr><th scope="row">ヒップベルトポケット</th><td>ソフトフラスク、塩タブレット等の小物</td></tr>
+						<tr><th scope="row">サイドポケット（左右）</th><td>レインウェア上下、ウィンドジャケット、救急セット即応品、キャンプ用ウォーターバッグ（空の状態で常時収納）</td></tr>
+						<tr><th scope="row">主室：テント用バッグ</th><td>テント＋グラウンドシート。背面パネルに接する位置に縦向き配置（重量物を体に近い位置へ）</td></tr>
+						<tr><th scope="row">主室：食事セット</th><td>ジェットボイル、リゾット、コーヒー、カトラリー</td></tr>
+						<tr><th scope="row">主室：就寝セット</th><td>シュラフ、ピロー、予備衣類、防寒着、歯ブラシ</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<p>行動中に使う物は外部ポケットに分散させることでスタッフバッグ化せず、主室内のバッグ数をジャンル別運用時の5個以上から3個まで削減した。ウォーターバッグを主室からサイドポケットへ移すことで、給水・調理時に主室を開ける必要がなくなる。</p>
+		</section>
+
+		<section id="candidates">
+			<h2>テント用スタッフバッグ候補</h2>
+			<p>夜露で湿ったテントをパッキングした際、湿気が就寝セット等に広がらないようにする観点で比較検討した。</p>
+			<div class="product-list">
+
+				<div class="product-card winner">
+					<span class="badge">採用</span>
+					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="4" width="10" height="16" rx="4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+					<div class="product-body">
+						<p class="brand-name">Zpacks</p>
+						<p class="model-name">Slim Stuff Sack</p>
+						<p class="spec-line"><span>直径×高さ <b>13×32cm</b></span><span>容量 <b>4L</b></span><span>重量 <b>6.8g</b></span></p>
+						<div class="shop-buttons">
+							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="product-card">
+					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="4" width="10" height="16" rx="4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+					<div class="product-body">
+						<p class="brand-name">Sea to Summit</p>
+						<p class="model-name">Ultra-Sil Dry Sack 4L</p>
+						<p class="spec-line"><span>直径×高さ <b>15×33cm</b></span><span>容量 <b>4L</b></span><span>重量 <b>約26g</b></span></p>
+						<div class="shop-buttons">
+							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="product-card">
+					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="4" width="10" height="16" rx="4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+					<div class="product-body">
+						<p class="brand-name">Hyperlite Mountain Gear</p>
+						<p class="model-name">Roll-Top Stuff Sack (S)</p>
+						<p class="spec-line"><span>直径×高さ <b>15.2×35.6cm</b></span><span>容量 <b>3L</b></span></p>
+						<div class="shop-buttons">
+							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<section id="spec">
+			<h2>詳細スペック比較</h2>
+			<div class="table-wrap">
+				<table>
+					<caption>2026-08-19時点の調査データ</caption>
+					<thead>
+						<tr><th scope="col">製品</th><th scope="col">直径×高さ</th><th scope="col">容量</th><th scope="col">防水性</th><th scope="col">重量</th></tr>
+					</thead>
+					<tbody>
+						<tr><th scope="row">Zpacks Slim Stuff Sack</th><td class="num best">13cm×32cm</td><td class="num">4L</td><td>Water Resistant（ドローコード式、テープシームのみ）</td><td class="num best">6.8g</td></tr>
+						<tr><th scope="row">Sea to Summit Ultra-Sil Dry Sack 4L</th><td class="num">15cm×33cm</td><td class="num">4L</td><td class="best">完全防水（ロールトップ＋バックル）</td><td class="num">約26g</td></tr>
+						<tr><th scope="row">HMG Roll-Top Stuff Sack (S)</th><td class="num">15.2cm×35.6cm</td><td class="num">3L</td><td>Water Resistant（公式に「防水ではない」と明記）</td><td>記載なし</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section id="verdict">
+			<h2>結論</h2>
+			<div class="verdict">
+				<p class="kicker">総合評価</p>
+				<p>直径14cm未満（背面配置での収まりを優先）を条件に<strong>Zpacks Slim Stuff Sack</strong>を採用した。完全防水ではないため、内側に薄手のライナー（コンパクターバッグ等、10-20g程度）を追加して湿気を隔離する運用で補完する。この方式なら直径条件を崩さず、主室内バッグ数も増やさずに湿気隔離ができる。</p>
+			</div>
+		</section>
+
+		<section style="margin-top: 3.2rem;">
+			<div class="author-box">
+				<div class="author-avatar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20l5-11 4 6 3-5 6 10H3z" fill="currentColor"/></svg></div>
+				<div>
+					<p class="author-label">Editor's Profile</p>
+					<p class="author-name">峰岸 悠人</p>
+					<p class="author-bio">北アルプスを中心に、ソロでのテント泊登山を続けています。「軽ければ良い」ではなく、山での信頼性とのバランスを考えながら装備を見直すのが好きで、実際に検討した装備選びの過程を数字と一次情報に基づいて記録しています。</p>
+					<div class="author-tags"><span>ソロ登山10年</span><span>UL志向</span><span>3シーズン中心</span></div>
+				</div>
+			</div>
+		</section>
+	</main>
+</BaseLayout>

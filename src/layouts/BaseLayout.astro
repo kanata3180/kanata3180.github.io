@@ -43,6 +43,9 @@ const base = import.meta.env.BASE_URL;
 					<a href={base} class={!currentCategory ? 'current' : ''}>トップ</a>
 					<a href={`${base}?q=ザック#search`} class={currentCategory === 'ザック' ? 'current' : ''}>ザック</a>
 					<a href={`${base}?q=テント#search`} class={currentCategory === 'テント' ? 'current' : ''}>テント</a>
+					<a href={`${base}?q=シュラフ#search`} class={currentCategory === 'シュラフ' ? 'current' : ''}>シュラフ</a>
+					<a href={`${base}?q=レインウェア#search`} class={currentCategory === 'レインウェア' ? 'current' : ''}>レインウェア</a>
+					<a href={`${base}?q=パッキング#search`} class={currentCategory === 'パッキング' ? 'current' : ''}>パッキング</a>
 				</div>
 			</nav>
 		</header>
@@ -53,7 +56,7 @@ const base = import.meta.env.BASE_URL;
 			<footer class="site-foot">
 				<div class="foot-inner">
 					<div class="foot-links">
-						<a href={base}>トップ</a><a href={`${base}?q=ザック#search`}>ザック</a><a href={`${base}?q=テント#search`}>テント</a>
+						<a href={base}>トップ</a><a href={`${base}?q=ザック#search`}>ザック</a><a href={`${base}?q=テント#search`}>テント</a><a href={`${base}?q=シュラフ#search`}>シュラフ</a><a href={`${base}?q=レインウェア#search`}>レインウェア</a><a href={`${base}?q=パッキング#search`}>パッキング</a>
 					</div>
 					<p class="foot-disclosure"><strong>本ページはプロモーションを含みます。</strong>稜線ノートは実際に検討した登山装備の一次情報をもとに構成しています。紹介リンク経由の購入により、当サイトが紹介料を受け取る場合があります。</p>
 				</div>

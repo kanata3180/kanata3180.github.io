@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+	title="ツルギライトジャケット、兼用運用で本当に摩耗は増えるか | 稜線ノート"
+	description="モンベル トレントフライヤーからの買い替えでTeton Bros ツルギライトジャケットを比較検討。ウィンドジャケット兼用時の摩耗増加も含めて検証。"
+	currentCategory="レインウェア"
+>
+	<main>
+		<p class="breadcrumb"><a href={base}>ホーム</a> &gt; レインウェア &gt; ツルギライトジャケット検討</p>
+
+		<div class="meta-row">
+			<span class="cat-tag">レインウェア</span>
+			<span class="pub-date">2026.08.19 更新（仮記事）</span>
+		</div>
+
+		<h1 class="title">ツルギライトジャケット、兼用運用で本当に摩耗は増えるか</h1>
+
+		<div class="hero">
+			<svg viewBox="0 0 900 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="レインウェアのイラスト">
+				<defs>
+					<linearGradient id="sky4" x1="0" y1="0" x2="0" y2="1">
+						<stop offset="0%" stop-color="#b95c08"/>
+						<stop offset="100%" stop-color="#e0720e"/>
+					</linearGradient>
+				</defs>
+				<rect width="900" height="260" fill="url(#sky4)"/>
+				<path d="M0,210 L200,140 L400,200 L600,130 L800,190 L900,160 L900,260 L0,260 Z" fill="#8a4306" opacity="0.5"/>
+			</svg>
+		</div>
+
+		<p class="lede">
+			現行のモンベル トレントフライヤー（ブルーのみ）から、ナチュラルカラー×同等品質・重量のレインジャケットへの買い替えを検討しました。ウィンドジャケット兼用運用時の摩耗増加リスクも含めて比較しています。
+		</p>
+
+		<div class="toc">
+			<p class="toc-label">目次</p>
+			<ol>
+				<li><a href="#candidates">候補3機種</a></li>
+				<li><a href="#spec">詳細スペック比較</a></li>
+				<li><a href="#verdict">結論</a></li>
+			</ol>
+		</div>
+
+		<section id="candidates">
+			<h2>候補3機種</h2>
+			<div class="product-list">
+
+				<div class="product-card winner">
+					<span class="badge">有力候補</span>
+					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4h4l2 2 2-2h4l2 4-3 2v12H7V10L4 8z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
+					<div class="product-body">
+						<p class="brand-name">Teton Bros</p>
+						<p class="model-name">ツルギライトジャケット</p>
+						<p class="spec-line"><span>重量差 <b>+46g</b>（240g）</span><span>表地 <b>20D</b></span><span>価格 <b>¥41,800</b></span></p>
+						<div class="shop-buttons">
+							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="product-card">
+					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4h4l2 2 2-2h4l2 4-3 2v12H7V10L4 8z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
+					<div class="product-body">
+						<p class="brand-name">モンベル（現行使用中）</p>
+						<p class="model-name">トレントフライヤー</p>
+						<p class="spec-line"><span>重量 <b>194g</b></span><span>表地 <b>12D</b></span><span>ナチュラル色 <b>なし</b></span></p>
+						<div class="shop-buttons">
+							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="product-card">
+					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4h4l2 2 2-2h4l2 4-3 2v12H7V10L4 8z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
+					<div class="product-body">
+						<p class="brand-name">Teton Bros</p>
+						<p class="model-name">Feather Rain Jacket</p>
+						<p class="spec-line"><span>重量差 <b>-9g</b>（195g）</span><span>耐摩耗 <b>最強クラス</b></span><span>在庫 <b>色欠品</b></span></p>
+						<div class="shop-buttons">
+							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<section id="spec">
+			<h2>詳細スペック比較</h2>
+			<div class="table-wrap">
+				<table>
+					<caption>2026-08-19時点の調査データ</caption>
+					<thead>
+						<tr><th scope="col">製品</th><th scope="col">重量差</th><th scope="col">表地</th><th scope="col">耐摩耗性</th><th scope="col">ナチュラル色</th><th scope="col">入手性</th></tr>
+					</thead>
+					<tbody>
+						<tr><th scope="row">トレントフライヤー（現行）</th><td>―</td><td>12D</td><td>モンベル公式が「極薄素材のため鋭利な岩角等で破損の恐れ」と注意書き</td><td>なし（黒/青/橙/黄）</td><td class="best">◎</td></tr>
+						<tr><th scope="row">エバーブレスフォトン</th><td class="num">+106g（300g）</td><td>15D</td><td>公式記載なし。第三者レビューで「突き刺しに弱い」</td><td class="best">オリーブドラブ◎</td><td>◎ ¥39,710</td></tr>
+						<tr><th scope="row">ツルギライトジャケット</th><td class="num best">+46g（240g）</td><td class="best">20D（本表中最厚）</td><td class="best">耐摩耗性を公式に明記</td><td class="best">チョコレート◎（在庫あり）</td><td class="best">◎現行モデル ¥41,800</td></tr>
+						<tr><th scope="row">Feather Rain Jacket</th><td class="num best">-9g（195g）</td><td>記載なし</td><td class="best">最強（Cordura、20万回耐摩耗試験クリア）</td><td>Forest Green該当も完売中</td><td>ナチュラル色のみ欠品</td></tr>
+						<tr><th scope="row">Arc'teryx Beta SL</th><td class="num">+146g</td><td>40D/70D</td><td class="best">最高級</td><td class="best">Dracaena Olive◎</td><td>◎（$500、重量増）</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section id="verdict">
+			<h2>結論</h2>
+			<div class="verdict">
+				<p class="kicker">総合評価</p>
+				<p><strong>ツルギライトジャケット（チョコレート、¥41,800）</strong>が最有力。入手性・重量増の少なさ（+46g）・耐摩耗性の公式明記・ナチュラルカラーの在庫、の4条件を同時に満たす。</p>
+				<p>Feather Rain Jacketは製品カテゴリ・耐摩耗性・価格の面でむしろ優位だが、唯一のナチュラル色（Forest Green）が現在完売中のため今回は選択できない。在庫復活時は再検討の価値がある。</p>
+				<p>運用面では、日帰り等の軽装時はウィンドジャケットと両方携行し、2泊3日等10kg超の重量級山行時のみレインジャケット1着で兼用する方針とした。この運用であれば兼用による摩耗増加は限定的と判断している。</p>
+			</div>
+		</section>
+
+		<section style="margin-top: 3.2rem;">
+			<div class="author-box">
+				<div class="author-avatar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20l5-11 4 6 3-5 6 10H3z" fill="currentColor"/></svg></div>
+				<div>
+					<p class="author-label">Editor's Profile</p>
+					<p class="author-name">峰岸 悠人</p>
+					<p class="author-bio">北アルプスを中心に、ソロでのテント泊登山を続けています。「軽ければ良い」ではなく、山での信頼性とのバランスを考えながら装備を見直すのが好きで、実際に検討した装備選びの過程を数字と一次情報に基づいて記録しています。</p>
+					<div class="author-tags"><span>ソロ登山10年</span><span>UL志向</span><span>3シーズン中心</span></div>
+				</div>
+			</div>
+		</section>
+	</main>
+</BaseLayout>

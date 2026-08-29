@@ -15,22 +15,30 @@ export const articles = [
 		excerpt: '自立式・ダブルウォールの1人用テント2機種を、耐風性・結露・収納・重量の実測データで比較しました。',
 		thumbColors: ['#3f7a72', '#5c9a8f'],
 	},
+	{
+		slug: 'sleeping-bag-comparison',
+		title: 'NANGA UDD BAG 380DXへの買い替えで軽量化と保温力は両立するか',
+		category: 'シュラフ',
+		pubDate: '2026-08-19',
+		excerpt: '現行のオーロラlight 350DXとUDD BAG 380DXを比較。軽量化と保温力向上は同時に得られるのか検証しました。',
+		thumbColors: ['#235953', '#4b978a'],
+	},
+	{
+		slug: 'rain-jacket-comparison',
+		title: 'ツルギライトジャケット、兼用運用で本当に摩耗は増えるか',
+		category: 'レインウェア',
+		pubDate: '2026-08-19',
+		excerpt: 'モンベル トレントフライヤーからの買い替えを5製品で比較。ウィンドジャケット兼用時の摩耗リスクも検証しました。',
+		thumbColors: ['#b95c08', '#e0720e'],
+	},
+	{
+		slug: 'packing-design',
+		title: '主室スタッフバッグ3個運用、湿気を隔離するパッキング設計',
+		category: 'パッキング',
+		pubDate: '2026-08-19',
+		excerpt: 'ジャンル別からシーン別へのパッキング再設計。スタッフバッグ選定と収納配置の記録です。',
+		thumbColors: ['#4b978a', '#235953'],
+	},
 ];
 
-export const upcomingTopics = [
-	{
-		category: 'シュラフ',
-		title: 'NANGA UDD BAG 380DXへの買い替えで軽量化と保温力は両立するか',
-		color: '#235953',
-	},
-	{
-		category: 'レインウェア',
-		title: 'ツルギライトジャケット、兼用運用で本当に摩耗は増えるか',
-		color: '#b95c08',
-	},
-	{
-		category: 'パッキング',
-		title: '主室スタッフバッグ3個運用、湿気を隔離するパッキング設計',
-		color: '#4b978a',
-	},
-];
+export const upcomingTopics = [];
