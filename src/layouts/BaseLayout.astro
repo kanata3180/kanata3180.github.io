@@ -44,6 +44,7 @@ const base = import.meta.env.BASE_URL;
 						<div class="menu-panel">
 							<a href={base}>トップ</a>
 							<a href={`${base}backpack-comparison/`}>ザック</a>
+							<a href={`${base}tent-comparison/`}>テント</a>
 							<a href={`${base}#search`}>記事を検索</a>
 						</div>
 					</details>
@@ -53,6 +54,7 @@ const base = import.meta.env.BASE_URL;
 				<div class="cat-nav-inner">
 					<a href={base} class={!currentCategory ? 'current' : ''}>トップ</a>
 					<a href={`${base}backpack-comparison/`} class={currentCategory === 'ザック' ? 'current' : ''}>ザック</a>
+					<a href={`${base}tent-comparison/`} class={currentCategory === 'テント' ? 'current' : ''}>テント</a>
 				</div>
 			</nav>
 		</header>
@@ -63,7 +65,7 @@ const base = import.meta.env.BASE_URL;
 			<footer class="site-foot">
 				<div class="foot-inner">
 					<div class="foot-links">
-						<a href={base}>トップ</a><a href={`${base}backpack-comparison/`}>ザック</a>
+						<a href={base}>トップ</a><a href={`${base}backpack-comparison/`}>ザック</a><a href={`${base}tent-comparison/`}>テント</a>
 					</div>
 					<p class="foot-disclosure"><strong>本ページはプロモーションを含みます。</strong>稜線ノートは実際に検討した登山装備の一次情報をもとに構成しています。紹介リンク経由の購入により、当サイトが紹介料を受け取る場合があります。</p>
 				</div>

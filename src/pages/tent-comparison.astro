@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+	title="NEMO Tani OSMO 1P vs Hubba Hubba LT1、耐風性と結露を検証 | 稜線ノート"
+	description="自立式・ダブルウォールの1人用テント2機種を、耐風性・結露・収納・重量の実測データで比較。単位を揃えて検証すると見えてくる意外な結果。"
+	currentCategory="テント"
+>
+	<main>
+		<p class="breadcrumb"><a href={base}>ホーム</a> &gt; テント &gt; Tani OSMO 1P vs Hubba Hubba LT1</p>
+
+		<div class="meta-row">
+			<span class="cat-tag">テント</span>
+			<span class="pub-date">2026.08.19 更新</span>
+		</div>
+
+		<h1 class="title">NEMO Tani OSMO 1P vs Hubba Hubba LT1、耐風性と結露を検証</h1>
+
+		<div class="hero">
+			<svg viewBox="0 0 900 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="テント泊の稜線イラスト">
+				<defs>
+					<linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
+						<stop offset="0%" stop-color="#3f7a72"/>
+						<stop offset="100%" stop-color="#5c9a8f"/>
+					</linearGradient>
+				</defs>
+				<rect width="900" height="260" fill="url(#sky2)"/>
+				<path d="M0,200 L140,110 L240,170 L340,90 L460,190 L580,120 L700,200 L820,140 L900,190 L900,260 L0,260 Z" fill="#1a413c" opacity="0.9"/>
+				<circle cx="150" cy="80" r="10" fill="#eaf3ef" opacity="0.55"/>
+			</svg>
+		</div>
+
+		<p class="lede">
+			自立式・ダブルウォールの1人用テントとして、NEMO Tani OSMO 1PとMSR Hubba Hubba LT1を比較しました。「軽さ」だけでなく、耐風性の実測値を単位を揃えて比較し、収納力・結露・設営性まで含めて検証しています。
+		</p>
+
+		<div class="toc">
+			<p class="toc-label">目次</p>
+			<ol>
+				<li><a href="#candidates">候補2機種</a></li>
+				<li><a href="#spec">詳細スペック比較</a></li>
+				<li><a href="#verdict">結論</a></li>
+			</ol>
+		</div>
+
+		<section id="candidates">
+			<h2>候補2機種</h2>
+			<div class="product-list">
+
+				<div class="product-card">
+					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20h18L12 5 3 20z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M12 5v15" stroke="currentColor" stroke-width="1.2"/></svg></div>
+					<div class="product-body">
+						<p class="brand-name">NEMO Equipment</p>
+						<p class="model-name">Tani OSMO 1P</p>
+						<p class="spec-line"><span>最小重量 <b>約1.12kg</b></span><span>床面積 <b>2.2㎡</b></span><span>前室 <b>約0.8㎡</b></span></p>
+						<div class="shop-buttons">
+							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="product-card">
+					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20h18L12 5 3 20z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M12 5v15" stroke="currentColor" stroke-width="1.2"/></svg></div>
+					<div class="product-body">
+						<p class="brand-name">MSR</p>
+						<p class="model-name">Hubba Hubba LT1</p>
+						<p class="spec-line"><span>トレイル重量 <b>約1.07kg</b></span><span>床面積 <b>1.82㎡</b></span><span>ポール <b>3ハブ構造</b></span></p>
+						<div class="shop-buttons">
+							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+
+		<section id="spec">
+			<h2>詳細スペック比較</h2>
+			<div class="table-wrap">
+				<table>
+					<caption>2026-08-19時点の調査データ（実使用レビューを含む）</caption>
+					<thead>
+						<tr><th scope="col">項目</th><th scope="col">Tani OSMO 1P</th><th scope="col">Hubba Hubba LT1</th></tr>
+					</thead>
+					<tbody>
+						<tr><th scope="row">寸法（長さ×幅）</th><td class="num">202cm × 105cm</td><td class="num">223.5cm × 81.3cm</td></tr>
+						<tr><th scope="row">床面積</th><td class="num best">2.2㎡</td><td class="num">1.82㎡</td></tr>
+						<tr><th scope="row">重量（本体+ポール）</th><td class="num">1,120g</td><td class="num best">1,070g（トレイル重量）</td></tr>
+						<tr><th scope="row">重量（タイベック流用時）</th><td class="num">1,160g</td><td class="num best">1,110g</td></tr>
+						<tr><th scope="row">重量（純正フットプリント時）</th><td class="num">1,295g</td><td class="num best">1,212g</td></tr>
+						<tr><th scope="row">前室</th><td class="best">約0.8㎡</td><td>記載なし（片側前室）</td></tr>
+						<tr><th scope="row">室内高</th><td class="best">約103cm</td><td>記載なし</td></tr>
+						<tr><th scope="row">ポール構造</th><td>独立2本ポール（吊り下げ式）</td><td>3ハブ・単一ポール（左右対称設計）</td></tr>
+						<tr><th scope="row">耐風性の実測報告</th><td class="best">15m/s（約54km/h）でガイラインなしでも安定と報告</td><td>25-30mph（約11-13m/s）は対応可。1件は50-60mph（約22-27m/s）の突風を軽微なポール変形のみで生還した報告もあるが、ばらつきが大きい</td></tr>
+						<tr><th scope="row">結露</th><td class="best">フライは濡れるがインナーへの浸水はほぼなし</td><td>メッシュ主体で基本良好。2人利用時は一晩1-2パイント発生（ソロなら影響軽減）</td></tr>
+						<tr><th scope="row">収納力</th><td>ポケット1箇所のみ</td><td class="best">頭上ギアロフト2個＋サイドメッシュポケット（ケーブルポート付き）</td></tr>
+						<tr><th scope="row">設営</th><td>2本ポール、比較的シンプル</td><td>3ハブ・4ステップ・約5分。設営が難しいという報告は見当たらない</td></tr>
+						<tr><th scope="row">日本サポート</th><td>NEMO Equipment Japan正規</td><td>モチヅキ（MSR正規代理店）</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<div class="verdict" style="margin-bottom: 3.2rem;">
+			<p class="kicker">訂正事項</p>
+			<p>調査当初、レビューの一部に「Taniのインナーは無地・保温重視」という情報があったが、NEMO Equipment Japan公式ページで確認したところ<strong>インナーはメッシュが正しい仕様</strong>だった。また「Hubba Hubbaは垂直壁だから耐風性で明確に劣る」という初期の整理も、実地レビューを深掘りした結果、単位を揃えて比較する限り裏付けが弱いことが分かった。一次情報は途中で訂正が入ることがある、という記録としてここに残しておく。</p>
+		</div>
+
+		<section id="verdict">
+			<h2>結論</h2>
+			<div class="verdict">
+				<p class="kicker">総合評価（現時点では未決着）</p>
+				<p><strong>収納力はHubba Hubba LT1が明確に優位</strong>。頭上ギアロフトとサイドメッシュポケットにより、Taniの「ポケット1箇所」を大きく上回る。設営もハブ構造ゆえに部品点数は多いものの、対称設計のため設営難易度が上がっているという報告は見当たらなかった。</p>
+				<p>一方で<strong>耐風性は「Hubba Hubbaが明確に優位」とは言えない</strong>。単位を揃えて比較すると、Taniの実測報告（15m/s）はHubba Hubbaの「一般的に対応可能」とされる範囲を上回っており、少なくとも互角以上と見るのが妥当。ポール部品点数の多さは理論的な破損リスクの増加を意味するため、信頼性を最優先するならTaniの単純な2本ポール構造に分がある。</p>
+				<p>収納力・室内空間の使い勝手を重視するなら<strong>Hubba Hubba LT1</strong>、構成のシンプルさと実績のある耐風性を重視するなら<strong>Tani OSMO 1P</strong>という、優先順位次第で結論が変わる比較になった。無理に一本化せず、両論併記のまま記録しておく。</p>
+			</div>
+		</section>
+
+		<section style="margin-top: 3.2rem;">
+			<div class="author-box">
+				<div class="author-avatar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20l5-11 4 6 3-5 6 10H3z" fill="currentColor"/></svg></div>
+				<div>
+					<p class="author-label">Editor's Profile</p>
+					<p class="author-name">峰岸 悠人</p>
+					<p class="author-bio">北アルプスを中心に、ソロでのテント泊登山を続けています。「軽ければ良い」ではなく、山での信頼性とのバランスを考えながら装備を見直すのが好きで、実際に検討した装備選びの過程を数字と一次情報に基づいて記録しています。</p>
+					<div class="author-tags"><span>ソロ登山10年</span><span>UL志向</span><span>3シーズン中心</span></div>
+				</div>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
