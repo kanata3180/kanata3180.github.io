@@ -1,0 +1,22 @@
+---
+import { categories } from '../data/categories.js';
+
+interface Props {
+	category: string;
+}
+
+const { category: categoryName } = Astro.props;
+const category = categories.find((c) => c.name === categoryName) ?? categories[0];
+const uid = Math.random().toString(36).slice(2, 9);
+---
+
+<svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" role="img" aria-label={`${category.name}のイラスト`}>
+	<defs>
+		<linearGradient id={`thumb-grad-${uid}`} x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0%" stop-color={category.colors[0]} />
+			<stop offset="100%" stop-color={category.colors[1]} />
+		</linearGradient>
+	</defs>
+	<rect width="100" height="100" fill={`url(#thumb-grad-${uid})`} />
+	<g opacity="0.9" set:html={category.icon} />
+</svg>
