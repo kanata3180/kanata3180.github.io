@@ -251,6 +251,16 @@ p { max-width: 68ch; }
 }
 .thumb { width: 88px; height: 88px; border-radius: 6px; background: var(--surface-soft); display: flex; align-items: center; justify-content: center; }
 .thumb svg { width: 46px; height: 46px; color: var(--brand); }
+.product-body .condition-label {
+	display: inline-block;
+	font-family: var(--font-mono);
+	font-size: 0.68rem;
+	color: var(--brand);
+	background: var(--surface-soft);
+	padding: 0.15rem 0.6rem;
+	border-radius: 999px;
+	margin-bottom: 0.5rem;
+}
 .product-body .brand-name { font-size: 0.72rem; color: var(--ink-faint); letter-spacing: 0.03em; }
 .product-body .model-name { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; margin: 0.15rem 0 0.55rem; }
 .spec-line { font-family: var(--font-mono); font-size: 0.76rem; color: var(--ink-soft); display: inline-flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.7rem; }
