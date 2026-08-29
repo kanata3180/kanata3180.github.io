@@ -284,10 +284,23 @@ td.best { background: var(--surface-soft); font-weight: 700; }
 tbody tr:last-child td, tbody tr:last-child th { border-bottom: none; }
 
 /* ---- verdict ---- */
-.verdict { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--cta); border-radius: 6px; padding: 1.4rem 1.5rem; box-shadow: var(--shadow); }
-.verdict .kicker { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--ink-faint); text-transform: uppercase; margin: 0 0 0.7rem; }
-.verdict p { margin: 0 0 0.8rem; }
+.verdict { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--cta); border-radius: 6px; padding: 1.6rem 1.7rem; box-shadow: var(--shadow); }
+.verdict .kicker { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; color: var(--ink-faint); text-transform: uppercase; margin: 0 0 0.9rem; }
+.verdict p { margin: 0 0 1.3rem; line-height: 1.9; }
 .verdict p:last-child { margin-bottom: 0; }
+
+.verdict-point { padding: 1.1rem 0; border-top: 1px dashed var(--line); }
+.verdict-point:first-of-type { border-top: none; padding-top: 0; }
+.verdict-point:last-of-type { padding-bottom: 0; }
+.verdict-point .point-label {
+	font-family: var(--font-mono);
+	font-size: 0.74rem;
+	font-weight: 600;
+	color: var(--cta);
+	letter-spacing: 0.02em;
+	margin: 0 0 0.6rem;
+}
+.verdict-point p { margin: 0; }
 
 /* ---- table of contents ---- */
 .toc { background: var(--surface-soft); border-radius: 8px; padding: 1.1rem 1.4rem; margin: 0 0 2.6rem; }
