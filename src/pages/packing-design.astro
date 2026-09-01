@@ -3,6 +3,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { zpacksSlimStuffSack, seaToSummitUltrasil, hmgRolltopStuffSack, betaLight45 } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
+
+const cardConfigs = [
+	{ product: zpacksSlimStuffSack, conditionLabel: '直径の小ささ・軽量性を最優先するなら' },
+	{ product: seaToSummitUltrasil, conditionLabel: '完全防水を優先し、直径に余裕があるなら' },
+	{ product: hmgRolltopStuffSack, conditionLabel: '参考：完全防水ではなく重量記載もない' },
+];
+const products = cardConfigs.map((c) => c.product);
+
+const specFields = [
+	{ key: 'dimensionsTableLabel', label: '直径×高さ', numeric: true, best: 'zpacks-slim-stuff-sack' },
+	{ key: 'capacity', label: '容量', numeric: true },
+	{ key: 'waterproof', label: '防水性', best: 'sea-to-summit-ultrasil' },
+	{ key: 'weight', label: '重量', numeric: true, best: 'zpacks-slim-stuff-sack' },
+	{ key: 'priceLabel', label: '価格' },
+];
+
+function isBest(field, product) {
+	if (!field.best) return false;
+	return Array.isArray(field.best) ? field.best.includes(product.id) : field.best === product.id;
+}
 ---
 
 <BaseLayout
@@ -72,46 +92,20 @@ const base = import.meta.env.BASE_URL;
 			<h2>テント用スタッフバッグ候補</h2>
 			<p>夜露で湿ったテントをパッキングした際、湿気が就寝セット等に広がらないようにする観点で比較検討した。</p>
 			<div class="product-list">
-
-				<div class="product-card">
-					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="4" width="10" height="16" rx="4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
-					<div class="product-body">
-						<p class="condition-label">直径の小ささ・軽量性を最優先するなら</p>
-						<p class="brand-name">{zpacksSlimStuffSack.brand}</p>
-						<p class="model-name">{zpacksSlimStuffSack.model}</p>
-						<p class="spec-line"><span>直径×高さ <b>{zpacksSlimStuffSack.dimensions}</b></span><span>容量 <b>{zpacksSlimStuffSack.capacity}</b></span><span>重量 <b>{zpacksSlimStuffSack.weight}</b></span></p>
-						<div class="shop-buttons">
-							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+				{cardConfigs.map(({ product, conditionLabel }) => (
+					<div class="product-card">
+						<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="4" width="10" height="16" rx="4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
+						<div class="product-body">
+							<p class="condition-label">{conditionLabel}</p>
+							<p class="brand-name">{product.brand}</p>
+							<p class="model-name">{product.model}</p>
+							<p class="spec-line"><span>直径×高さ <b>{product.dimensions}</b></span><span>容量 <b>{product.capacity}</b></span><span>重量 <b>{product.weight}</b></span></p>
+							<div class="shop-buttons">
+								<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="product-card">
-					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="4" width="10" height="16" rx="4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
-					<div class="product-body">
-						<p class="condition-label">完全防水を優先し、直径に余裕があるなら</p>
-						<p class="brand-name">{seaToSummitUltrasil.brand}</p>
-						<p class="model-name">{seaToSummitUltrasil.model}</p>
-						<p class="spec-line"><span>直径×高さ <b>{seaToSummitUltrasil.dimensions}</b></span><span>容量 <b>{seaToSummitUltrasil.capacity}</b></span><span>重量 <b>{seaToSummitUltrasil.weight}</b></span></p>
-						<div class="shop-buttons">
-							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="product-card">
-					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="4" width="10" height="16" rx="4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
-					<div class="product-body">
-						<p class="condition-label">参考：完全防水ではなく重量記載もない</p>
-						<p class="brand-name">{hmgRolltopStuffSack.brand}</p>
-						<p class="model-name">{hmgRolltopStuffSack.model}</p>
-						<p class="spec-line"><span>直径×高さ <b>{hmgRolltopStuffSack.dimensions}</b></span><span>容量 <b>{hmgRolltopStuffSack.capacity}</b></span><span>重量 <b>{hmgRolltopStuffSack.weight}</b></span></p>
-						<div class="shop-buttons">
-							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
-						</div>
-					</div>
-				</div>
-
+				))}
 			</div>
 		</section>
 
@@ -121,12 +115,17 @@ const base = import.meta.env.BASE_URL;
 				<table>
 					<caption>{zpacksSlimStuffSack.verifiedDate}時点の調査データ</caption>
 					<thead>
-						<tr><th scope="col">製品</th><th scope="col">直径×高さ</th><th scope="col">容量</th><th scope="col">防水性</th><th scope="col">重量</th><th scope="col">価格</th></tr>
+						<tr><th scope="col">製品</th>{specFields.map((f) => <th scope="col">{f.label}</th>)}</tr>
 					</thead>
 					<tbody>
-						<tr><th scope="row">{zpacksSlimStuffSack.brand} {zpacksSlimStuffSack.model}</th><td class="num best">{zpacksSlimStuffSack.dimensionsTableLabel}</td><td class="num">{zpacksSlimStuffSack.capacity}</td><td>{zpacksSlimStuffSack.waterproof}</td><td class="num best">{zpacksSlimStuffSack.weight}</td><td>{zpacksSlimStuffSack.priceLabel}</td></tr>
-						<tr><th scope="row">{seaToSummitUltrasil.brand} {seaToSummitUltrasil.model}</th><td class="num">{seaToSummitUltrasil.dimensionsTableLabel}</td><td class="num">{seaToSummitUltrasil.capacity}</td><td class="best">{seaToSummitUltrasil.waterproof}</td><td class="num">{seaToSummitUltrasil.weight}</td><td>{seaToSummitUltrasil.priceLabel}</td></tr>
-						<tr><th scope="row">HMG {hmgRolltopStuffSack.model}</th><td class="num">{hmgRolltopStuffSack.dimensionsTableLabel}</td><td class="num">{hmgRolltopStuffSack.capacity}</td><td>{hmgRolltopStuffSack.waterproof}</td><td>{hmgRolltopStuffSack.weight}</td><td>{hmgRolltopStuffSack.priceLabel}</td></tr>
+						{products.map((p) => (
+							<tr>
+								<th scope="row">{p.brand} {p.model}</th>
+								{specFields.map((field) => (
+									<td class:list={[field.numeric && 'num', isBest(field, p) && 'best']}>{p[field.key]}</td>
+								))}
+							</tr>
+						))}
 					</tbody>
 				</table>
 			</div>

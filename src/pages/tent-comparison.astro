@@ -3,6 +3,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { taniOsmo1P, hubbaHubbaLT1 } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
+
+const cardConfigs = [
+	{ product: taniOsmo1P, conditionLabel: '構成のシンプルさ・実績のある耐風性を重視するなら' },
+	{ product: hubbaHubbaLT1, conditionLabel: '収納力・室内空間の使い勝手を重視するなら' },
+];
+const products = cardConfigs.map((c) => c.product);
+
+const specFields = [
+	{ key: 'dimensions', label: '寸法（長さ×幅）' },
+	{ key: 'floorArea', label: '床面積', numeric: true, best: 'tani-osmo-1p' },
+	{ key: 'weightBody', label: '重量（本体+ポール）', numeric: true, best: 'hubba-hubba-lt1' },
+	{ key: 'weightTyvek', label: '重量（タイベック流用時）', numeric: true, best: 'hubba-hubba-lt1' },
+	{ key: 'weightFootprint', label: '重量（純正フットプリント時）', numeric: true, best: 'hubba-hubba-lt1' },
+	{ key: 'priceLabel', label: '価格' },
+	{ key: 'vestibule', label: '前室', best: 'tani-osmo-1p' },
+	{ key: 'interiorHeight', label: '室内高', best: 'tani-osmo-1p' },
+	{ key: 'poleStructure', label: 'ポール構造' },
+	{ key: 'windReport', label: '耐風性の実測報告', best: 'tani-osmo-1p' },
+	{ key: 'condensation', label: '結露', best: 'tani-osmo-1p' },
+	{ key: 'storage', label: '収納力', best: 'hubba-hubba-lt1' },
+	{ key: 'setup', label: '設営' },
+	{ key: 'japanSupport', label: '日本サポート' },
+];
+
+function isBest(field, product) {
+	if (!field.best) return false;
+	return Array.isArray(field.best) ? field.best.includes(product.id) : field.best === product.id;
+}
 ---
 
 <BaseLayout
@@ -35,7 +63,7 @@ const base = import.meta.env.BASE_URL;
 		</div>
 
 		<p class="lede">
-			自立式・ダブルウォールの1人用テントとして、{taniOsmo1P.brand} {taniOsmo1P.model}と{hubbaHubbaLT1.brand} {hubbaHubbaLT1.model}を比較しました。「軽さ」だけでなく、耐風性の実測値を単位を揃えて比較し、収納力・結露・設営性まで含めて検証しています。
+			自立式・ダブルウォールの1人用テントとして、{products.map((p) => `${p.brand} ${p.model}`).join('と')}を比較しました。「軽さ」だけでなく、耐風性の実測値を単位を揃えて比較し、収納力・結露・設営性まで含めて検証しています。
 		</p>
 
 		<div class="toc">
@@ -50,33 +78,20 @@ const base = import.meta.env.BASE_URL;
 		<section id="candidates">
 			<h2>候補2機種</h2>
 			<div class="product-list">
-
-				<div class="product-card">
-					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20h18L12 5 3 20z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M12 5v15" stroke="currentColor" stroke-width="1.2"/></svg></div>
-					<div class="product-body">
-						<p class="condition-label">構成のシンプルさ・実績のある耐風性を重視するなら</p>
-						<p class="brand-name">{taniOsmo1P.brand}</p>
-						<p class="model-name">{taniOsmo1P.model}</p>
-						<p class="spec-line"><span>重量 <b>{taniOsmo1P.weight}</b></span><span>床面積 <b>{taniOsmo1P.floorArea}</b></span></p>
-						<div class="shop-buttons">
-							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+				{cardConfigs.map(({ product, conditionLabel }) => (
+					<div class="product-card">
+						<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20h18L12 5 3 20z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M12 5v15" stroke="currentColor" stroke-width="1.2"/></svg></div>
+						<div class="product-body">
+							<p class="condition-label">{conditionLabel}</p>
+							<p class="brand-name">{product.brand}</p>
+							<p class="model-name">{product.model}</p>
+							<p class="spec-line"><span>重量 <b>{product.weight}</b></span><span>床面積 <b>{product.floorArea}</b></span></p>
+							<div class="shop-buttons">
+								<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="product-card">
-					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20h18L12 5 3 20z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M12 5v15" stroke="currentColor" stroke-width="1.2"/></svg></div>
-					<div class="product-body">
-						<p class="condition-label">収納力・室内空間の使い勝手を重視するなら</p>
-						<p class="brand-name">{hubbaHubbaLT1.brand}</p>
-						<p class="model-name">{hubbaHubbaLT1.model}</p>
-						<p class="spec-line"><span>重量 <b>{hubbaHubbaLT1.weight}</b>（トレイル重量）</span><span>床面積 <b>{hubbaHubbaLT1.floorArea}</b></span></p>
-						<div class="shop-buttons">
-							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
-						</div>
-					</div>
-				</div>
-
+				))}
 			</div>
 		</section>
 
@@ -86,23 +101,17 @@ const base = import.meta.env.BASE_URL;
 				<table>
 					<caption>{taniOsmo1P.verifiedDate}時点の調査データ（実使用レビューを含む）</caption>
 					<thead>
-						<tr><th scope="col">項目</th><th scope="col">{taniOsmo1P.model}</th><th scope="col">{hubbaHubbaLT1.model}</th></tr>
+						<tr><th scope="col">項目</th>{products.map((p) => <th scope="col">{p.model}</th>)}</tr>
 					</thead>
 					<tbody>
-						<tr><th scope="row">寸法（長さ×幅）</th><td class="num">{taniOsmo1P.dimensions}</td><td class="num">{hubbaHubbaLT1.dimensions}</td></tr>
-						<tr><th scope="row">床面積</th><td class="num best">{taniOsmo1P.floorArea}</td><td class="num">{hubbaHubbaLT1.floorArea}</td></tr>
-						<tr><th scope="row">重量（本体+ポール）</th><td class="num">{taniOsmo1P.weightBody}</td><td class="num best">{hubbaHubbaLT1.weightBody}</td></tr>
-						<tr><th scope="row">重量（タイベック流用時）</th><td class="num">{taniOsmo1P.weightTyvek}</td><td class="num best">{hubbaHubbaLT1.weightTyvek}</td></tr>
-						<tr><th scope="row">重量（純正フットプリント時）</th><td class="num">{taniOsmo1P.weightFootprint}</td><td class="num best">{hubbaHubbaLT1.weightFootprint}</td></tr>
-						<tr><th scope="row">価格</th><td>{taniOsmo1P.priceLabel}</td><td>{hubbaHubbaLT1.priceLabel}</td></tr>
-						<tr><th scope="row">前室</th><td class="best">{taniOsmo1P.vestibule}</td><td>{hubbaHubbaLT1.vestibule}</td></tr>
-						<tr><th scope="row">室内高</th><td class="best">{taniOsmo1P.interiorHeight}</td><td>{hubbaHubbaLT1.interiorHeight}</td></tr>
-						<tr><th scope="row">ポール構造</th><td>{taniOsmo1P.poleStructure}</td><td>{hubbaHubbaLT1.poleStructure}</td></tr>
-						<tr><th scope="row">耐風性の実測報告</th><td class="best">{taniOsmo1P.windReport}</td><td>{hubbaHubbaLT1.windReport}</td></tr>
-						<tr><th scope="row">結露</th><td class="best">{taniOsmo1P.condensation}</td><td>{hubbaHubbaLT1.condensation}</td></tr>
-						<tr><th scope="row">収納力</th><td>{taniOsmo1P.storage}</td><td class="best">{hubbaHubbaLT1.storage}</td></tr>
-						<tr><th scope="row">設営</th><td>{taniOsmo1P.setup}</td><td>{hubbaHubbaLT1.setup}</td></tr>
-						<tr><th scope="row">日本サポート</th><td>{taniOsmo1P.japanSupport}</td><td>{hubbaHubbaLT1.japanSupport}</td></tr>
+						{specFields.map((field) => (
+							<tr>
+								<th scope="row">{field.label}</th>
+								{products.map((p) => (
+									<td class:list={[field.numeric && 'num', isBest(field, p) && 'best']}>{p[field.key]}</td>
+								))}
+							</tr>
+						))}
 					</tbody>
 				</table>
 			</div>

@@ -3,6 +3,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { auroraLight350DX, uddBag380DX } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
+
+const cardConfigs = [
+	{ product: auroraLight350DX, conditionLabel: '初期投資を避けたいなら（現行品）' },
+	{ product: uddBag380DX, conditionLabel: '軽量化と保温力を両方求めるなら' },
+];
+const products = cardConfigs.map((c) => c.product);
+
+const specFields = [
+	{ key: 'weight', label: '総重量', numeric: true, best: 'udd-bag-380dx' },
+	{ key: 'downWeight', label: 'ダウン量', numeric: true, best: 'udd-bag-380dx' },
+	{ key: 'fillPower', label: 'フィルパワー', numeric: true, best: 'udd-bag-380dx' },
+	{ key: 'comfortTemp', label: '快適温度', numeric: true, best: 'udd-bag-380dx' },
+	{ key: 'limitTemp', label: '下限温度', numeric: true, best: 'udd-bag-380dx' },
+	{ key: 'priceLabel', label: '価格' },
+	{ key: 'fabric', label: '表地' },
+];
+
+function isBest(field, product) {
+	if (!field.best) return false;
+	return Array.isArray(field.best) ? field.best.includes(product.id) : field.best === product.id;
+}
 ---
 
 <BaseLayout
@@ -49,33 +70,20 @@ const base = import.meta.env.BASE_URL;
 		<section id="candidates">
 			<h2>現行品と買い替え候補</h2>
 			<div class="product-list">
-
-				<div class="product-card">
-					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 8c0-2 2-4 8-4s8 2 8 4v8c0 2-2 4-8 4s-8-2-8-4V8z" stroke="currentColor" stroke-width="1.6"/></svg></div>
-					<div class="product-body">
-						<p class="condition-label">初期投資を避けたいなら（現行品）</p>
-						<p class="brand-name">{auroraLight350DX.brand}</p>
-						<p class="model-name">{auroraLight350DX.model}</p>
-						<p class="spec-line"><span>総重量 <b>{auroraLight350DX.weight}</b></span><span>快適温度 <b>{auroraLight350DX.comfortTemp}</b></span><span>下限温度 <b>{auroraLight350DX.limitTemp}</b></span></p>
-						<div class="shop-buttons">
-							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+				{cardConfigs.map(({ product, conditionLabel }) => (
+					<div class="product-card">
+						<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 8c0-2 2-4 8-4s8 2 8 4v8c0 2-2 4-8 4s-8-2-8-4V8z" stroke="currentColor" stroke-width="1.6"/></svg></div>
+						<div class="product-body">
+							<p class="condition-label">{conditionLabel}</p>
+							<p class="brand-name">{product.brand}</p>
+							<p class="model-name">{product.model}</p>
+							<p class="spec-line"><span>総重量 <b>{product.weight}</b></span><span>快適温度 <b>{product.comfortTemp}</b></span><span>下限温度 <b>{product.limitTemp}</b></span></p>
+							<div class="shop-buttons">
+								<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="product-card">
-					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 8c0-2 2-4 8-4s8 2 8 4v8c0 2-2 4-8 4s-8-2-8-4V8z" stroke="currentColor" stroke-width="1.6"/></svg></div>
-					<div class="product-body">
-						<p class="condition-label">軽量化と保温力を両方求めるなら</p>
-						<p class="brand-name">{uddBag380DX.brand}</p>
-						<p class="model-name">{uddBag380DX.model}</p>
-						<p class="spec-line"><span>総重量 <b>{uddBag380DX.weight}</b></span><span>快適温度 <b>{uddBag380DX.comfortTemp}</b></span><span>下限温度 <b>{uddBag380DX.limitTemp}</b></span></p>
-						<div class="shop-buttons">
-							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
-						</div>
-					</div>
-				</div>
-
+				))}
 			</div>
 		</section>
 
@@ -85,16 +93,17 @@ const base = import.meta.env.BASE_URL;
 				<table>
 					<caption>{auroraLight350DX.verifiedDate}時点の調査データ</caption>
 					<thead>
-						<tr><th scope="col">項目</th><th scope="col">{auroraLight350DX.model}（現行）</th><th scope="col">{uddBag380DX.model}</th></tr>
+						<tr><th scope="col">項目</th>{products.map((p) => <th scope="col">{p.model}</th>)}</tr>
 					</thead>
 					<tbody>
-						<tr><th scope="row">総重量</th><td class="num">{auroraLight350DX.weight}</td><td class="num best">{uddBag380DX.weight}</td></tr>
-						<tr><th scope="row">ダウン量</th><td class="num">{auroraLight350DX.downWeight}</td><td class="num best">{uddBag380DX.downWeight}</td></tr>
-						<tr><th scope="row">フィルパワー</th><td class="num">{auroraLight350DX.fillPower}</td><td class="num best">{uddBag380DX.fillPower}</td></tr>
-						<tr><th scope="row">快適温度</th><td class="num">{auroraLight350DX.comfortTemp}</td><td class="num best">{uddBag380DX.comfortTemp}</td></tr>
-						<tr><th scope="row">下限温度</th><td class="num">{auroraLight350DX.limitTemp}</td><td class="num best">{uddBag380DX.limitTemp}</td></tr>
-						<tr><th scope="row">価格</th><td>{auroraLight350DX.priceLabel}</td><td class="num">{uddBag380DX.priceLabel}</td></tr>
-						<tr><th scope="row">表地</th><td>{auroraLight350DX.fabric}</td><td>{uddBag380DX.fabric}</td></tr>
+						{specFields.map((field) => (
+							<tr>
+								<th scope="row">{field.label}</th>
+								{products.map((p) => (
+									<td class:list={[field.numeric && 'num', isBest(field, p) && 'best']}>{p[field.key]}</td>
+								))}
+							</tr>
+						))}
 					</tbody>
 				</table>
 			</div>

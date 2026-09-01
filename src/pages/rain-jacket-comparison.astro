@@ -3,6 +3,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { trentFlyer, everbreathPhoton, tsurugiLightJacket, featherRainJacket, arcteryxBetaSL } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
+
+const cardConfigs = [
+	{ product: tsurugiLightJacket, conditionLabel: '色・入手性・耐摩耗性のバランスを重視するなら' },
+	{ product: trentFlyer, conditionLabel: '初期投資を避けたいなら（現行品）' },
+	{ product: featherRainJacket, conditionLabel: '耐摩耗性を最優先するなら（現在色欠品）' },
+];
+
+const tableProducts = [trentFlyer, everbreathPhoton, tsurugiLightJacket, featherRainJacket, arcteryxBetaSL];
+const specFields = [
+	{ key: 'weightDiff', label: '重量差', numeric: true, best: ['tsurugi-light-jacket', 'feather-rain-jacket'] },
+	{ key: 'priceLabel', label: '価格' },
+	{ key: 'fabric', label: '表地', best: 'tsurugi-light-jacket' },
+	{ key: 'waterproofRating', label: '耐水圧', best: 'tsurugi-light-jacket' },
+	{ key: 'breathability', label: '透湿性', best: 'trent-flyer' },
+	{ key: 'abrasionResistance', label: '耐摩耗性', best: ['tsurugi-light-jacket', 'feather-rain-jacket', 'arcteryx-beta-sl'] },
+	{ key: 'naturalColor', label: 'ナチュラル色', best: ['everbreath-photon', 'tsurugi-light-jacket', 'arcteryx-beta-sl'] },
+	{ key: 'availability', label: '入手性', best: 'trent-flyer' },
+];
+
+function isBest(field, product) {
+	if (!field.best) return false;
+	return Array.isArray(field.best) ? field.best.includes(product.id) : field.best === product.id;
+}
 ---
 
 <BaseLayout
@@ -49,46 +72,20 @@ const base = import.meta.env.BASE_URL;
 		<section id="candidates">
 			<h2>候補3機種</h2>
 			<div class="product-list">
-
-				<div class="product-card">
-					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4h4l2 2 2-2h4l2 4-3 2v12H7V10L4 8z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
-					<div class="product-body">
-						<p class="condition-label">色・入手性・耐摩耗性のバランスを重視するなら</p>
-						<p class="brand-name">{tsurugiLightJacket.brand}</p>
-						<p class="model-name">{tsurugiLightJacket.model}</p>
-						<p class="spec-line"><span>重量 <b>{tsurugiLightJacket.weight}</b></span></p>
-						<div class="shop-buttons">
-							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+				{cardConfigs.map(({ product, conditionLabel }) => (
+					<div class="product-card">
+						<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4h4l2 2 2-2h4l2 4-3 2v12H7V10L4 8z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
+						<div class="product-body">
+							<p class="condition-label">{conditionLabel}</p>
+							<p class="brand-name">{product.brand}</p>
+							<p class="model-name">{product.model}</p>
+							<p class="spec-line"><span>重量 <b>{product.weight}</b></span></p>
+							<div class="shop-buttons">
+								<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+							</div>
 						</div>
 					</div>
-				</div>
-
-				<div class="product-card">
-					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4h4l2 2 2-2h4l2 4-3 2v12H7V10L4 8z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
-					<div class="product-body">
-						<p class="condition-label">初期投資を避けたいなら（現行品）</p>
-						<p class="brand-name">{trentFlyer.brand}</p>
-						<p class="model-name">{trentFlyer.model}</p>
-						<p class="spec-line"><span>重量 <b>{trentFlyer.weight}</b></span></p>
-						<div class="shop-buttons">
-							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
-						</div>
-					</div>
-				</div>
-
-				<div class="product-card">
-					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4h4l2 2 2-2h4l2 4-3 2v12H7V10L4 8z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
-					<div class="product-body">
-						<p class="condition-label">耐摩耗性を最優先するなら（現在色欠品）</p>
-						<p class="brand-name">{featherRainJacket.brand}</p>
-						<p class="model-name">{featherRainJacket.model}</p>
-						<p class="spec-line"><span>重量 <b>{featherRainJacket.weight}</b></span></p>
-						<div class="shop-buttons">
-							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
-						</div>
-					</div>
-				</div>
-
+				))}
 			</div>
 		</section>
 
@@ -98,14 +95,17 @@ const base = import.meta.env.BASE_URL;
 				<table>
 					<caption>{trentFlyer.verifiedDate}時点の調査データ</caption>
 					<thead>
-						<tr><th scope="col">製品</th><th scope="col">重量差</th><th scope="col">価格</th><th scope="col">表地</th><th scope="col">耐水圧</th><th scope="col">透湿性</th><th scope="col">耐摩耗性</th><th scope="col">ナチュラル色</th><th scope="col">入手性</th></tr>
+						<tr><th scope="col">製品</th>{specFields.map((f) => <th scope="col">{f.label}</th>)}</tr>
 					</thead>
 					<tbody>
-						<tr><th scope="row">{trentFlyer.model}（現行）</th><td>{trentFlyer.weightDiff}</td><td>{trentFlyer.priceLabel}</td><td>{trentFlyer.fabric}</td><td>{trentFlyer.waterproofRating}</td><td class="best">{trentFlyer.breathability}</td><td>{trentFlyer.abrasionResistance}</td><td>{trentFlyer.naturalColor}</td><td class="best">{trentFlyer.availability}</td></tr>
-						<tr><th scope="row">{everbreathPhoton.model}</th><td class="num">{everbreathPhoton.weightDiff}</td><td class="num">{everbreathPhoton.priceLabel}</td><td>{everbreathPhoton.fabric}</td><td>{everbreathPhoton.waterproofRating}</td><td>{everbreathPhoton.breathability}</td><td>{everbreathPhoton.abrasionResistance}</td><td class="best">{everbreathPhoton.naturalColor}</td><td>{everbreathPhoton.availability}</td></tr>
-						<tr><th scope="row">{tsurugiLightJacket.model}</th><td class="num best">{tsurugiLightJacket.weightDiff}</td><td class="num">{tsurugiLightJacket.priceLabel}</td><td class="best">{tsurugiLightJacket.fabric}</td><td class="best">{tsurugiLightJacket.waterproofRating}</td><td>{tsurugiLightJacket.breathability}</td><td class="best">{tsurugiLightJacket.abrasionResistance}</td><td class="best">{tsurugiLightJacket.naturalColor}</td><td class="best">{tsurugiLightJacket.availability}</td></tr>
-						<tr><th scope="row">{featherRainJacket.model}</th><td class="num best">{featherRainJacket.weightDiff}</td><td>{featherRainJacket.priceLabel}</td><td>{featherRainJacket.fabric}</td><td>{featherRainJacket.waterproofRating}</td><td>{featherRainJacket.breathability}</td><td class="best">{featherRainJacket.abrasionResistance}</td><td>{featherRainJacket.naturalColor}</td><td>{featherRainJacket.availability}</td></tr>
-						<tr><th scope="row">{arcteryxBetaSL.model}</th><td class="num">{arcteryxBetaSL.weightDiff}</td><td>{arcteryxBetaSL.priceLabel}</td><td>{arcteryxBetaSL.fabric}</td><td>{arcteryxBetaSL.waterproofRating}</td><td>{arcteryxBetaSL.breathability}</td><td class="best">{arcteryxBetaSL.abrasionResistance}</td><td class="best">{arcteryxBetaSL.naturalColor}</td><td>{arcteryxBetaSL.availability}</td></tr>
+						{tableProducts.map((p) => (
+							<tr>
+								<th scope="row">{p.model}{p.id === 'trent-flyer' && '（現行）'}</th>
+								{specFields.map((field) => (
+									<td class:list={[field.numeric && 'num', isBest(field, p) && 'best']}>{p[field.key]}</td>
+								))}
+							</tr>
+						))}
 					</tbody>
 				</table>
 			</div>
