@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { southwest40, betaLight45, lostCreekLT45 } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -14,7 +15,7 @@ const base = import.meta.env.BASE_URL;
 
 		<div class="meta-row">
 			<span class="cat-tag">ザック</span>
-			<span class="pub-date">2026.08.19 更新</span>
+			<span class="pub-date">{southwest40.verifiedDate} 更新</span>
 		</div>
 
 		<h1 class="title">UL系40〜45Lザック3機種、テント泊装備との相性で比べる</h1>
@@ -34,7 +35,7 @@ const base = import.meta.env.BASE_URL;
 		</div>
 
 		<p class="lede">
-			2泊3日のテント泊装備を基準に、Hyperlite Mountain Gear Southwest 40・Black Diamond Beta Light 45・ゼログラム Lost Creek LT45の3機種のスペックを比較しました。容量・重量だけでなく、防水性・日本国内でのサポート体制・在庫状況までまとめています。
+			2泊3日のテント泊装備を基準に、{southwest40.brand} {southwest40.model}・{betaLight45.brand} {betaLight45.model}・{lostCreekLT45.brand} {lostCreekLT45.model}の3機種のスペックを比較しました。容量・重量だけでなく、防水性・日本国内でのサポート体制・在庫状況までまとめています。
 		</p>
 
 		<div class="toc">
@@ -54,9 +55,9 @@ const base = import.meta.env.BASE_URL;
 					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20l3-14h10l3 14z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M9 6V4h6v2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
 					<div class="product-body">
 						<p class="condition-label">耐荷重を重視するなら</p>
-						<p class="brand-name">Hyperlite Mountain Gear</p>
-						<p class="model-name">Southwest 40</p>
-						<p class="spec-line"><span>重量 <b>860〜890g</b></span><span>価格 <b>¥71,500</b></span></p>
+						<p class="brand-name">{southwest40.brand}</p>
+						<p class="model-name">{southwest40.model}</p>
+						<p class="spec-line"><span>重量 <b>{southwest40.weight}</b></span><span>価格 <b>{southwest40.priceLabel}</b></span></p>
 						<div class="shop-buttons">
 							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
 						</div>
@@ -67,9 +68,9 @@ const base = import.meta.env.BASE_URL;
 					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20l3-14h10l3 14z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M9 6V4h6v2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
 					<div class="product-body">
 						<p class="condition-label">価格・国内サポートを重視するなら</p>
-						<p class="brand-name">Black Diamond</p>
-						<p class="model-name">Beta Light 45</p>
-						<p class="spec-line"><span>重量 <b>890g</b>（最小521g）</span><span>価格 <b>¥62,000</b></span></p>
+						<p class="brand-name">{betaLight45.brand}</p>
+						<p class="model-name">{betaLight45.model}</p>
+						<p class="spec-line"><span>重量 <b>{betaLight45.weight}</b></span><span>価格 <b>{betaLight45.priceLabel}</b></span></p>
 						<div class="shop-buttons">
 							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
 						</div>
@@ -80,9 +81,9 @@ const base = import.meta.env.BASE_URL;
 					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20l3-14h10l3 14z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M9 6V4h6v2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
 					<div class="product-body">
 						<p class="condition-label">価格を最優先するなら</p>
-						<p class="brand-name">ゼログラム</p>
-						<p class="model-name">Lost Creek LT45</p>
-						<p class="spec-line"><span>重量 <b>1,153g</b></span><span>価格 <b>¥39,600</b></span></p>
+						<p class="brand-name">{lostCreekLT45.brand}</p>
+						<p class="model-name">{lostCreekLT45.model}</p>
+						<p class="spec-line"><span>重量 <b>{lostCreekLT45.weight}</b></span><span>価格 <b>{lostCreekLT45.priceLabel}</b></span></p>
 						<div class="shop-buttons">
 							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
 						</div>
@@ -96,19 +97,19 @@ const base = import.meta.env.BASE_URL;
 			<h2>詳細スペック比較</h2>
 			<div class="table-wrap">
 				<table>
-					<caption>2026-08-19時点の調査データ</caption>
+					<caption>{southwest40.verifiedDate}時点の調査データ</caption>
 					<thead>
-						<tr><th scope="col">項目</th><th scope="col">Southwest 40</th><th scope="col">Beta Light 45</th><th scope="col">Lost Creek LT45</th></tr>
+						<tr><th scope="col">項目</th><th scope="col">{southwest40.model}</th><th scope="col">{betaLight45.model}</th><th scope="col">{lostCreekLT45.model}</th></tr>
 					</thead>
 					<tbody>
-						<tr><th scope="row">容量</th><td class="num">40L（+外部9.8L）</td><td class="num best">45L</td><td class="num">45〜54L</td></tr>
-						<tr><th scope="row">重量</th><td class="num">890g</td><td class="num best">890g / 最小521g</td><td class="num">1,153g</td></tr>
-						<tr><th scope="row">価格</th><td class="num">¥71,500</td><td class="num best">¥62,000</td><td class="num">¥39,600</td></tr>
-						<tr><th scope="row">トルソー調整</th><td>2段階</td><td class="best">4段階</td><td>固定48cm(±2cm)</td></tr>
-						<tr><th scope="row">防水性</th><td class="best">完全防水・シームテープ</td><td class="best">完全防水・シームテープ</td><td>別体レインカバー前提</td></tr>
-						<tr><th scope="row">最大耐荷重</th><td class="num best">約18kg（明記）</td><td class="num">記載なし</td><td class="num">14kg</td></tr>
-						<tr><th scope="row">日本サポート</th><td>Moonlight Gear</td><td class="best">ロストアロー正規</td><td>公式直販・GLAGH等</td></tr>
-						<tr><th scope="row">在庫</th><td>あり</td><td class="best">あり</td><td>完売中</td></tr>
+						<tr><th scope="row">容量</th><td class="num">{southwest40.capacity}</td><td class="num best">{betaLight45.capacity}</td><td class="num">{lostCreekLT45.capacity}</td></tr>
+						<tr><th scope="row">重量</th><td class="num">{southwest40.weight}</td><td class="num best">{betaLight45.weightTableLabel}</td><td class="num">{lostCreekLT45.weight}</td></tr>
+						<tr><th scope="row">価格</th><td class="num">{southwest40.priceLabel}</td><td class="num best">{betaLight45.priceLabel}</td><td class="num">{lostCreekLT45.priceLabel}</td></tr>
+						<tr><th scope="row">トルソー調整</th><td>{southwest40.torsoAdjustment}</td><td class="best">{betaLight45.torsoAdjustment}</td><td>{lostCreekLT45.torsoAdjustment}</td></tr>
+						<tr><th scope="row">防水性</th><td class="best">{southwest40.waterproof}</td><td class="best">{betaLight45.waterproof}</td><td>{lostCreekLT45.waterproof}</td></tr>
+						<tr><th scope="row">最大耐荷重</th><td class="num best">{southwest40.maxLoad}</td><td class="num">{betaLight45.maxLoad}</td><td class="num">{lostCreekLT45.maxLoad}</td></tr>
+						<tr><th scope="row">日本サポート</th><td>{southwest40.japanSupport}</td><td class="best">{betaLight45.japanSupport}</td><td>{lostCreekLT45.japanSupport}</td></tr>
+						<tr><th scope="row">在庫</th><td>{southwest40.stock}</td><td class="best">{betaLight45.stock}</td><td>{lostCreekLT45.stock}</td></tr>
 					</tbody>
 				</table>
 			</div>
@@ -122,17 +123,17 @@ const base = import.meta.env.BASE_URL;
 
 				<div class="verdict-point">
 					<p class="point-label">耐荷重を重視するなら</p>
-					<p><strong>Southwest 40</strong>が候補になる。最大耐荷重約18kgという数値が明記されているのはこの中でSouthwest 40だけで、テント泊装備一式を余裕を持って背負いたい場合の目安になる。ただし価格は¥71,500とこの中で最も高い。</p>
+					<p><strong>{southwest40.model}</strong>が候補になる。最大耐荷重{southwest40.maxLoad}という数値が明記されているのはこの中で{southwest40.model}だけで、テント泊装備一式を余裕を持って背負いたい場合の目安になる。ただし価格は{southwest40.priceLabel}とこの中で最も高い。</p>
 				</div>
 
 				<div class="verdict-point">
 					<p class="point-label">価格と国内サポートのバランスを重視するなら</p>
-					<p><strong>Beta Light 45</strong>が候補になる。¥62,000という価格に加え、ロストアロー正規輸入という国内サポート体制がある。トルソー調整も4段階と幅が広く、体格に合わせやすい。</p>
+					<p><strong>{betaLight45.model}</strong>が候補になる。{betaLight45.priceLabel}という価格に加え、{betaLight45.japanSupport}輸入という国内サポート体制がある。トルソー調整も{betaLight45.torsoAdjustment}と幅が広く、体格に合わせやすい。</p>
 				</div>
 
 				<div class="verdict-point">
 					<p class="point-label">価格を最優先するなら</p>
-					<p><strong>Lost Creek LT45</strong>も選択肢に入る。¥39,600とこの中で最も安いが、フル重量1,153gは3機種で最も重く、防水も別体レインカバー前提になる。加えて現在完売中のため、購入前に在庫状況の確認が必要になる。</p>
+					<p><strong>{lostCreekLT45.model}</strong>も選択肢に入る。{lostCreekLT45.priceLabel}とこの中で最も安いが、フル重量{lostCreekLT45.weight}は3機種で最も重く、防水も別体レインカバー前提になる。加えて現在{lostCreekLT45.stock}のため、購入前に在庫状況の確認が必要になる。</p>
 				</div>
 
 				<p>装備全体の軽量化目標と予算のどちらを優先するかによって、選ぶべき機種は変わってくる。</p>

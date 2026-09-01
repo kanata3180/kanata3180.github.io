@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { zpacksSlimStuffSack, seaToSummitUltrasil, hmgRolltopStuffSack, betaLight45 } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -14,7 +15,7 @@ const base = import.meta.env.BASE_URL;
 
 		<div class="meta-row">
 			<span class="cat-tag">パッキング</span>
-			<span class="pub-date">2026.08.19 更新（仮記事）</span>
+			<span class="pub-date">{zpacksSlimStuffSack.verifiedDate} 更新（仮記事）</span>
 		</div>
 
 		<h1 class="title">主室スタッフバッグ3個運用、湿気を隔離するパッキング設計</h1>
@@ -33,7 +34,7 @@ const base = import.meta.env.BASE_URL;
 		</div>
 
 		<p class="lede">
-			「ジャンル別」に分けていたスタッフバッグを、「シーン別・使用タイミング別」に再設計しました。テントを取り出すために他の荷物を出す必要がある、という設営時の不便を解消するのが目的です。Beta Light 45の実ポケット構成に当てはめて検証しています。
+			「ジャンル別」に分けていたスタッフバッグを、「シーン別・使用タイミング別」に再設計しました。テントを取り出すために他の荷物を出す必要がある、という設営時の不便を解消するのが目的です。{betaLight45.model}の実ポケット構成に当てはめて検証しています。
 		</p>
 
 		<div class="toc">
@@ -50,7 +51,7 @@ const base = import.meta.env.BASE_URL;
 			<h2>パッキングマップ</h2>
 			<div class="table-wrap">
 				<table>
-					<caption>Beta Light 45の実ポケット構成に当てはめた配置</caption>
+					<caption>{betaLight45.model}の実ポケット構成に当てはめた配置</caption>
 					<thead>
 						<tr><th scope="col">収納場所</th><th scope="col">収納物</th></tr>
 					</thead>
@@ -76,9 +77,9 @@ const base = import.meta.env.BASE_URL;
 					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="4" width="10" height="16" rx="4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
 					<div class="product-body">
 						<p class="condition-label">直径の小ささ・軽量性を最優先するなら</p>
-						<p class="brand-name">Zpacks</p>
-						<p class="model-name">Slim Stuff Sack</p>
-						<p class="spec-line"><span>直径×高さ <b>13×32cm</b></span><span>容量 <b>4L</b></span><span>重量 <b>6.8g</b></span></p>
+						<p class="brand-name">{zpacksSlimStuffSack.brand}</p>
+						<p class="model-name">{zpacksSlimStuffSack.model}</p>
+						<p class="spec-line"><span>直径×高さ <b>{zpacksSlimStuffSack.dimensions}</b></span><span>容量 <b>{zpacksSlimStuffSack.capacity}</b></span><span>重量 <b>{zpacksSlimStuffSack.weight}</b></span></p>
 						<div class="shop-buttons">
 							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
 						</div>
@@ -89,9 +90,9 @@ const base = import.meta.env.BASE_URL;
 					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="4" width="10" height="16" rx="4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
 					<div class="product-body">
 						<p class="condition-label">完全防水を優先し、直径に余裕があるなら</p>
-						<p class="brand-name">Sea to Summit</p>
-						<p class="model-name">Ultra-Sil Dry Sack 4L</p>
-						<p class="spec-line"><span>直径×高さ <b>15×33cm</b></span><span>容量 <b>4L</b></span><span>重量 <b>約26g</b></span></p>
+						<p class="brand-name">{seaToSummitUltrasil.brand}</p>
+						<p class="model-name">{seaToSummitUltrasil.model}</p>
+						<p class="spec-line"><span>直径×高さ <b>{seaToSummitUltrasil.dimensions}</b></span><span>容量 <b>{seaToSummitUltrasil.capacity}</b></span><span>重量 <b>{seaToSummitUltrasil.weight}</b></span></p>
 						<div class="shop-buttons">
 							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
 						</div>
@@ -102,9 +103,9 @@ const base = import.meta.env.BASE_URL;
 					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="4" width="10" height="16" rx="4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
 					<div class="product-body">
 						<p class="condition-label">参考：完全防水ではなく重量記載もない</p>
-						<p class="brand-name">Hyperlite Mountain Gear</p>
-						<p class="model-name">Roll-Top Stuff Sack (S)</p>
-						<p class="spec-line"><span>直径×高さ <b>15.2×35.6cm</b></span><span>容量 <b>3L</b></span><span>重量 <b>記載なし</b></span></p>
+						<p class="brand-name">{hmgRolltopStuffSack.brand}</p>
+						<p class="model-name">{hmgRolltopStuffSack.model}</p>
+						<p class="spec-line"><span>直径×高さ <b>{hmgRolltopStuffSack.dimensions}</b></span><span>容量 <b>{hmgRolltopStuffSack.capacity}</b></span><span>重量 <b>{hmgRolltopStuffSack.weight}</b></span></p>
 						<div class="shop-buttons">
 							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
 						</div>
@@ -118,14 +119,14 @@ const base = import.meta.env.BASE_URL;
 			<h2>詳細スペック比較</h2>
 			<div class="table-wrap">
 				<table>
-					<caption>2026-08-19時点の調査データ</caption>
+					<caption>{zpacksSlimStuffSack.verifiedDate}時点の調査データ</caption>
 					<thead>
 						<tr><th scope="col">製品</th><th scope="col">直径×高さ</th><th scope="col">容量</th><th scope="col">防水性</th><th scope="col">重量</th></tr>
 					</thead>
 					<tbody>
-						<tr><th scope="row">Zpacks Slim Stuff Sack</th><td class="num best">13cm×32cm</td><td class="num">4L</td><td>Water Resistant（ドローコード式、テープシームのみ）</td><td class="num best">6.8g</td></tr>
-						<tr><th scope="row">Sea to Summit Ultra-Sil Dry Sack 4L</th><td class="num">15cm×33cm</td><td class="num">4L</td><td class="best">完全防水（ロールトップ＋バックル）</td><td class="num">約26g</td></tr>
-						<tr><th scope="row">HMG Roll-Top Stuff Sack (S)</th><td class="num">15.2cm×35.6cm</td><td class="num">3L</td><td>Water Resistant（公式に「防水ではない」と明記）</td><td>記載なし</td></tr>
+						<tr><th scope="row">{zpacksSlimStuffSack.brand} {zpacksSlimStuffSack.model}</th><td class="num best">{zpacksSlimStuffSack.dimensionsTableLabel}</td><td class="num">{zpacksSlimStuffSack.capacity}</td><td>{zpacksSlimStuffSack.waterproof}</td><td class="num best">{zpacksSlimStuffSack.weight}</td></tr>
+						<tr><th scope="row">{seaToSummitUltrasil.brand} {seaToSummitUltrasil.model}</th><td class="num">{seaToSummitUltrasil.dimensionsTableLabel}</td><td class="num">{seaToSummitUltrasil.capacity}</td><td class="best">{seaToSummitUltrasil.waterproof}</td><td class="num">{seaToSummitUltrasil.weight}</td></tr>
+						<tr><th scope="row">HMG {hmgRolltopStuffSack.model}</th><td class="num">{hmgRolltopStuffSack.dimensionsTableLabel}</td><td class="num">{hmgRolltopStuffSack.capacity}</td><td>{hmgRolltopStuffSack.waterproof}</td><td>{hmgRolltopStuffSack.weight}</td></tr>
 					</tbody>
 				</table>
 			</div>
@@ -135,16 +136,16 @@ const base = import.meta.env.BASE_URL;
 			<h2>結論</h2>
 			<div class="verdict">
 				<p class="kicker">条件別の整理</p>
-				<p>HMG Roll-Top Stuff Sackは完全防水ではなく重量の記載もなく、他の2製品に対する明確な強みが見当たらないため、候補からは外れる。判断は残り2製品の間で分かれる。</p>
+				<p>HMG {hmgRolltopStuffSack.model}は完全防水ではなく重量の記載もなく、他の2製品に対する明確な強みが見当たらないため、候補からは外れる。判断は残り2製品の間で分かれる。</p>
 
 				<div class="verdict-point">
 					<p class="point-label">直径の小ささ・軽量性を最優先するなら</p>
-					<p><strong>Zpacks Slim Stuff Sack</strong>が候補になる。直径13cm・重量6.8gはこの中で最小・最軽量だが、防水性能は「Water Resistant」に留まる。内側に薄手のライナー（コンパクターバッグ等、10-20g程度）を追加すれば、直径条件を崩さずに湿気隔離を補える。</p>
+					<p><strong>{zpacksSlimStuffSack.brand} {zpacksSlimStuffSack.model}</strong>が候補になる。直径{zpacksSlimStuffSack.dimensions.split('×')[0]}・重量{zpacksSlimStuffSack.weight}はこの中で最小・最軽量だが、防水性能は「Water Resistant」に留まる。内側に薄手のライナー（コンパクターバッグ等、10-20g程度）を追加すれば、直径条件を崩さずに湿気隔離を補える。</p>
 				</div>
 
 				<div class="verdict-point">
 					<p class="point-label">完全防水を優先し、直径に余裕があるなら</p>
-					<p><strong>Sea to Summit Ultra-Sil Dry Sack 4L</strong>が候補になる。ロールトップ＋バックル構造で完全防水だが、直径15cm・重量約26gとZpacksより一回り大きく重い。背面配置での収まりに余裕がある場合の選択肢になる。</p>
+					<p><strong>{seaToSummitUltrasil.brand} {seaToSummitUltrasil.model}</strong>が候補になる。ロールトップ＋バックル構造で完全防水だが、直径{seaToSummitUltrasil.dimensions.split('×')[0]}・重量{seaToSummitUltrasil.weight}とZpacksより一回り大きく重い。背面配置での収まりに余裕がある場合の選択肢になる。</p>
 				</div>
 			</div>
 		</section>

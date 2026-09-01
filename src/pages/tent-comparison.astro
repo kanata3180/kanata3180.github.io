@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { taniOsmo1P, hubbaHubbaLT1 } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -14,7 +15,7 @@ const base = import.meta.env.BASE_URL;
 
 		<div class="meta-row">
 			<span class="cat-tag">テント</span>
-			<span class="pub-date">2026.08.19 更新</span>
+			<span class="pub-date">{taniOsmo1P.verifiedDate} 更新</span>
 		</div>
 
 		<h1 class="title">NEMO Tani OSMO 1P vs Hubba Hubba LT1、耐風性と結露を検証</h1>
@@ -34,7 +35,7 @@ const base = import.meta.env.BASE_URL;
 		</div>
 
 		<p class="lede">
-			自立式・ダブルウォールの1人用テントとして、NEMO Tani OSMO 1PとMSR Hubba Hubba LT1を比較しました。「軽さ」だけでなく、耐風性の実測値を単位を揃えて比較し、収納力・結露・設営性まで含めて検証しています。
+			自立式・ダブルウォールの1人用テントとして、{taniOsmo1P.brand} {taniOsmo1P.model}と{hubbaHubbaLT1.brand} {hubbaHubbaLT1.model}を比較しました。「軽さ」だけでなく、耐風性の実測値を単位を揃えて比較し、収納力・結露・設営性まで含めて検証しています。
 		</p>
 
 		<div class="toc">
@@ -54,9 +55,9 @@ const base = import.meta.env.BASE_URL;
 					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20h18L12 5 3 20z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M12 5v15" stroke="currentColor" stroke-width="1.2"/></svg></div>
 					<div class="product-body">
 						<p class="condition-label">構成のシンプルさ・実績のある耐風性を重視するなら</p>
-						<p class="brand-name">NEMO Equipment</p>
-						<p class="model-name">Tani OSMO 1P</p>
-						<p class="spec-line"><span>重量 <b>約1.12kg</b></span><span>床面積 <b>2.2㎡</b></span></p>
+						<p class="brand-name">{taniOsmo1P.brand}</p>
+						<p class="model-name">{taniOsmo1P.model}</p>
+						<p class="spec-line"><span>重量 <b>{taniOsmo1P.weight}</b></span><span>床面積 <b>{taniOsmo1P.floorArea}</b></span></p>
 						<div class="shop-buttons">
 							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
 						</div>
@@ -67,9 +68,9 @@ const base = import.meta.env.BASE_URL;
 					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20h18L12 5 3 20z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M12 5v15" stroke="currentColor" stroke-width="1.2"/></svg></div>
 					<div class="product-body">
 						<p class="condition-label">収納力・室内空間の使い勝手を重視するなら</p>
-						<p class="brand-name">MSR</p>
-						<p class="model-name">Hubba Hubba LT1</p>
-						<p class="spec-line"><span>重量 <b>約1.07kg</b>（トレイル重量）</span><span>床面積 <b>1.82㎡</b></span></p>
+						<p class="brand-name">{hubbaHubbaLT1.brand}</p>
+						<p class="model-name">{hubbaHubbaLT1.model}</p>
+						<p class="spec-line"><span>重量 <b>{hubbaHubbaLT1.weight}</b>（トレイル重量）</span><span>床面積 <b>{hubbaHubbaLT1.floorArea}</b></span></p>
 						<div class="shop-buttons">
 							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
 						</div>
@@ -83,24 +84,24 @@ const base = import.meta.env.BASE_URL;
 			<h2>詳細スペック比較</h2>
 			<div class="table-wrap">
 				<table>
-					<caption>2026-08-19時点の調査データ（実使用レビューを含む）</caption>
+					<caption>{taniOsmo1P.verifiedDate}時点の調査データ（実使用レビューを含む）</caption>
 					<thead>
-						<tr><th scope="col">項目</th><th scope="col">Tani OSMO 1P</th><th scope="col">Hubba Hubba LT1</th></tr>
+						<tr><th scope="col">項目</th><th scope="col">{taniOsmo1P.model}</th><th scope="col">{hubbaHubbaLT1.model}</th></tr>
 					</thead>
 					<tbody>
-						<tr><th scope="row">寸法（長さ×幅）</th><td class="num">202cm × 105cm</td><td class="num">223.5cm × 81.3cm</td></tr>
-						<tr><th scope="row">床面積</th><td class="num best">2.2㎡</td><td class="num">1.82㎡</td></tr>
-						<tr><th scope="row">重量（本体+ポール）</th><td class="num">1,120g</td><td class="num best">1,070g（トレイル重量）</td></tr>
-						<tr><th scope="row">重量（タイベック流用時）</th><td class="num">1,160g</td><td class="num best">1,110g</td></tr>
-						<tr><th scope="row">重量（純正フットプリント時）</th><td class="num">1,295g</td><td class="num best">1,212g</td></tr>
-						<tr><th scope="row">前室</th><td class="best">約0.8㎡</td><td>記載なし（片側前室）</td></tr>
-						<tr><th scope="row">室内高</th><td class="best">約103cm</td><td>記載なし</td></tr>
-						<tr><th scope="row">ポール構造</th><td>独立2本ポール（吊り下げ式）</td><td>3ハブ・単一ポール（左右対称設計）</td></tr>
-						<tr><th scope="row">耐風性の実測報告</th><td class="best">15m/s（約54km/h）でガイラインなしでも安定と報告</td><td>25-30mph（約11-13m/s）は対応可。1件は50-60mph（約22-27m/s）の突風を軽微なポール変形のみで生還した報告もあるが、ばらつきが大きい</td></tr>
-						<tr><th scope="row">結露</th><td class="best">フライは濡れるがインナーへの浸水はほぼなし</td><td>メッシュ主体で基本良好。2人利用時は一晩1-2パイント発生（ソロなら影響軽減）</td></tr>
-						<tr><th scope="row">収納力</th><td>ポケット1箇所のみ</td><td class="best">頭上ギアロフト2個＋サイドメッシュポケット（ケーブルポート付き）</td></tr>
-						<tr><th scope="row">設営</th><td>2本ポール、比較的シンプル</td><td>3ハブ・4ステップ・約5分。設営が難しいという報告は見当たらない</td></tr>
-						<tr><th scope="row">日本サポート</th><td>NEMO Equipment Japan正規</td><td>モチヅキ（MSR正規代理店）</td></tr>
+						<tr><th scope="row">寸法（長さ×幅）</th><td class="num">{taniOsmo1P.dimensions}</td><td class="num">{hubbaHubbaLT1.dimensions}</td></tr>
+						<tr><th scope="row">床面積</th><td class="num best">{taniOsmo1P.floorArea}</td><td class="num">{hubbaHubbaLT1.floorArea}</td></tr>
+						<tr><th scope="row">重量（本体+ポール）</th><td class="num">{taniOsmo1P.weightBody}</td><td class="num best">{hubbaHubbaLT1.weightBody}</td></tr>
+						<tr><th scope="row">重量（タイベック流用時）</th><td class="num">{taniOsmo1P.weightTyvek}</td><td class="num best">{hubbaHubbaLT1.weightTyvek}</td></tr>
+						<tr><th scope="row">重量（純正フットプリント時）</th><td class="num">{taniOsmo1P.weightFootprint}</td><td class="num best">{hubbaHubbaLT1.weightFootprint}</td></tr>
+						<tr><th scope="row">前室</th><td class="best">{taniOsmo1P.vestibule}</td><td>{hubbaHubbaLT1.vestibule}</td></tr>
+						<tr><th scope="row">室内高</th><td class="best">{taniOsmo1P.interiorHeight}</td><td>{hubbaHubbaLT1.interiorHeight}</td></tr>
+						<tr><th scope="row">ポール構造</th><td>{taniOsmo1P.poleStructure}</td><td>{hubbaHubbaLT1.poleStructure}</td></tr>
+						<tr><th scope="row">耐風性の実測報告</th><td class="best">{taniOsmo1P.windReport}</td><td>{hubbaHubbaLT1.windReport}</td></tr>
+						<tr><th scope="row">結露</th><td class="best">{taniOsmo1P.condensation}</td><td>{hubbaHubbaLT1.condensation}</td></tr>
+						<tr><th scope="row">収納力</th><td>{taniOsmo1P.storage}</td><td class="best">{hubbaHubbaLT1.storage}</td></tr>
+						<tr><th scope="row">設営</th><td>{taniOsmo1P.setup}</td><td>{hubbaHubbaLT1.setup}</td></tr>
+						<tr><th scope="row">日本サポート</th><td>{taniOsmo1P.japanSupport}</td><td>{hubbaHubbaLT1.japanSupport}</td></tr>
 					</tbody>
 				</table>
 			</div>
@@ -119,12 +120,12 @@ const base = import.meta.env.BASE_URL;
 
 				<div class="verdict-point">
 					<p class="point-label">収納力・室内空間の使い勝手を重視するなら</p>
-					<p><strong>Hubba Hubba LT1</strong>が候補になる。頭上ギアロフトとサイドメッシュポケットにより、Taniの「ポケット1箇所」を大きく上回る。設営もハブ構造ゆえに部品点数は多いものの、対称設計のため設営難易度が上がっているという報告は見当たらない。</p>
+					<p><strong>{hubbaHubbaLT1.model}</strong>が候補になる。頭上ギアロフトとサイドメッシュポケットにより、{taniOsmo1P.model}の「ポケット1箇所」を大きく上回る。設営もハブ構造ゆえに部品点数は多いものの、対称設計のため設営難易度が上がっているという報告は見当たらない。</p>
 				</div>
 
 				<div class="verdict-point">
 					<p class="point-label">構成のシンプルさ・実績のある耐風性を重視するなら</p>
-					<p><strong>Tani OSMO 1P</strong>が候補になる。単位を揃えて比較すると、Taniの実測報告（15m/s）はHubba Hubbaの「一般的に対応可能」とされる範囲を上回っており、耐風性は少なくとも互角以上と見るのが妥当。ポール部品点数の少なさも、理論上の破損リスクの低さにつながる。</p>
+					<p><strong>{taniOsmo1P.model}</strong>が候補になる。単位を揃えて比較すると、Taniの実測報告（15m/s）はHubba Hubbaの「一般的に対応可能」とされる範囲を上回っており、耐風性は少なくとも互角以上と見るのが妥当。ポール部品点数の少なさも、理論上の破損リスクの低さにつながる。</p>
 				</div>
 
 				<p>収納力を取るか、構成のシンプルさを取るかで結論が変わる比較であり、無理に一本化せず両論併記のまま記録しておく。</p>

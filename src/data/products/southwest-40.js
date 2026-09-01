@@ -1,0 +1,16 @@
+export default {
+	id: 'southwest-40',
+	brand: 'Hyperlite Mountain Gear',
+	model: 'Southwest 40',
+	capacity: '40L（+外部9.8L）',
+	weight: '860〜890g',
+	priceJpy: 71500,
+	priceLabel: '¥71,500',
+	torsoAdjustment: '2段階',
+	waterproof: '完全防水・シームテープ',
+	maxLoad: '約18kg（明記）',
+	japanSupport: 'Moonlight Gear',
+	stock: 'あり',
+	verifiedDate: '2026-08-19',
+	sourceNote: 'Knowledge/登山装備 一次メモに基づく',
+};

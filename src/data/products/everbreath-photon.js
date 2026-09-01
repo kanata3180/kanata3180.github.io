@@ -1,0 +1,12 @@
+export default {
+	id: 'everbreath-photon',
+	brand: 'ファイントラック',
+	model: 'エバーブレスフォトン',
+	weightDiff: '+106g（300g）',
+	fabric: '15D',
+	abrasionResistance: '公式記載なし。第三者レビューで「突き刺しに弱い」',
+	naturalColor: 'オリーブドラブ◎',
+	availability: '◎ ¥39,710',
+	verifiedDate: '2026-08-19',
+	sourceNote: 'Knowledge/登山装備 一次メモに基づく',
+};

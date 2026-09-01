@@ -1,0 +1,15 @@
+export default {
+	id: 'udd-bag-380dx',
+	brand: 'NANGA',
+	model: 'UDD BAG 380DX',
+	weight: '680g（-70g）',
+	downWeight: '380g',
+	fillPower: '770FP',
+	comfortTemp: '3℃',
+	limitTemp: '-2℃',
+	priceJpy: 51700,
+	priceLabel: '¥51,700',
+	fabric: 'シンプルな撥水加工生地（推定）',
+	verifiedDate: '2026-08-19',
+	sourceNote: 'Knowledge/登山装備 一次メモに基づく',
+};

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { trentFlyer, everbreathPhoton, tsurugiLightJacket, featherRainJacket, arcteryxBetaSL } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -14,7 +15,7 @@ const base = import.meta.env.BASE_URL;
 
 		<div class="meta-row">
 			<span class="cat-tag">レインウェア</span>
-			<span class="pub-date">2026.08.19 更新（仮記事）</span>
+			<span class="pub-date">{trentFlyer.verifiedDate} 更新（仮記事）</span>
 		</div>
 
 		<h1 class="title">ツルギライトジャケット、兼用運用で本当に摩耗は増えるか</h1>
@@ -33,7 +34,7 @@ const base = import.meta.env.BASE_URL;
 		</div>
 
 		<p class="lede">
-			現行のモンベル トレントフライヤー（ブルーのみ）から、ナチュラルカラー×同等品質・重量のレインジャケットへの買い替えを検討しました。ウィンドジャケット兼用運用時の摩耗増加リスクも含めて比較しています。
+			現行の{trentFlyer.brand} {trentFlyer.model}（ブルーのみ）から、ナチュラルカラー×同等品質・重量のレインジャケットへの買い替えを検討しました。ウィンドジャケット兼用運用時の摩耗増加リスクも含めて比較しています。
 		</p>
 
 		<div class="toc">
@@ -53,9 +54,9 @@ const base = import.meta.env.BASE_URL;
 					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4h4l2 2 2-2h4l2 4-3 2v12H7V10L4 8z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
 					<div class="product-body">
 						<p class="condition-label">色・入手性・耐摩耗性のバランスを重視するなら</p>
-						<p class="brand-name">Teton Bros</p>
-						<p class="model-name">ツルギライトジャケット</p>
-						<p class="spec-line"><span>重量 <b>240g</b>（現行比+46g）</span></p>
+						<p class="brand-name">{tsurugiLightJacket.brand}</p>
+						<p class="model-name">{tsurugiLightJacket.model}</p>
+						<p class="spec-line"><span>重量 <b>{tsurugiLightJacket.weight}</b></span></p>
 						<div class="shop-buttons">
 							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
 						</div>
@@ -66,9 +67,9 @@ const base = import.meta.env.BASE_URL;
 					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4h4l2 2 2-2h4l2 4-3 2v12H7V10L4 8z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
 					<div class="product-body">
 						<p class="condition-label">初期投資を避けたいなら（現行品）</p>
-						<p class="brand-name">モンベル（現行使用中）</p>
-						<p class="model-name">トレントフライヤー</p>
-						<p class="spec-line"><span>重量 <b>194g</b>（基準）</span></p>
+						<p class="brand-name">{trentFlyer.brand}</p>
+						<p class="model-name">{trentFlyer.model}</p>
+						<p class="spec-line"><span>重量 <b>{trentFlyer.weight}</b></span></p>
 						<div class="shop-buttons">
 							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
 						</div>
@@ -79,9 +80,9 @@ const base = import.meta.env.BASE_URL;
 					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4h4l2 2 2-2h4l2 4-3 2v12H7V10L4 8z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
 					<div class="product-body">
 						<p class="condition-label">耐摩耗性を最優先するなら（現在色欠品）</p>
-						<p class="brand-name">Teton Bros</p>
-						<p class="model-name">Feather Rain Jacket</p>
-						<p class="spec-line"><span>重量 <b>195g</b>（現行比-9g）</span></p>
+						<p class="brand-name">{featherRainJacket.brand}</p>
+						<p class="model-name">{featherRainJacket.model}</p>
+						<p class="spec-line"><span>重量 <b>{featherRainJacket.weight}</b></span></p>
 						<div class="shop-buttons">
 							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
 						</div>
@@ -95,16 +96,16 @@ const base = import.meta.env.BASE_URL;
 			<h2>詳細スペック比較</h2>
 			<div class="table-wrap">
 				<table>
-					<caption>2026-08-19時点の調査データ</caption>
+					<caption>{trentFlyer.verifiedDate}時点の調査データ</caption>
 					<thead>
 						<tr><th scope="col">製品</th><th scope="col">重量差</th><th scope="col">表地</th><th scope="col">耐摩耗性</th><th scope="col">ナチュラル色</th><th scope="col">入手性</th></tr>
 					</thead>
 					<tbody>
-						<tr><th scope="row">トレントフライヤー（現行）</th><td>―</td><td>12D</td><td>モンベル公式が「極薄素材のため鋭利な岩角等で破損の恐れ」と注意書き</td><td>なし（黒/青/橙/黄）</td><td class="best">◎</td></tr>
-						<tr><th scope="row">エバーブレスフォトン</th><td class="num">+106g（300g）</td><td>15D</td><td>公式記載なし。第三者レビューで「突き刺しに弱い」</td><td class="best">オリーブドラブ◎</td><td>◎ ¥39,710</td></tr>
-						<tr><th scope="row">ツルギライトジャケット</th><td class="num best">+46g（240g）</td><td class="best">20D（本表中最厚）</td><td class="best">耐摩耗性を公式に明記</td><td class="best">チョコレート◎（在庫あり）</td><td class="best">◎現行モデル ¥41,800</td></tr>
-						<tr><th scope="row">Feather Rain Jacket</th><td class="num best">-9g（195g）</td><td>記載なし</td><td class="best">最強（Cordura、20万回耐摩耗試験クリア）</td><td>Forest Green該当も完売中</td><td>ナチュラル色のみ欠品</td></tr>
-						<tr><th scope="row">Arc'teryx Beta SL</th><td class="num">+146g</td><td>40D/70D</td><td class="best">最高級</td><td class="best">Dracaena Olive◎</td><td>◎（$500、重量増）</td></tr>
+						<tr><th scope="row">{trentFlyer.model}（現行）</th><td>{trentFlyer.weightDiff}</td><td>{trentFlyer.fabric}</td><td>{trentFlyer.abrasionResistance}</td><td>{trentFlyer.naturalColor}</td><td class="best">{trentFlyer.availability}</td></tr>
+						<tr><th scope="row">{everbreathPhoton.model}</th><td class="num">{everbreathPhoton.weightDiff}</td><td>{everbreathPhoton.fabric}</td><td>{everbreathPhoton.abrasionResistance}</td><td class="best">{everbreathPhoton.naturalColor}</td><td>{everbreathPhoton.availability}</td></tr>
+						<tr><th scope="row">{tsurugiLightJacket.model}</th><td class="num best">{tsurugiLightJacket.weightDiff}</td><td class="best">{tsurugiLightJacket.fabric}</td><td class="best">{tsurugiLightJacket.abrasionResistance}</td><td class="best">{tsurugiLightJacket.naturalColor}</td><td class="best">{tsurugiLightJacket.availability}</td></tr>
+						<tr><th scope="row">{featherRainJacket.model}</th><td class="num best">{featherRainJacket.weightDiff}</td><td>{featherRainJacket.fabric}</td><td class="best">{featherRainJacket.abrasionResistance}</td><td>{featherRainJacket.naturalColor}</td><td>{featherRainJacket.availability}</td></tr>
+						<tr><th scope="row">{arcteryxBetaSL.model}</th><td class="num">{arcteryxBetaSL.weightDiff}</td><td>{arcteryxBetaSL.fabric}</td><td class="best">{arcteryxBetaSL.abrasionResistance}</td><td class="best">{arcteryxBetaSL.naturalColor}</td><td>{arcteryxBetaSL.availability}</td></tr>
 					</tbody>
 				</table>
 			</div>
@@ -118,17 +119,17 @@ const base = import.meta.env.BASE_URL;
 
 				<div class="verdict-point">
 					<p class="point-label">色・入手性・耐摩耗性のバランスを重視するなら</p>
-					<p><strong>ツルギライトジャケット</strong>（チョコレート、¥41,800）が候補になる。重量増は+46gと小さく、耐摩耗性も公式に明記されている。ナチュラルカラーの在庫もある。</p>
+					<p><strong>{tsurugiLightJacket.model}</strong>（{tsurugiLightJacket.naturalColor}、{tsurugiLightJacket.priceLabel}）が候補になる。重量増は{tsurugiLightJacket.weightDiff}と小さく、耐摩耗性も公式に明記されている。ナチュラルカラーの在庫もある。</p>
 				</div>
 
 				<div class="verdict-point">
 					<p class="point-label">耐摩耗性を最優先するなら</p>
-					<p><strong>Feather Rain Jacket</strong>は耐摩耗性（20万回耐摩耗試験クリア）・重量（-9g）の面でむしろ優位だが、唯一のナチュラル色（Forest Green）が現在完売中のため、在庫が戻るまでは選択できない。</p>
+					<p><strong>{featherRainJacket.model}</strong>は耐摩耗性（20万回耐摩耗試験クリア）・重量（{featherRainJacket.weightDiff}）の面でむしろ優位だが、唯一のナチュラル色（Forest Green）が現在完売中のため、在庫が戻るまでは選択できない。</p>
 				</div>
 
 				<div class="verdict-point">
 					<p class="point-label">初期投資を避けたいなら</p>
-					<p>現行のトレントフライヤーを使い続け、運用でカバーする方法もある。日帰り等の軽装時はウィンドジャケットと両方携行し、10kg超の重量級山行時のみレインジャケット1着で兼用すれば、摩耗増加は限定的に抑えられる。</p>
+					<p>現行の{trentFlyer.model}を使い続け、運用でカバーする方法もある。日帰り等の軽装時はウィンドジャケットと両方携行し、10kg超の重量級山行時のみレインジャケット1着で兼用すれば、摩耗増加は限定的に抑えられる。</p>
 				</div>
 			</div>
 		</section>

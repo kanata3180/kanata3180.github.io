@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { auroraLight350DX, uddBag380DX } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -14,7 +15,7 @@ const base = import.meta.env.BASE_URL;
 
 		<div class="meta-row">
 			<span class="cat-tag">シュラフ</span>
-			<span class="pub-date">2026.08.19 更新（仮記事）</span>
+			<span class="pub-date">{auroraLight350DX.verifiedDate} 更新（仮記事）</span>
 		</div>
 
 		<h1 class="title">NANGA UDD BAG 380DXへの買い替えで軽量化と保温力は両立するか</h1>
@@ -33,7 +34,7 @@ const base = import.meta.env.BASE_URL;
 		</div>
 
 		<p class="lede">
-			現行使用中のNANGA オーロラlight 350DXから、同社のUDD BAG 380DXへの買い替えを検討しました。単純な軽量化ではなく、保温力とのトレードオフが本当に無いのかを数値で確認しています。
+			現行使用中の{auroraLight350DX.brand} {auroraLight350DX.model}から、同社の{uddBag380DX.model}への買い替えを検討しました。単純な軽量化ではなく、保温力とのトレードオフが本当に無いのかを数値で確認しています。
 		</p>
 
 		<div class="toc">
@@ -53,9 +54,9 @@ const base = import.meta.env.BASE_URL;
 					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 8c0-2 2-4 8-4s8 2 8 4v8c0 2-2 4-8 4s-8-2-8-4V8z" stroke="currentColor" stroke-width="1.6"/></svg></div>
 					<div class="product-body">
 						<p class="condition-label">初期投資を避けたいなら（現行品）</p>
-						<p class="brand-name">NANGA（現行使用中）</p>
-						<p class="model-name">オーロラlight 350DX</p>
-						<p class="spec-line"><span>総重量 <b>750g</b></span><span>快適温度 <b>5℃</b></span><span>下限温度 <b>0℃</b></span></p>
+						<p class="brand-name">{auroraLight350DX.brand}</p>
+						<p class="model-name">{auroraLight350DX.model}</p>
+						<p class="spec-line"><span>総重量 <b>{auroraLight350DX.weight}</b></span><span>快適温度 <b>{auroraLight350DX.comfortTemp}</b></span><span>下限温度 <b>{auroraLight350DX.limitTemp}</b></span></p>
 						<div class="shop-buttons">
 							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
 						</div>
@@ -66,9 +67,9 @@ const base = import.meta.env.BASE_URL;
 					<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 8c0-2 2-4 8-4s8 2 8 4v8c0 2-2 4-8 4s-8-2-8-4V8z" stroke="currentColor" stroke-width="1.6"/></svg></div>
 					<div class="product-body">
 						<p class="condition-label">軽量化と保温力を両方求めるなら</p>
-						<p class="brand-name">NANGA</p>
-						<p class="model-name">UDD BAG 380DX</p>
-						<p class="spec-line"><span>総重量 <b>680g</b>（-70g）</span><span>快適温度 <b>3℃</b></span><span>下限温度 <b>-2℃</b></span></p>
+						<p class="brand-name">{uddBag380DX.brand}</p>
+						<p class="model-name">{uddBag380DX.model}</p>
+						<p class="spec-line"><span>総重量 <b>{uddBag380DX.weight}</b></span><span>快適温度 <b>{uddBag380DX.comfortTemp}</b></span><span>下限温度 <b>{uddBag380DX.limitTemp}</b></span></p>
 						<div class="shop-buttons">
 							<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
 						</div>
@@ -82,18 +83,18 @@ const base = import.meta.env.BASE_URL;
 			<h2>詳細スペック比較</h2>
 			<div class="table-wrap">
 				<table>
-					<caption>2026-08-19時点の調査データ</caption>
+					<caption>{auroraLight350DX.verifiedDate}時点の調査データ</caption>
 					<thead>
-						<tr><th scope="col">項目</th><th scope="col">オーロラlight 350DX（現行）</th><th scope="col">UDD BAG 380DX</th></tr>
+						<tr><th scope="col">項目</th><th scope="col">{auroraLight350DX.model}（現行）</th><th scope="col">{uddBag380DX.model}</th></tr>
 					</thead>
 					<tbody>
-						<tr><th scope="row">総重量</th><td class="num">750g</td><td class="num best">680g（-70g）</td></tr>
-						<tr><th scope="row">ダウン量</th><td class="num">350g</td><td class="num best">380g</td></tr>
-						<tr><th scope="row">フィルパワー</th><td class="num">760FP</td><td class="num best">770FP</td></tr>
-						<tr><th scope="row">快適温度</th><td class="num">5℃</td><td class="num best">3℃</td></tr>
-						<tr><th scope="row">下限温度</th><td class="num">0℃</td><td class="num best">-2℃</td></tr>
-						<tr><th scope="row">価格</th><td>所有済み</td><td class="num">¥51,700</td></tr>
-						<tr><th scope="row">表地</th><td>オーロラテックスR</td><td>シンプルな撥水加工生地（推定）</td></tr>
+						<tr><th scope="row">総重量</th><td class="num">{auroraLight350DX.weight}</td><td class="num best">{uddBag380DX.weight}</td></tr>
+						<tr><th scope="row">ダウン量</th><td class="num">{auroraLight350DX.downWeight}</td><td class="num best">{uddBag380DX.downWeight}</td></tr>
+						<tr><th scope="row">フィルパワー</th><td class="num">{auroraLight350DX.fillPower}</td><td class="num best">{uddBag380DX.fillPower}</td></tr>
+						<tr><th scope="row">快適温度</th><td class="num">{auroraLight350DX.comfortTemp}</td><td class="num best">{uddBag380DX.comfortTemp}</td></tr>
+						<tr><th scope="row">下限温度</th><td class="num">{auroraLight350DX.limitTemp}</td><td class="num best">{uddBag380DX.limitTemp}</td></tr>
+						<tr><th scope="row">価格</th><td>{auroraLight350DX.priceLabel}</td><td class="num">{uddBag380DX.priceLabel}</td></tr>
+						<tr><th scope="row">表地</th><td>{auroraLight350DX.fabric}</td><td>{uddBag380DX.fabric}</td></tr>
 					</tbody>
 				</table>
 			</div>
@@ -107,12 +108,12 @@ const base = import.meta.env.BASE_URL;
 
 				<div class="verdict-point">
 					<p class="point-label">軽量化と保温力を両方求めるなら</p>
-					<p><strong>UDD BAG 380DX</strong>が候補になる。¥51,700の投資で、総重量-70g・下限温度-2℃という、通常はトレードオフになりやすい2つの指標が同時に改善する。ダウン量・フィルパワーともに現行品を上回っている。</p>
+					<p><strong>{uddBag380DX.model}</strong>が候補になる。{uddBag380DX.priceLabel}の投資で、総重量-70g・下限温度{uddBag380DX.limitTemp}という、通常はトレードオフになりやすい2つの指標が同時に改善する。ダウン量・フィルパワーともに現行品を上回っている。</p>
 				</div>
 
 				<div class="verdict-point">
 					<p class="point-label">初期投資を避けたいなら</p>
-					<p>現行のオーロラlight 350DXを使い続ける選択肢もある。快適温度5℃・下限温度0℃は3シーズンの用途では引き続き実用範囲であり、買い替えが必須というわけではない。</p>
+					<p>現行の{auroraLight350DX.model}を使い続ける選択肢もある。快適温度{auroraLight350DX.comfortTemp}・下限温度{auroraLight350DX.limitTemp}は3シーズンの用途では引き続き実用範囲であり、買い替えが必須というわけではない。</p>
 				</div>
 			</div>
 		</section>

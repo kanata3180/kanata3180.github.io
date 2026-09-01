@@ -1,0 +1,17 @@
+export default {
+	id: 'beta-light-45',
+	brand: 'Black Diamond',
+	model: 'Beta Light 45',
+	capacity: '45L',
+	weight: '890g（最小521g）',
+	weightTableLabel: '890g / 最小521g',
+	priceJpy: 62000,
+	priceLabel: '¥62,000',
+	torsoAdjustment: '4段階',
+	waterproof: '完全防水・シームテープ',
+	maxLoad: '記載なし',
+	japanSupport: 'ロストアロー正規',
+	stock: 'あり',
+	verifiedDate: '2026-08-19',
+	sourceNote: 'Knowledge/登山装備 一次メモに基づく',
+};

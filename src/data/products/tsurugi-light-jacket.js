@@ -1,0 +1,15 @@
+export default {
+	id: 'tsurugi-light-jacket',
+	brand: 'Teton Bros',
+	model: 'ツルギライトジャケット',
+	weightDiff: '+46g（240g）',
+	weight: '240g（現行比+46g）',
+	priceJpy: 41800,
+	priceLabel: '¥41,800',
+	fabric: '20D（本表中最厚）',
+	abrasionResistance: '耐摩耗性を公式に明記',
+	naturalColor: 'チョコレート◎（在庫あり）',
+	availability: '◎現行モデル ¥41,800',
+	verifiedDate: '2026-08-19',
+	sourceNote: 'Knowledge/登山装備 一次メモに基づく',
+};

@@ -1,0 +1,16 @@
+export default {
+	id: 'lost-creek-lt45',
+	brand: 'ゼログラム',
+	model: 'Lost Creek LT45',
+	capacity: '45〜54L',
+	weight: '1,153g',
+	priceJpy: 39600,
+	priceLabel: '¥39,600',
+	torsoAdjustment: '固定48cm(±2cm)',
+	waterproof: '別体レインカバー前提',
+	maxLoad: '14kg',
+	japanSupport: '公式直販・GLAGH等',
+	stock: '完売中',
+	verifiedDate: '2026-08-19',
+	sourceNote: 'Knowledge/登山装備 一次メモに基づく',
+};
