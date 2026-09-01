@@ -16,6 +16,7 @@ export default {
 	storage: '頭上ギアロフト2個＋サイドメッシュポケット（ケーブルポート付き）',
 	setup: '3ハブ・4ステップ・約5分。設営が難しいという報告は見当たらない',
 	japanSupport: 'モチヅキ（MSR正規代理店）',
+	priceLabel: '記載なし',
 	verifiedDate: '2026-08-19',
 	sourceNote: 'Knowledge/登山装備 一次メモに基づく（実使用レビュー含む）',
 };

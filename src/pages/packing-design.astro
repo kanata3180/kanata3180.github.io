@@ -121,12 +121,12 @@ const base = import.meta.env.BASE_URL;
 				<table>
 					<caption>{zpacksSlimStuffSack.verifiedDate}時点の調査データ</caption>
 					<thead>
-						<tr><th scope="col">製品</th><th scope="col">直径×高さ</th><th scope="col">容量</th><th scope="col">防水性</th><th scope="col">重量</th></tr>
+						<tr><th scope="col">製品</th><th scope="col">直径×高さ</th><th scope="col">容量</th><th scope="col">防水性</th><th scope="col">重量</th><th scope="col">価格</th></tr>
 					</thead>
 					<tbody>
-						<tr><th scope="row">{zpacksSlimStuffSack.brand} {zpacksSlimStuffSack.model}</th><td class="num best">{zpacksSlimStuffSack.dimensionsTableLabel}</td><td class="num">{zpacksSlimStuffSack.capacity}</td><td>{zpacksSlimStuffSack.waterproof}</td><td class="num best">{zpacksSlimStuffSack.weight}</td></tr>
-						<tr><th scope="row">{seaToSummitUltrasil.brand} {seaToSummitUltrasil.model}</th><td class="num">{seaToSummitUltrasil.dimensionsTableLabel}</td><td class="num">{seaToSummitUltrasil.capacity}</td><td class="best">{seaToSummitUltrasil.waterproof}</td><td class="num">{seaToSummitUltrasil.weight}</td></tr>
-						<tr><th scope="row">HMG {hmgRolltopStuffSack.model}</th><td class="num">{hmgRolltopStuffSack.dimensionsTableLabel}</td><td class="num">{hmgRolltopStuffSack.capacity}</td><td>{hmgRolltopStuffSack.waterproof}</td><td>{hmgRolltopStuffSack.weight}</td></tr>
+						<tr><th scope="row">{zpacksSlimStuffSack.brand} {zpacksSlimStuffSack.model}</th><td class="num best">{zpacksSlimStuffSack.dimensionsTableLabel}</td><td class="num">{zpacksSlimStuffSack.capacity}</td><td>{zpacksSlimStuffSack.waterproof}</td><td class="num best">{zpacksSlimStuffSack.weight}</td><td>{zpacksSlimStuffSack.priceLabel}</td></tr>
+						<tr><th scope="row">{seaToSummitUltrasil.brand} {seaToSummitUltrasil.model}</th><td class="num">{seaToSummitUltrasil.dimensionsTableLabel}</td><td class="num">{seaToSummitUltrasil.capacity}</td><td class="best">{seaToSummitUltrasil.waterproof}</td><td class="num">{seaToSummitUltrasil.weight}</td><td>{seaToSummitUltrasil.priceLabel}</td></tr>
+						<tr><th scope="row">HMG {hmgRolltopStuffSack.model}</th><td class="num">{hmgRolltopStuffSack.dimensionsTableLabel}</td><td class="num">{hmgRolltopStuffSack.capacity}</td><td>{hmgRolltopStuffSack.waterproof}</td><td>{hmgRolltopStuffSack.weight}</td><td>{hmgRolltopStuffSack.priceLabel}</td></tr>
 					</tbody>
 				</table>
 			</div>

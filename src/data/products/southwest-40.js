@@ -7,6 +7,8 @@ export default {
 	priceJpy: 71500,
 	priceLabel: '¥71,500',
 	torsoAdjustment: '2段階',
+	fabric: 'Dyneema Woven Composite',
+	frameStructure: '独立2本（湾曲）アルミステー、水平連結なし',
 	waterproof: '完全防水・シームテープ',
 	maxLoad: '約18kg（明記）',
 	japanSupport: 'Moonlight Gear',

@@ -98,14 +98,14 @@ const base = import.meta.env.BASE_URL;
 				<table>
 					<caption>{trentFlyer.verifiedDate}時点の調査データ</caption>
 					<thead>
-						<tr><th scope="col">製品</th><th scope="col">重量差</th><th scope="col">表地</th><th scope="col">耐摩耗性</th><th scope="col">ナチュラル色</th><th scope="col">入手性</th></tr>
+						<tr><th scope="col">製品</th><th scope="col">重量差</th><th scope="col">価格</th><th scope="col">表地</th><th scope="col">耐水圧</th><th scope="col">透湿性</th><th scope="col">耐摩耗性</th><th scope="col">ナチュラル色</th><th scope="col">入手性</th></tr>
 					</thead>
 					<tbody>
-						<tr><th scope="row">{trentFlyer.model}（現行）</th><td>{trentFlyer.weightDiff}</td><td>{trentFlyer.fabric}</td><td>{trentFlyer.abrasionResistance}</td><td>{trentFlyer.naturalColor}</td><td class="best">{trentFlyer.availability}</td></tr>
-						<tr><th scope="row">{everbreathPhoton.model}</th><td class="num">{everbreathPhoton.weightDiff}</td><td>{everbreathPhoton.fabric}</td><td>{everbreathPhoton.abrasionResistance}</td><td class="best">{everbreathPhoton.naturalColor}</td><td>{everbreathPhoton.availability}</td></tr>
-						<tr><th scope="row">{tsurugiLightJacket.model}</th><td class="num best">{tsurugiLightJacket.weightDiff}</td><td class="best">{tsurugiLightJacket.fabric}</td><td class="best">{tsurugiLightJacket.abrasionResistance}</td><td class="best">{tsurugiLightJacket.naturalColor}</td><td class="best">{tsurugiLightJacket.availability}</td></tr>
-						<tr><th scope="row">{featherRainJacket.model}</th><td class="num best">{featherRainJacket.weightDiff}</td><td>{featherRainJacket.fabric}</td><td class="best">{featherRainJacket.abrasionResistance}</td><td>{featherRainJacket.naturalColor}</td><td>{featherRainJacket.availability}</td></tr>
-						<tr><th scope="row">{arcteryxBetaSL.model}</th><td class="num">{arcteryxBetaSL.weightDiff}</td><td>{arcteryxBetaSL.fabric}</td><td class="best">{arcteryxBetaSL.abrasionResistance}</td><td class="best">{arcteryxBetaSL.naturalColor}</td><td>{arcteryxBetaSL.availability}</td></tr>
+						<tr><th scope="row">{trentFlyer.model}（現行）</th><td>{trentFlyer.weightDiff}</td><td>{trentFlyer.priceLabel}</td><td>{trentFlyer.fabric}</td><td>{trentFlyer.waterproofRating}</td><td class="best">{trentFlyer.breathability}</td><td>{trentFlyer.abrasionResistance}</td><td>{trentFlyer.naturalColor}</td><td class="best">{trentFlyer.availability}</td></tr>
+						<tr><th scope="row">{everbreathPhoton.model}</th><td class="num">{everbreathPhoton.weightDiff}</td><td class="num">{everbreathPhoton.priceLabel}</td><td>{everbreathPhoton.fabric}</td><td>{everbreathPhoton.waterproofRating}</td><td>{everbreathPhoton.breathability}</td><td>{everbreathPhoton.abrasionResistance}</td><td class="best">{everbreathPhoton.naturalColor}</td><td>{everbreathPhoton.availability}</td></tr>
+						<tr><th scope="row">{tsurugiLightJacket.model}</th><td class="num best">{tsurugiLightJacket.weightDiff}</td><td class="num">{tsurugiLightJacket.priceLabel}</td><td class="best">{tsurugiLightJacket.fabric}</td><td class="best">{tsurugiLightJacket.waterproofRating}</td><td>{tsurugiLightJacket.breathability}</td><td class="best">{tsurugiLightJacket.abrasionResistance}</td><td class="best">{tsurugiLightJacket.naturalColor}</td><td class="best">{tsurugiLightJacket.availability}</td></tr>
+						<tr><th scope="row">{featherRainJacket.model}</th><td class="num best">{featherRainJacket.weightDiff}</td><td>{featherRainJacket.priceLabel}</td><td>{featherRainJacket.fabric}</td><td>{featherRainJacket.waterproofRating}</td><td>{featherRainJacket.breathability}</td><td class="best">{featherRainJacket.abrasionResistance}</td><td>{featherRainJacket.naturalColor}</td><td>{featherRainJacket.availability}</td></tr>
+						<tr><th scope="row">{arcteryxBetaSL.model}</th><td class="num">{arcteryxBetaSL.weightDiff}</td><td>{arcteryxBetaSL.priceLabel}</td><td>{arcteryxBetaSL.fabric}</td><td>{arcteryxBetaSL.waterproofRating}</td><td>{arcteryxBetaSL.breathability}</td><td class="best">{arcteryxBetaSL.abrasionResistance}</td><td class="best">{arcteryxBetaSL.naturalColor}</td><td>{arcteryxBetaSL.availability}</td></tr>
 					</tbody>
 				</table>
 			</div>

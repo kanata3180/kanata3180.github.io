@@ -7,6 +7,8 @@ export default {
 	priceJpy: 39600,
 	priceLabel: '¥39,600',
 	torsoAdjustment: '固定48cm(±2cm)',
+	fabric: '記載なし（別体レインカバーはRobicナイロン）',
+	frameStructure: '記載なし',
 	waterproof: '別体レインカバー前提',
 	maxLoad: '14kg',
 	japanSupport: '公式直販・GLAGH等',

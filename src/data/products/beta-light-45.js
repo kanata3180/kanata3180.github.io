@@ -8,6 +8,8 @@ export default {
 	priceJpy: 62000,
 	priceLabel: '¥62,000',
 	torsoAdjustment: '4段階',
+	fabric: 'Ultra200/400（裏地RUV™フィルムラミネート）',
+	frameStructure: '独立2本垂直アルミステー、水平連結なし。ステー・パッド・ヒップベルト脱着で最小521gまで対応',
 	waterproof: '完全防水・シームテープ',
 	maxLoad: '記載なし',
 	japanSupport: 'ロストアロー正規',

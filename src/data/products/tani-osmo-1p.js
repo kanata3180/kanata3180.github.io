@@ -16,6 +16,7 @@ export default {
 	storage: 'ポケット1箇所のみ',
 	setup: '2本ポール、比較的シンプル',
 	japanSupport: 'NEMO Equipment Japan正規',
+	priceLabel: '記載なし',
 	verifiedDate: '2026-08-19',
 	sourceNote: 'Knowledge/登山装備 一次メモに基づく（実使用レビュー含む）',
 };
