@@ -16,7 +16,9 @@ const specFields = [
 	{ key: 'weight', label: '重量', numeric: true, best: 'bd-distance-8' },
 	{ key: 'priceLabel', label: '価格' },
 	{ key: 'chestCircumference', label: '胸囲対応（サイズ展開）' },
+	{ key: 'colors', label: 'カラー展開' },
 	{ key: 'material', label: '素材' },
+	{ key: 'madeIn', label: '製造国' },
 	{ key: 'features', label: '主な機能' },
 ];
 
@@ -68,8 +70,9 @@ function isBest(field, product) {
 		</div>
 
 		<div class="verdict" style="margin-bottom: 3.2rem;">
-			<p class="kicker">価格データについての注記</p>
-			<p>今回参照した情報源は製品ごとに異なり、価格の税込・税別表記が統一されていない（ディスタンス15は税別表記、ディスタンス22は税込表記のサイトを参照）。単純な金額の大小比較はできないため、各行に出典と税表記を明記している。実際の購入時は各ストアで最新価格・税表記を確認してほしい。</p>
+			<p class="kicker">データ出典についての注記</p>
+			<p>本記事の3製品は、いずれもBlue Sheepオンラインストア（Black Diamond日本正規代理店。2026年にLost Arrowから移管）の商品ページに出典を統一している。価格はすべて税込表記で揃えており、単純な金額比較が可能。</p>
+			<p>また、各モデルには型番末尾が異なる<strong>ウィメンズ版</strong>（BD56708〜710001004）も同価格で用意されている。ウィメンズ版は対応胸囲がメンズ版よりひとまわり小さく設定されており（例：ディスタンス22はメンズS67-85cm／M80-100cm／L90-112cmに対し、ウィメンズはS60-75cm／M67-85cm／L80-100cm）、肩ベルト形状も女性向けに最適化されている。重量はメンズ版と同一表記だった（M：ディスタンス15が330g、ディスタンス22が400g）が、これが構造上同一なのか表記の流用なのかは公式ページ上では判別できなかった。</p>
 		</div>
 
 		<section id="candidates">
@@ -96,7 +99,7 @@ function isBest(field, product) {
 			<h2>詳細スペック比較</h2>
 			<div class="table-wrap">
 				<table>
-					<caption>{bdDistance8.verifiedDate}時点の調査データ（出典・税表記は商品ごとに異なる）</caption>
+					<caption>{bdDistance8.verifiedDate}時点のBlue Sheep公式サイト調査データ</caption>
 					<thead>
 						<tr><th scope="col">項目</th>{products.map((p) => <th scope="col">{p.model}</th>)}</tr>
 					</thead>
@@ -127,7 +130,7 @@ function isBest(field, product) {
 
 				<div class="verdict-point">
 					<p class="point-label">日帰り〜1泊程度の汎用性を求めるなら</p>
-					<p><strong>{bdDistance15.model}</strong>が候補になる。S/M/Lの3サイズで重量差もほぼなく（392〜396g）、体格に合わせて選びやすい。フロント・ショルダー・サイドと収納箇所が細かく分かれている。</p>
+					<p><strong>{bdDistance15.model}</strong>が候補になる。胸囲対応がS/M/Lの3段階（67-85cm／80-100cm／90-112cm）に分かれ、体格に合わせて選びやすい。フロント・ショルダー・サイドと収納箇所が細かく分かれている。</p>
 				</div>
 
 				<div class="verdict-point">
