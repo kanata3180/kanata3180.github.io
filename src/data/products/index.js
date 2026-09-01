@@ -17,3 +17,7 @@ export { default as arcteryxBetaSL } from './arcteryx-beta-sl.js';
 export { default as zpacksSlimStuffSack } from './zpacks-slim-stuff-sack.js';
 export { default as seaToSummitUltrasil } from './sea-to-summit-ultrasil.js';
 export { default as hmgRolltopStuffSack } from './hmg-rolltop-stuff-sack.js';
+
+export { default as bdDistance8 } from './bd-distance-8.js';
+export { default as bdDistance15 } from './bd-distance-15.js';
+export { default as bdDistance22 } from './bd-distance-22.js';

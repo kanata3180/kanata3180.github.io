@@ -29,4 +29,10 @@ export const categories = [
 		colors: ['#4b978a', '#235953'],
 		icon: '<rect x="30" y="16" width="40" height="68" rx="18" stroke="white" stroke-width="4" fill="none"/>',
 	},
+	{
+		name: 'ランニングベスト',
+		slug: 'running-vest',
+		colors: ['#1d5c6b', '#3a8f9e'],
+		icon: '<path d="M32 14 L32 22 L20 32 L28 42 L28 86 L72 86 L72 42 L80 32 L68 22 L68 14 Q50 22 32 14Z" stroke="white" stroke-width="4" fill="none"/>',
+	},
 ];

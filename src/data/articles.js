@@ -34,6 +34,13 @@ export const articles = [
 		pubDate: '2026-08-19',
 		excerpt: 'ジャンル別からシーン別へのパッキング再設計。スタッフバッグ選定と収納配置の記録です。',
 	},
+	{
+		slug: 'bd-distance-comparison',
+		title: 'Black Diamond ディスタンス8/15/22、容量差でどう選ぶか',
+		category: 'ランニングベスト',
+		pubDate: '2026-08-31',
+		excerpt: 'ランニングベストとバックパックの中間に位置するディスタンスシリーズ3容量を、用途別に整理しました。',
+	},
 ];
 
 export const upcomingTopics = [];

@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { bdDistance8, bdDistance15, bdDistance22 } from '../data/products/index.js';
+
+const base = import.meta.env.BASE_URL;
+
+const cardConfigs = [
+	{ product: bdDistance8, conditionLabel: 'スピード重視のファストハイク・軽量日帰りなら' },
+	{ product: bdDistance15, conditionLabel: '日帰り〜1泊程度の汎用性を求めるなら' },
+	{ product: bdDistance22, conditionLabel: '暖かい季節のテント泊装備まで持ち運びたいなら' },
+];
+const products = cardConfigs.map((c) => c.product);
+
+const specFields = [
+	{ key: 'capacity', label: '容量', numeric: true },
+	{ key: 'weight', label: '重量', numeric: true, best: 'bd-distance-8' },
+	{ key: 'priceLabel', label: '価格' },
+	{ key: 'chestCircumference', label: '胸囲対応（サイズ展開）' },
+	{ key: 'material', label: '素材' },
+	{ key: 'features', label: '主な機能' },
+];
+
+function isBest(field, product) {
+	if (!field.best) return false;
+	return Array.isArray(field.best) ? field.best.includes(product.id) : field.best === product.id;
+}
+---
+
+<BaseLayout
+	title="Black Diamond ディスタンス8/15/22、容量差でどう選ぶか | 稜線ノート"
+	description="ランニングベストとバックパックの中間に位置するディスタンスシリーズ3容量（8L/15L/22L）を、用途別に整理しました。"
+	currentCategory="ランニングベスト"
+>
+	<main>
+		<p class="breadcrumb"><a href={base}>ホーム</a> &gt; ランニングベスト &gt; ディスタンス8/15/22比較</p>
+
+		<div class="meta-row">
+			<span class="cat-tag">ランニングベスト</span>
+			<span class="pub-date">{bdDistance8.verifiedDate} 更新（仮記事）</span>
+		</div>
+
+		<h1 class="title">Black Diamond ディスタンス8/15/22、容量差でどう選ぶか</h1>
+
+		<div class="hero">
+			<svg viewBox="0 0 900 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="ランニングベストのイラスト">
+				<defs>
+					<linearGradient id="sky6" x1="0" y1="0" x2="0" y2="1">
+						<stop offset="0%" stop-color="#1d5c6b"/>
+						<stop offset="100%" stop-color="#3a8f9e"/>
+					</linearGradient>
+				</defs>
+				<rect width="900" height="260" fill="url(#sky6)"/>
+				<path d="M0,210 L180,150 L340,200 L520,140 L700,195 L900,150 L900,260 L0,260 Z" fill="#123a44" opacity="0.6"/>
+			</svg>
+		</div>
+
+		<p class="lede">
+			Black Diamond ディスタンスシリーズは、ランニングベストとバックパックの中間に位置するハイブリッドパックで、8L・15L・22Lの3容量が展開されている。同じシリーズ内でどの容量を選ぶべきか、用途別に整理した。
+		</p>
+
+		<div class="toc">
+			<p class="toc-label">目次</p>
+			<ol>
+				<li><a href="#candidates">3容量の比較</a></li>
+				<li><a href="#spec">詳細スペック比較</a></li>
+				<li><a href="#verdict">結論</a></li>
+			</ol>
+		</div>
+
+		<div class="verdict" style="margin-bottom: 3.2rem;">
+			<p class="kicker">価格データについての注記</p>
+			<p>今回参照した情報源は製品ごとに異なり、価格の税込・税別表記が統一されていない（ディスタンス15は税別表記、ディスタンス22は税込表記のサイトを参照）。単純な金額の大小比較はできないため、各行に出典と税表記を明記している。実際の購入時は各ストアで最新価格・税表記を確認してほしい。</p>
+		</div>
+
+		<section id="candidates">
+			<h2>3容量の比較</h2>
+			<div class="product-list">
+				{cardConfigs.map(({ product, conditionLabel }) => (
+					<div class="product-card">
+						<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 5v2l-3 3 2 2v10h12V12l2-2-3-3V5Q12 8 7 5Z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
+						<div class="product-body">
+							<p class="condition-label">{conditionLabel}</p>
+							<p class="brand-name">{product.brand}</p>
+							<p class="model-name">{product.model}</p>
+							<p class="spec-line"><span>容量 <b>{product.capacity}</b></span><span>重量 <b>{product.weight}</b></span></p>
+							<div class="shop-buttons">
+								<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section id="spec">
+			<h2>詳細スペック比較</h2>
+			<div class="table-wrap">
+				<table>
+					<caption>{bdDistance8.verifiedDate}時点の調査データ（出典・税表記は商品ごとに異なる）</caption>
+					<thead>
+						<tr><th scope="col">項目</th>{products.map((p) => <th scope="col">{p.model}</th>)}</tr>
+					</thead>
+					<tbody>
+						{specFields.map((field) => (
+							<tr>
+								<th scope="row">{field.label}</th>
+								{products.map((p) => (
+									<td class:list={[field.numeric && 'num', isBest(field, p) && 'best']}>{p[field.key]}</td>
+								))}
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section id="verdict">
+			<h2>結論</h2>
+			<div class="verdict">
+				<p class="kicker">容量別の使い分け</p>
+				<p>3容量とも同じシリーズのハイブリッド設計思想を共有しており、優劣ではなく用途の広さで選ぶ比較になる。</p>
+
+				<div class="verdict-point">
+					<p class="point-label">スピード重視のファストハイク・軽量日帰りなら</p>
+					<p><strong>{bdDistance8.model}</strong>が候補になる。3容量中最軽量で、必要最小限の装備で身軽に動きたい場合に向く。ただし胸囲対応はSサイズの記載のみ確認できており、他サイズの展開は個別に確認が必要。</p>
+				</div>
+
+				<div class="verdict-point">
+					<p class="point-label">日帰り〜1泊程度の汎用性を求めるなら</p>
+					<p><strong>{bdDistance15.model}</strong>が候補になる。S/M/Lの3サイズで重量差もほぼなく（392〜396g）、体格に合わせて選びやすい。フロント・ショルダー・サイドと収納箇所が細かく分かれている。</p>
+				</div>
+
+				<div class="verdict-point">
+					<p class="point-label">暖かい季節のテント泊装備まで持ち運びたいなら</p>
+					<p><strong>{bdDistance22.model}</strong>が候補になる。3容量中最大の22Lで、S/M/Lごとに胸囲対応（67-85cm／80-100cm／90-112cm）が明記されており、体格差によるフィット感の違いを事前に把握しやすい。</p>
+				</div>
+
+				<p>いずれも本格的なテント泊縦走用ザックの代替ではなく、行動中の身軽さを優先したハイブリッドパックという位置づけである点は共通している。</p>
+			</div>
+		</section>
+
+		<section style="margin-top: 3.2rem;">
+			<div class="author-box">
+				<div class="author-avatar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20l5-11 4 6 3-5 6 10H3z" fill="currentColor"/></svg></div>
+				<div>
+					<p class="author-label">Editor's Profile</p>
+					<p class="author-name">かなた</p>
+					<p class="author-bio">近畿地方在住。大峰山脈を拠点に、3シーズンから雪山まで登山を続けています。夏は信州アルプスまで足を伸ばし、テント泊装備でパックウェイト10kg前後の山行も。行動中の身軽さとテントでの睡眠の質を両立させたく、装備・パッキング・行程を毎回シミュレーションしてから臨み、その過程を記録しています。</p>
+					<div class="author-tags"><span>大峰山脈拠点</span><span>テント泊中心</span><span>夏は信州アルプスも</span></div>
+				</div>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
