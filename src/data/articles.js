@@ -37,7 +37,7 @@ export const articles = [
 	{
 		slug: 'bd-distance-comparison',
 		title: 'Black Diamond ディスタンス8/15/22、容量差でどう選ぶか',
-		category: 'ランニングベスト',
+		category: 'ザック',
 		pubDate: '2026-08-31',
 		excerpt: 'ランニングベストとバックパックの中間に位置するディスタンスシリーズ3容量を、用途別に整理しました。',
 	},
