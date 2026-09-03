@@ -21,3 +21,9 @@ export { default as hmgRolltopStuffSack } from './hmg-rolltop-stuff-sack.js';
 export { default as bdDistance8 } from './bd-distance-8.js';
 export { default as bdDistance15 } from './bd-distance-15.js';
 export { default as bdDistance22 } from './bd-distance-22.js';
+
+export { default as stellaridge1 } from './stellaridge-1.js';
+export { default as stellaridge2 } from './stellaridge-2.js';
+export { default as stellaridge3 } from './stellaridge-3.js';
+export { default as stellaridge4 } from './stellaridge-4.js';
+export { default as stellaridge6 } from './stellaridge-6.js';

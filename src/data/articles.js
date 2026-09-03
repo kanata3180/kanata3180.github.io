@@ -41,6 +41,13 @@ export const articles = [
 		pubDate: '2026-08-31',
 		excerpt: 'ランニングベストとバックパックの中間に位置するディスタンスシリーズ3容量を、用途別に整理しました。',
 	},
+	{
+		slug: 'stellaridge-comparison',
+		title: 'モンベル ステラリッジ1/2/3/4/6、サイズ違いをどう選ぶか',
+		category: 'テント',
+		pubDate: '2026-09-03',
+		excerpt: '定番テント泊ギアの5サイズ（1・2・3・4・6型）を公式スペックで比較。人数だけでなくソロ利用時の余裕も含めて整理しました。',
+	},
 ];
 
 export const upcomingTopics = [];

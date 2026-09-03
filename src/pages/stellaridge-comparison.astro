@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { stellaridge1, stellaridge2, stellaridge3, stellaridge4, stellaridge6 } from '../data/products/index.js';
+
+const base = import.meta.env.BASE_URL;
+
+const cardConfigs = [
+	{ product: stellaridge1, conditionLabel: 'とにかく軽さを最優先するソロ登山なら' },
+	{ product: stellaridge2, conditionLabel: 'ソロでも幕内に余裕が欲しい、定番の実績重視なら（現行品）' },
+	{ product: stellaridge3, conditionLabel: '2人で使うか、ソロで居住性を重視するなら' },
+	{ product: stellaridge4, conditionLabel: '3〜4人グループ・家族山行なら' },
+	{ product: stellaridge6, conditionLabel: '大人数での縦走や積雪期の拠点テントなら' },
+];
+const products = cardConfigs.map((c) => c.product);
+
+const specFields = [
+	{ key: 'occupancy', label: '型番（対応人数の目安）' },
+	{ key: 'weightBody', label: '本体重量' },
+	{ key: 'weightTotal', label: '総重量（付属品込）' },
+	{ key: 'weightFly', label: 'フライ込み重量' },
+	{ key: 'weightFlyTotal', label: 'フライ込み総重量' },
+	{ key: 'priceLabel', label: '価格' },
+	{ key: 'fabric', label: '本体素材' },
+	{ key: 'floorFabric', label: 'フロア素材・耐水圧' },
+	{ key: 'poleDiameter', label: 'ポール径' },
+	{ key: 'packedSize', label: '収納サイズ（本体）' },
+	{ key: 'color', label: 'カラー' },
+];
+---
+
+<BaseLayout
+	title="モンベル ステラリッジ1/2/3/4/6、サイズ違いをどう選ぶか | やまかなた"
+	description="定番テント泊ギア、ステラリッジテントの5サイズ（1・2・3・4・6型）を公式スペックで比較しました。"
+	currentCategory="テント"
+>
+	<main>
+		<p class="breadcrumb"><a href={base}>ホーム</a> &gt; テント &gt; ステラリッジ サイズ比較</p>
+
+		<div class="meta-row">
+			<span class="cat-tag">テント</span>
+			<span class="pub-date">{stellaridge1.verifiedDate} 更新（仮記事）</span>
+		</div>
+
+		<h1 class="title">モンベル ステラリッジ1/2/3/4/6、サイズ違いをどう選ぶか</h1>
+
+		<div class="hero">
+			<svg viewBox="0 0 900 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="山岳テントのイラスト">
+				<defs>
+					<linearGradient id="sky7" x1="0" y1="0" x2="0" y2="1">
+						<stop offset="0%" stop-color="#1d5c6b"/>
+						<stop offset="100%" stop-color="#3a8f9e"/>
+					</linearGradient>
+				</defs>
+				<rect width="900" height="260" fill="url(#sky7)"/>
+				<path d="M0,210 L180,150 L340,200 L520,140 L700,195 L900,150 L900,260 L0,260 Z" fill="#123a44" opacity="0.6"/>
+			</svg>
+		</div>
+
+		<p class="lede">
+			モンベル ステラリッジテントは1・2・3・4・6型（5型は欠番）の5サイズが展開されている、国内登山者の定番テント泊ギアの一つ。型番の数字は概ね対応人数の目安だが、実際にはソロで一回り大きいサイズを使う人も多い。ここでは5サイズを公式スペックで横並びにし、サイズ選びの判断材料を整理した。
+		</p>
+
+		<div class="toc">
+			<p class="toc-label">目次</p>
+			<ol>
+				<li><a href="#candidates">5サイズの比較</a></li>
+				<li><a href="#spec">詳細スペック比較</a></li>
+				<li><a href="#verdict">結論</a></li>
+			</ol>
+		</div>
+
+		<div class="verdict" style="margin-bottom: 3.2rem;">
+			<p class="kicker">データ出典についての注記</p>
+			<p>本記事の5製品は、いずれもモンベル公式オンラインストアの商品ページ（品番1122814／1122815／1122816／1122817／1122652）に出典を統一している。</p>
+			<p>調査の過程で、3型・4型は検索経由で見つけた品番（1122650／1122651）が旧世代のアウトレット在庫品（本体素材10Dポリエステル・カラーはホワイト）だったことが判明した。カテゴリ一覧ページから辿り直し、現行品（本体素材15Dナイロン・カラーはライトグレー）の品番を確認した上で本記事の数値に反映している。</p>
+			<p>また、型番の異なる「ステラリッジ テント トレール1／2」という軽量ライン（各¥34,500／¥36,500）も別途存在するが、標準ラインとは仕様が異なるため今回の比較には含めていない。</p>
+		</div>
+
+		<section id="candidates">
+			<h2>5サイズの比較</h2>
+			<div class="product-list">
+				{cardConfigs.map(({ product, conditionLabel }) => (
+					<div class="product-card">
+						<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20L12 6l9 14H3z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
+						<div class="product-body">
+							<p class="condition-label">{conditionLabel}</p>
+							<p class="brand-name">{product.brand}</p>
+							<p class="model-name">{product.model}</p>
+							<p class="spec-line"><span>本体重量 <b>{product.weightBody}</b></span><span>価格 <b>{product.priceLabel}</b></span></p>
+							<div class="shop-buttons">
+								<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section id="spec">
+			<h2>詳細スペック比較</h2>
+			<div class="table-wrap">
+				<table>
+					<caption>{stellaridge1.verifiedDate}時点のモンベル公式サイト調査データ</caption>
+					<thead>
+						<tr><th scope="col">項目</th>{products.map((p) => <th scope="col">{p.model}</th>)}</tr>
+					</thead>
+					<tbody>
+						{specFields.map((field) => (
+							<tr>
+								<th scope="row">{field.label}</th>
+								{products.map((p) => (
+									<td>{p[field.key]}</td>
+								))}
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section id="verdict">
+			<h2>結論</h2>
+			<div class="verdict">
+				<p class="kicker">サイズ別の使い分け</p>
+				<p>5サイズとも同じ生地構成・設営方式を共有しており、優劣ではなく「誰が」「何人で」「どこまで余裕を求めるか」で選ぶ比較になる。</p>
+
+				<div class="verdict-point">
+					<p class="point-label">とにかく軽さを最優先するソロ登山なら</p>
+					<p><strong>{stellaridge1.model}</strong>が候補になる。本体重量0.80kgと5サイズ中最軽量で、収納サイズもΦ13.5×29cmと最もコンパクト。フロア面積も最小のため、荷物を室内に持ち込む余裕は小さい。</p>
+				</div>
+
+				<div class="verdict-point">
+					<p class="point-label">ソロでも幕内に余裕が欲しい、定番の実績重視なら</p>
+					<p><strong>{stellaridge2.model}</strong>が候補になる。公称は2人用だが、ソロ運用で荷物を室内に置いても余裕がある広さとして選ばれることが多い。本体重量0.89kgと1型からの重量増は90g程度に留まる。</p>
+				</div>
+
+				<div class="verdict-point">
+					<p class="point-label">2人で使うか、ソロで居住性を重視するなら</p>
+					<p><strong>{stellaridge3.model}</strong>が候補になる。ポール径がΦ9.6mmに上がり、フロア面積・全高とも余裕が生まれる一方、本体重量は1.13kgまで増える。</p>
+				</div>
+
+				<div class="verdict-point">
+					<p class="point-label">3〜4人グループ・家族山行なら</p>
+					<p><strong>{stellaridge4.model}</strong>が候補になる。本体重量1.27kg、フライ込み総重量2.02kgとソロ装備としては重いが、複数人で分担すれば1人あたりの負担は小さくなる。</p>
+				</div>
+
+				<div class="verdict-point">
+					<p class="point-label">大人数での縦走や積雪期の拠点テントなら</p>
+					<p><strong>{stellaridge6.model}</strong>が候補になる。フロア素材の耐水圧が2,000mmと他サイズ（1,500mm）より高く設定されており、本体・レインフライ込みで3.95kgとまとまった重量だが、大人数での長期滞在や積雪期の基地テントとしての用途を想定した仕様になっている。</p>
+				</div>
+
+				<p>型番の数字は公称の対応人数の目安であり、実際の使い勝手は「行動中の軽さ」と「テント内での余裕」のどちらを優先するかで変わる。ソロ利用でも1型が最適とは限らず、2型・3型を選ぶ判断も十分に成立する。</p>
+			</div>
+		</section>
+
+		<section style="margin-top: 3.2rem;">
+			<div class="author-box">
+				<div class="author-avatar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20l5-11 4 6 3-5 6 10H3z" fill="currentColor"/></svg></div>
+				<div>
+					<p class="author-label">Editor's Profile</p>
+					<p class="author-name">かなた</p>
+					<p class="author-bio">近畿地方在住。大峰山脈を拠点に、3シーズンから雪山まで登山を続けています。夏は信州アルプスまで足を伸ばし、テント泊装備でパックウェイト10kg前後の山行も。行動中の身軽さとテントでの睡眠の質を両立させたく、装備・パッキング・行程を毎回シミュレーションしてから臨み、その過程を記録しています。</p>
+					<div class="author-tags"><span>大峰山脈拠点</span><span>テント泊中心</span><span>夏は信州アルプスも</span></div>
+				</div>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
