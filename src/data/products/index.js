@@ -27,3 +27,6 @@ export { default as stellaridge2 } from './stellaridge-2.js';
 export { default as stellaridge3 } from './stellaridge-3.js';
 export { default as stellaridge4 } from './stellaridge-4.js';
 export { default as stellaridge6 } from './stellaridge-6.js';
+
+export { default as stellaridgeTrail1 } from './stellaridge-trail-1.js';
+export { default as stellaridgeTrail2 } from './stellaridge-trail-2.js';

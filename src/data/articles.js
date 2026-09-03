@@ -48,6 +48,13 @@ export const articles = [
 		pubDate: '2026-09-03',
 		excerpt: '定番テント泊ギアの5サイズ（1・2・3・4・6型）を公式スペックで比較。人数だけでなくソロ利用時の余裕も含めて整理しました。',
 	},
+	{
+		slug: 'stellaridge-trail-comparison',
+		title: 'ステラリッジ トレール1/2、標準ラインとの前室・重量差を比較',
+		category: 'テント',
+		pubDate: '2026-09-03',
+		excerpt: '広い前室を確保したトレールシリーズ2サイズを公式スペックで比較。標準ラインとの重量・季節対応の違いも整理しました。',
+	},
 ];
 
 export const upcomingTopics = [];

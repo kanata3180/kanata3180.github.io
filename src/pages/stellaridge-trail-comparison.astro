@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { stellaridgeTrail1, stellaridgeTrail2, stellaridge1, stellaridge2 } from '../data/products/index.js';
+
+const base = import.meta.env.BASE_URL;
+
+const cardConfigs = [
+	{ product: stellaridgeTrail1, conditionLabel: '広い前室と軽さを両立したいソロ・3シーズン登山なら' },
+	{ product: stellaridgeTrail2, conditionLabel: '前室に余裕を持たせつつ2人でも使いたいなら' },
+];
+const products = cardConfigs.map((c) => c.product);
+
+const specFields = [
+	{ key: 'occupancy', label: '型番（対応人数の目安）' },
+	{ key: 'weightBody', label: '本体重量' },
+	{ key: 'weightTotal', label: '総重量（付属品込）' },
+	{ key: 'weightFly', label: 'フライ込み重量' },
+	{ key: 'weightFlyTotal', label: 'フライ込み総重量' },
+	{ key: 'priceLabel', label: '本体価格' },
+	{ key: 'flyPriceLabel', label: 'レインフライ価格' },
+	{ key: 'fabric', label: '本体素材' },
+	{ key: 'floorFabric', label: 'フロア素材・耐水圧' },
+	{ key: 'poleDiameter', label: 'ポール径' },
+	{ key: 'packedSize', label: '収納サイズ（本体）' },
+	{ key: 'season', label: '対応シーズン' },
+	{ key: 'color', label: 'カラー' },
+];
+---
+
+<BaseLayout
+	title="ステラリッジ トレール1/2、標準ラインとの前室・重量差を比較 | やまかなた"
+	description="モンベル ステラリッジテントの派生ライン、トレール1/2を公式スペックで比較。標準ラインとの重量・季節対応の違いも整理しました。"
+	currentCategory="テント"
+>
+	<main>
+		<p class="breadcrumb"><a href={base}>ホーム</a> &gt; テント &gt; ステラリッジ トレール比較</p>
+
+		<div class="meta-row">
+			<span class="cat-tag">テント</span>
+			<span class="pub-date">{stellaridgeTrail1.verifiedDate} 更新（仮記事）</span>
+		</div>
+
+		<h1 class="title">ステラリッジ トレール1/2、標準ラインとの前室・重量差を比較</h1>
+
+		<div class="hero">
+			<svg viewBox="0 0 900 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="前室の広いテントのイラスト">
+				<defs>
+					<linearGradient id="sky8" x1="0" y1="0" x2="0" y2="1">
+						<stop offset="0%" stop-color="#1d5c6b"/>
+						<stop offset="100%" stop-color="#3a8f9e"/>
+					</linearGradient>
+				</defs>
+				<rect width="900" height="260" fill="url(#sky8)"/>
+				<path d="M0,210 L180,150 L340,200 L520,140 L700,195 L900,150 L900,260 L0,260 Z" fill="#123a44" opacity="0.6"/>
+			</svg>
+		</div>
+
+		<p class="lede">
+			ステラリッジ テント トレールは、長辺側に入口を設けることで広い前室を確保した派生ラインで、トレール1・トレール2の2サイズが展開されている。標準ラインとの違いは前室の広さだけでなく、重量・価格・対応シーズンにも及ぶ。ここでは標準ラインの1型・2型と並べて、その差を整理した。
+		</p>
+
+		<div class="toc">
+			<p class="toc-label">目次</p>
+			<ol>
+				<li><a href="#candidates">トレール1/2の比較</a></li>
+				<li><a href="#spec">詳細スペック比較</a></li>
+				<li><a href="#standard">標準ラインとの重量・価格差</a></li>
+				<li><a href="#verdict">結論</a></li>
+			</ol>
+		</div>
+
+		<div class="verdict" style="margin-bottom: 3.2rem;">
+			<p class="kicker">データ出典についての注記</p>
+			<p>本記事の2製品は、いずれもモンベル公式オンラインストアの商品ページ（品番1122823／1122824）に出典を統一している。標準ラインと異なり、<strong>レインフライは本体に付属せず別売</strong>（トレール1：¥16,000、トレール2：¥17,000）となっている点に注意したい。</p>
+			<p>また、トレールシリーズは<strong>スノーフライに非対応</strong>で、対応シーズンも春～秋（標準ラインは春～冬、冬は別売スノーフライで対応可能）に限定される。積雪期の使用を想定するなら標準ラインを選ぶ必要がある。</p>
+		</div>
+
+		<section id="candidates">
+			<h2>トレール1/2の比較</h2>
+			<div class="product-list">
+				{cardConfigs.map(({ product, conditionLabel }) => (
+					<div class="product-card">
+						<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20L12 6l9 14H3z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
+						<div class="product-body">
+							<p class="condition-label">{conditionLabel}</p>
+							<p class="brand-name">{product.brand}</p>
+							<p class="model-name">{product.model}</p>
+							<p class="spec-line"><span>本体重量 <b>{product.weightBody}</b></span><span>本体価格 <b>{product.priceLabel}</b></span></p>
+							<div class="shop-buttons">
+								<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section id="spec">
+			<h2>詳細スペック比較</h2>
+			<div class="table-wrap">
+				<table>
+					<caption>{stellaridgeTrail1.verifiedDate}時点のモンベル公式サイト調査データ</caption>
+					<thead>
+						<tr><th scope="col">項目</th>{products.map((p) => <th scope="col">{p.model}</th>)}</tr>
+					</thead>
+					<tbody>
+						{specFields.map((field) => (
+							<tr>
+								<th scope="row">{field.label}</th>
+								{products.map((p) => (
+									<td>{p[field.key]}</td>
+								))}
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section id="standard">
+			<h2>標準ラインとの重量・価格差</h2>
+			<div class="table-wrap">
+				<table>
+					<caption>同クラスの標準ライン（1型・2型）との比較</caption>
+					<thead>
+						<tr><th scope="col">項目</th><th scope="col">{stellaridge1.model}</th><th scope="col">{stellaridgeTrail1.model}</th><th scope="col">{stellaridge2.model}</th><th scope="col">{stellaridgeTrail2.model}</th></tr>
+					</thead>
+					<tbody>
+						<tr><th scope="row">本体重量</th><td>{stellaridge1.weightBody}</td><td>{stellaridgeTrail1.weightBody}</td><td>{stellaridge2.weightBody}</td><td>{stellaridgeTrail2.weightBody}</td></tr>
+						<tr><th scope="row">収納サイズ（本体）</th><td>{stellaridge1.packedSize}</td><td>{stellaridgeTrail1.packedSize}</td><td>{stellaridge2.packedSize}</td><td>{stellaridgeTrail2.packedSize}</td></tr>
+						<tr><th scope="row">本体価格</th><td>{stellaridge1.priceLabel}</td><td>{stellaridgeTrail1.priceLabel}</td><td>{stellaridge2.priceLabel}</td><td>{stellaridgeTrail2.priceLabel}</td></tr>
+					</tbody>
+				</table>
+			</div>
+			<p>トレール1は本体重量0.89kgと標準2型（0.89kg）に並ぶ重さでありながら、収納サイズは標準1型と同じΦ13.5×29cm。同様にトレール2は本体重量0.98kgで標準2型より約90g重いが、収納サイズは標準2型と同じΦ14.5×30cmに収まっている。広い前室を確保する分、同じ収納サイズのクラスでも一段階重くなる設計と言える。</p>
+		</section>
+
+		<section id="verdict">
+			<h2>結論</h2>
+			<div class="verdict">
+				<p class="kicker">トレールを選ぶ判断基準</p>
+				<p>トレールシリーズは標準ラインの完全な上位互換ではなく、「前室の広さ」と引き換えに「重量」「レインフライ別売の追加コスト」「積雪期非対応」を受け入れる設計になっている。</p>
+
+				<div class="verdict-point">
+					<p class="point-label">広い前室と軽さを両立したいソロ・3シーズン登山なら</p>
+					<p><strong>{stellaridgeTrail1.model}</strong>が候補になる。本体重量は標準2型並みだが、収納サイズは標準1型と同等にコンパクト。ただしレインフライが別売（¥16,000）のため、フルセットで揃えると本体価格＋フライ代で標準2型（フライ別売¥35,000＋別売フライ代）とほぼ同水準か、やや割高になる点は事前に把握しておきたい。</p>
+				</div>
+
+				<div class="verdict-point">
+					<p class="point-label">前室に余裕を持たせつつ2人でも使いたいなら</p>
+					<p><strong>{stellaridgeTrail2.model}</strong>が候補になる。標準2型より前室が広く取れる一方、本体重量は0.98kgまで増える。積雪期の使用予定がなく、3シーズンの前室スペースを重視するなら選択肢になる。</p>
+				</div>
+
+				<p>逆に、積雪期にも使う可能性がある、あるいはレインフライを本体とセットで揃えて初期費用を抑えたい場合は、標準ライン（<a href={`${base}stellaridge-comparison/`}>1/2/3/4/6の比較記事</a>）の方が合理的な選択になりやすい。</p>
+			</div>
+		</section>
+
+		<section style="margin-top: 3.2rem;">
+			<div class="author-box">
+				<div class="author-avatar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20l5-11 4 6 3-5 6 10H3z" fill="currentColor"/></svg></div>
+				<div>
+					<p class="author-label">Editor's Profile</p>
+					<p class="author-name">かなた</p>
+					<p class="author-bio">近畿地方在住。大峰山脈を拠点に、3シーズンから雪山まで登山を続けています。夏は信州アルプスまで足を伸ばし、テント泊装備でパックウェイト10kg前後の山行も。行動中の身軽さとテントでの睡眠の質を両立させたく、装備・パッキング・行程を毎回シミュレーションしてから臨み、その過程を記録しています。</p>
+					<div class="author-tags"><span>大峰山脈拠点</span><span>テント泊中心</span><span>夏は信州アルプスも</span></div>
+				</div>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
