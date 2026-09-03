@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import ProductCardList from '../components/ProductCardList.astro';
+import SpecTable from '../components/SpecTable.astro';
 import { auroraLight350DX, uddBag380DX } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
@@ -20,11 +23,6 @@ const specFields = [
 	{ key: 'priceLabel', label: '価格' },
 	{ key: 'fabric', label: '表地' },
 ];
-
-function isBest(field, product) {
-	if (!field.best) return false;
-	return Array.isArray(field.best) ? field.best.includes(product.id) : field.best === product.id;
-}
 ---
 
 <BaseLayout
@@ -59,56 +57,20 @@ function isBest(field, product) {
 			現行使用中の{auroraLight350DX.brand} {auroraLight350DX.model}から、同社の{uddBag380DX.model}への買い替えを検討しました。単純な軽量化ではなく、保温力とのトレードオフが本当に無いのかを数値で確認しています。
 		</p>
 
-		<div class="toc">
-			<p class="toc-label">目次</p>
-			<ol>
-				<li><a href="#candidates">現行品と買い替え候補</a></li>
-				<li><a href="#spec">詳細スペック比較</a></li>
-				<li><a href="#verdict">結論</a></li>
-			</ol>
-		</div>
+		<TableOfContents items={[
+			{ href: '#candidates', label: '現行品と買い替え候補' },
+			{ href: '#spec', label: '詳細スペック比較' },
+			{ href: '#verdict', label: '結論' },
+		]} />
 
-		<section id="candidates">
-			<h2>現行品と買い替え候補</h2>
-			<div class="product-list">
-				{cardConfigs.map(({ product, conditionLabel }) => (
-					<div class="product-card">
-						<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 8c0-2 2-4 8-4s8 2 8 4v8c0 2-2 4-8 4s-8-2-8-4V8z" stroke="currentColor" stroke-width="1.6"/></svg></div>
-						<div class="product-body">
-							<p class="condition-label">{conditionLabel}</p>
-							<p class="brand-name">{product.brand}</p>
-							<p class="model-name">{product.model}</p>
-							<p class="spec-line"><span>総重量 <b>{product.weight}</b></span><span>快適温度 <b>{product.comfortTemp}</b></span><span>下限温度 <b>{product.limitTemp}</b></span></p>
-							<div class="shop-buttons">
-								<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
-							</div>
-						</div>
-					</div>
-				))}
-			</div>
-		</section>
+		<ProductCardList
+			heading="現行品と買い替え候補"
+			cards={cardConfigs}
+			specs={[{ label: '総重量', key: 'weight' }, { label: '快適温度', key: 'comfortTemp' }, { label: '下限温度', key: 'limitTemp' }]}
+			icon={`<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 8c0-2 2-4 8-4s8 2 8 4v8c0 2-2 4-8 4s-8-2-8-4V8z" stroke="currentColor" stroke-width="1.6"/></svg>`}
+		/>
 
-		<section id="spec">
-			<h2>詳細スペック比較</h2>
-			<div class="table-wrap">
-				<table>
-					<caption>{auroraLight350DX.verifiedDate}時点の調査データ</caption>
-					<thead>
-						<tr><th scope="col">項目</th>{products.map((p) => <th scope="col">{p.model}</th>)}</tr>
-					</thead>
-					<tbody>
-						{specFields.map((field) => (
-							<tr>
-								<th scope="row">{field.label}</th>
-								{products.map((p) => (
-									<td class:list={[field.numeric && 'num', isBest(field, p) && 'best']}>{p[field.key]}</td>
-								))}
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		</section>
+		<SpecTable caption={`${auroraLight350DX.verifiedDate}時点の調査データ`} products={products} specFields={specFields} />
 
 		<section id="verdict">
 			<h2>結論</h2>

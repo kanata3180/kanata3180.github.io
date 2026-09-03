@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import ProductCardList from '../components/ProductCardList.astro';
+import SpecTable from '../components/SpecTable.astro';
 import { trentFlyer, everbreathPhoton, tsurugiLightJacket, featherRainJacket, arcteryxBetaSL } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
@@ -22,11 +25,6 @@ const specFields = [
 	{ key: 'naturalColor', label: 'ナチュラル色', best: ['everbreath-photon', 'tsurugi-light-jacket', 'arcteryx-beta-sl'] },
 	{ key: 'availability', label: '入手性', best: 'trent-flyer' },
 ];
-
-function isBest(field, product) {
-	if (!field.best) return false;
-	return Array.isArray(field.best) ? field.best.includes(product.id) : field.best === product.id;
-}
 ---
 
 <BaseLayout
@@ -61,56 +59,26 @@ function isBest(field, product) {
 			現行の{trentFlyer.brand} {trentFlyer.model}（ブルーのみ）から、ナチュラルカラー×同等品質・重量のレインジャケットへの買い替えを検討しました。ウィンドジャケット兼用運用時の摩耗増加リスクも含めて比較しています。
 		</p>
 
-		<div class="toc">
-			<p class="toc-label">目次</p>
-			<ol>
-				<li><a href="#candidates">候補3機種</a></li>
-				<li><a href="#spec">詳細スペック比較</a></li>
-				<li><a href="#verdict">結論</a></li>
-			</ol>
-		</div>
+		<TableOfContents items={[
+			{ href: '#candidates', label: '候補3機種' },
+			{ href: '#spec', label: '詳細スペック比較' },
+			{ href: '#verdict', label: '結論' },
+		]} />
 
-		<section id="candidates">
-			<h2>候補3機種</h2>
-			<div class="product-list">
-				{cardConfigs.map(({ product, conditionLabel }) => (
-					<div class="product-card">
-						<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4h4l2 2 2-2h4l2 4-3 2v12H7V10L4 8z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
-						<div class="product-body">
-							<p class="condition-label">{conditionLabel}</p>
-							<p class="brand-name">{product.brand}</p>
-							<p class="model-name">{product.model}</p>
-							<p class="spec-line"><span>重量 <b>{product.weight}</b></span></p>
-							<div class="shop-buttons">
-								<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
-							</div>
-						</div>
-					</div>
-				))}
-			</div>
-		</section>
+		<ProductCardList
+			heading="候補3機種"
+			cards={cardConfigs}
+			specs={[{ label: '重量', key: 'weight' }]}
+			icon={`<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4h4l2 2 2-2h4l2 4-3 2v12H7V10L4 8z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>`}
+		/>
 
-		<section id="spec">
-			<h2>詳細スペック比較</h2>
-			<div class="table-wrap">
-				<table>
-					<caption>{trentFlyer.verifiedDate}時点の調査データ</caption>
-					<thead>
-						<tr><th scope="col">製品</th>{specFields.map((f) => <th scope="col">{f.label}</th>)}</tr>
-					</thead>
-					<tbody>
-						{tableProducts.map((p) => (
-							<tr>
-								<th scope="row">{p.model}{p.id === 'trent-flyer' && '（現行）'}</th>
-								{specFields.map((field) => (
-									<td class:list={[field.numeric && 'num', isBest(field, p) && 'best']}>{p[field.key]}</td>
-								))}
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		</section>
+		<SpecTable
+			caption={`${trentFlyer.verifiedDate}時点の調査データ`}
+			products={tableProducts}
+			specFields={specFields}
+			transpose
+			renderRowHeader={(p) => `${p.model}${p.id === 'trent-flyer' ? '（現行）' : ''}`}
+		/>
 
 		<section id="verdict">
 			<h2>結論</h2>

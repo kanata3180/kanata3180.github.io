@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import ProductCardList from '../components/ProductCardList.astro';
+import SpecTable from '../components/SpecTable.astro';
+import Callout from '../components/Callout.astro';
 import { stellaridge1, stellaridge2, stellaridge3, stellaridge4, stellaridge6 } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
@@ -61,63 +65,26 @@ const specFields = [
 			モンベル ステラリッジテントは1・2・3・4・6型（5型は欠番）の5サイズが展開されている、国内登山者の定番テント泊ギアの一つ。型番の数字は概ね対応人数の目安だが、実際にはソロで一回り大きいサイズを使う人も多い。ここでは5サイズを公式スペックで横並びにし、サイズ選びの判断材料を整理した。
 		</p>
 
-		<div class="toc">
-			<p class="toc-label">目次</p>
-			<ol>
-				<li><a href="#candidates">5サイズの比較</a></li>
-				<li><a href="#spec">詳細スペック比較</a></li>
-				<li><a href="#verdict">結論</a></li>
-			</ol>
-		</div>
+		<TableOfContents items={[
+			{ href: '#candidates', label: '5サイズの比較' },
+			{ href: '#spec', label: '詳細スペック比較' },
+			{ href: '#verdict', label: '結論' },
+		]} />
 
-		<div class="verdict" style="margin-bottom: 3.2rem;">
-			<p class="kicker">データ出典についての注記</p>
+		<Callout kicker="データ出典についての注記">
 			<p>本記事の5製品は、いずれもモンベル公式オンラインストアの商品ページ（品番1122814／1122815／1122816／1122817／1122652）に出典を統一している。</p>
 			<p>調査の過程で、3型・4型は検索経由で見つけた品番（1122650／1122651）が旧世代のアウトレット在庫品（本体素材10Dポリエステル・カラーはホワイト）だったことが判明した。カテゴリ一覧ページから辿り直し、現行品（本体素材15Dナイロン・カラーはライトグレー）の品番を確認した上で本記事の数値に反映している。</p>
 			<p>また、型番の異なる「ステラリッジ テント トレール1／2」という軽量ライン（各¥34,500／¥36,500）も別途存在するが、標準ラインとは仕様が異なるため今回の比較には含めていない。</p>
-		</div>
+		</Callout>
 
-		<section id="candidates">
-			<h2>5サイズの比較</h2>
-			<div class="product-list">
-				{cardConfigs.map(({ product, conditionLabel }) => (
-					<div class="product-card">
-						<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20L12 6l9 14H3z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
-						<div class="product-body">
-							<p class="condition-label">{conditionLabel}</p>
-							<p class="brand-name">{product.brand}</p>
-							<p class="model-name">{product.model}</p>
-							<p class="spec-line"><span>本体重量 <b>{product.weightBody}</b></span><span>価格 <b>{product.priceLabel}</b></span></p>
-							<div class="shop-buttons">
-								<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
-							</div>
-						</div>
-					</div>
-				))}
-			</div>
-		</section>
+		<ProductCardList
+			heading="5サイズの比較"
+			cards={cardConfigs}
+			specs={[{ label: '本体重量', key: 'weightBody' }, { label: '価格', key: 'priceLabel' }]}
+			icon={`<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20L12 6l9 14H3z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>`}
+		/>
 
-		<section id="spec">
-			<h2>詳細スペック比較</h2>
-			<div class="table-wrap">
-				<table>
-					<caption>{stellaridge1.verifiedDate}時点のモンベル公式サイト調査データ</caption>
-					<thead>
-						<tr><th scope="col">項目</th>{products.map((p) => <th scope="col">{p.model}</th>)}</tr>
-					</thead>
-					<tbody>
-						{specFields.map((field) => (
-							<tr>
-								<th scope="row">{field.label}</th>
-								{products.map((p) => (
-									<td>{p[field.key]}</td>
-								))}
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		</section>
+		<SpecTable caption={`${stellaridge1.verifiedDate}時点のモンベル公式サイト調査データ`} products={products} specFields={specFields} />
 
 		<section id="verdict">
 			<h2>結論</h2>

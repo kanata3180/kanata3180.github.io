@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Thumbnail from '../../components/Thumbnail.astro';
+import ArticleRow from '../../components/ArticleRow.astro';
 import { articles } from '../../data/articles.js';
 import { categories } from '../../data/categories.js';
 
@@ -34,16 +34,7 @@ const categoryArticles = articles.filter((a) => a.category === category.name);
 		<section>
 			<div class="article-list">
 				{categoryArticles.map((article) => (
-					<a class="article-row" href={`${base}${article.slug}/`}>
-						<div class="thumb-static">
-							<Thumbnail category={article.category} />
-						</div>
-						<div>
-							<span class="cat-tag">{article.category}</span>
-							<p class="row-title">{article.title}</p>
-							<p class="row-excerpt">{article.excerpt}</p>
-						</div>
-					</a>
+					<ArticleRow article={article} base={base} />
 				))}
 			</div>
 			{categoryArticles.length === 0 && (

@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import ProductCardList from '../components/ProductCardList.astro';
+import SpecTable from '../components/SpecTable.astro';
 import { southwest40, betaLight45, lostCreekLT45 } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
@@ -24,11 +27,6 @@ const specFields = [
 	{ key: 'japanSupport', label: '日本サポート', best: 'beta-light-45' },
 	{ key: 'stock', label: '在庫', best: 'beta-light-45' },
 ];
-
-function isBest(field, product) {
-	if (!field.best) return false;
-	return Array.isArray(field.best) ? field.best.includes(product.id) : field.best === product.id;
-}
 ---
 
 <BaseLayout
@@ -64,56 +62,20 @@ function isBest(field, product) {
 			2泊3日のテント泊装備を基準に、{products.map((p) => `${p.brand} ${p.model}`).join('・')}の3機種のスペックを比較しました。容量・重量だけでなく、防水性・日本国内でのサポート体制・在庫状況までまとめています。
 		</p>
 
-		<div class="toc">
-			<p class="toc-label">目次</p>
-			<ol>
-				<li><a href="#candidates">候補3機種</a></li>
-				<li><a href="#spec">詳細スペック比較</a></li>
-				<li><a href="#verdict">結論</a></li>
-			</ol>
-		</div>
+		<TableOfContents items={[
+			{ href: '#candidates', label: '候補3機種' },
+			{ href: '#spec', label: '詳細スペック比較' },
+			{ href: '#verdict', label: '結論' },
+		]} />
 
-		<section id="candidates">
-			<h2>候補3機種</h2>
-			<div class="product-list">
-				{cardConfigs.map(({ product, conditionLabel }) => (
-					<div class="product-card">
-						<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20l3-14h10l3 14z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M9 6V4h6v2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
-						<div class="product-body">
-							<p class="condition-label">{conditionLabel}</p>
-							<p class="brand-name">{product.brand}</p>
-							<p class="model-name">{product.model}</p>
-							<p class="spec-line"><span>重量 <b>{product.weight}</b></span><span>価格 <b>{product.priceLabel}</b></span></p>
-							<div class="shop-buttons">
-								<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
-							</div>
-						</div>
-					</div>
-				))}
-			</div>
-		</section>
+		<ProductCardList
+			heading="候補3機種"
+			cards={cardConfigs}
+			specs={[{ label: '重量', key: 'weight' }, { label: '価格', key: 'priceLabel' }]}
+			icon={`<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20l3-14h10l3 14z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M9 6V4h6v2" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>`}
+		/>
 
-		<section id="spec">
-			<h2>詳細スペック比較</h2>
-			<div class="table-wrap">
-				<table>
-					<caption>{southwest40.verifiedDate}時点の調査データ</caption>
-					<thead>
-						<tr><th scope="col">項目</th>{products.map((p) => <th scope="col">{p.model}</th>)}</tr>
-					</thead>
-					<tbody>
-						{specFields.map((field) => (
-							<tr>
-								<th scope="row">{field.label}</th>
-								{products.map((p) => (
-									<td class:list={[field.numeric && 'num', isBest(field, p) && 'best']}>{p[field.key]}</td>
-								))}
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		</section>
+		<SpecTable caption={`${southwest40.verifiedDate}時点の調査データ`} products={products} specFields={specFields} />
 
 		<section id="verdict">
 			<h2>結論</h2>

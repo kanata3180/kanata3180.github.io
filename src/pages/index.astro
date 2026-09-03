@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Thumbnail from '../components/Thumbnail.astro';
+import ArticleRow from '../components/ArticleRow.astro';
 import { articles, upcomingTopics } from '../data/articles.js';
 
 const base = import.meta.env.BASE_URL;
@@ -24,16 +24,7 @@ const base = import.meta.env.BASE_URL;
 
 			<div class="article-list" id="article-list">
 				{articles.map((article) => (
-					<a class="article-row" href={`${base}${article.slug}/`} data-title={article.title} data-category={article.category}>
-						<div class="thumb-static">
-							<Thumbnail category={article.category} />
-						</div>
-						<div>
-							<span class="cat-tag">{article.category}</span>
-							<p class="row-title">{article.title}</p>
-							<p class="row-excerpt">{article.excerpt}</p>
-						</div>
-					</a>
+					<ArticleRow article={article} base={base} />
 				))}
 			</div>
 			<p class="search-empty" id="search-empty">該当する記事が見つかりませんでした。</p>

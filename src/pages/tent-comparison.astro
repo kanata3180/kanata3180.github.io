@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import ProductCardList from '../components/ProductCardList.astro';
+import SpecTable from '../components/SpecTable.astro';
+import Callout from '../components/Callout.astro';
 import { taniOsmo1P, hubbaHubbaLT1 } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
@@ -27,11 +31,6 @@ const specFields = [
 	{ key: 'setup', label: '設営' },
 	{ key: 'japanSupport', label: '日本サポート' },
 ];
-
-function isBest(field, product) {
-	if (!field.best) return false;
-	return Array.isArray(field.best) ? field.best.includes(product.id) : field.best === product.id;
-}
 ---
 
 <BaseLayout
@@ -67,61 +66,24 @@ function isBest(field, product) {
 			自立式・ダブルウォールの1人用テントとして、{products.map((p) => `${p.brand} ${p.model}`).join('と')}を比較しました。「軽さ」だけでなく、耐風性の実測値を単位を揃えて比較し、収納力・結露・設営性まで含めて検証しています。
 		</p>
 
-		<div class="toc">
-			<p class="toc-label">目次</p>
-			<ol>
-				<li><a href="#candidates">候補2機種</a></li>
-				<li><a href="#spec">詳細スペック比較</a></li>
-				<li><a href="#verdict">結論</a></li>
-			</ol>
-		</div>
+		<TableOfContents items={[
+			{ href: '#candidates', label: '候補2機種' },
+			{ href: '#spec', label: '詳細スペック比較' },
+			{ href: '#verdict', label: '結論' },
+		]} />
 
-		<section id="candidates">
-			<h2>候補2機種</h2>
-			<div class="product-list">
-				{cardConfigs.map(({ product, conditionLabel }) => (
-					<div class="product-card">
-						<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20h18L12 5 3 20z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M12 5v15" stroke="currentColor" stroke-width="1.2"/></svg></div>
-						<div class="product-body">
-							<p class="condition-label">{conditionLabel}</p>
-							<p class="brand-name">{product.brand}</p>
-							<p class="model-name">{product.model}</p>
-							<p class="spec-line"><span>重量 <b>{product.weight}</b></span><span>床面積 <b>{product.floorArea}</b></span></p>
-							<div class="shop-buttons">
-								<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
-							</div>
-						</div>
-					</div>
-				))}
-			</div>
-		</section>
+		<ProductCardList
+			heading="候補2機種"
+			cards={cardConfigs}
+			specs={[{ label: '重量', key: 'weight' }, { label: '床面積', key: 'floorArea' }]}
+			icon={`<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20h18L12 5 3 20z" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M12 5v15" stroke="currentColor" stroke-width="1.2"/></svg>`}
+		/>
 
-		<section id="spec">
-			<h2>詳細スペック比較</h2>
-			<div class="table-wrap">
-				<table>
-					<caption>{taniOsmo1P.verifiedDate}時点の調査データ（実使用レビューを含む）</caption>
-					<thead>
-						<tr><th scope="col">項目</th>{products.map((p) => <th scope="col">{p.model}</th>)}</tr>
-					</thead>
-					<tbody>
-						{specFields.map((field) => (
-							<tr>
-								<th scope="row">{field.label}</th>
-								{products.map((p) => (
-									<td class:list={[field.numeric && 'num', isBest(field, p) && 'best']}>{p[field.key]}</td>
-								))}
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		</section>
+		<SpecTable caption={`${taniOsmo1P.verifiedDate}時点の調査データ（実使用レビューを含む）`} products={products} specFields={specFields} />
 
-		<div class="verdict" style="margin-bottom: 3.2rem;">
-			<p class="kicker">訂正事項</p>
+		<Callout kicker="訂正事項">
 			<p>調査当初、レビューの一部に「Taniのインナーは無地・保温重視」という情報があったが、NEMO Equipment Japan公式ページで確認したところ<strong>インナーはメッシュが正しい仕様</strong>だった。また「Hubba Hubbaは垂直壁だから耐風性で明確に劣る」という初期の整理も、実地レビューを深掘りした結果、単位を揃えて比較する限り裏付けが弱いことが分かった。一次情報は途中で訂正が入ることがある、という記録としてここに残しておく。</p>
-		</div>
+		</Callout>
 
 		<section id="verdict">
 			<h2>結論</h2>

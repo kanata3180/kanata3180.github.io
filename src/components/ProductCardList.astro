@@ -1,0 +1,42 @@
+---
+interface SpecLineItem {
+	label: string;
+	key: string;
+}
+
+interface CardConfig {
+	product: any;
+	conditionLabel: string;
+}
+
+interface Props {
+	id?: string;
+	heading: string;
+	cards: CardConfig[];
+	specs: SpecLineItem[];
+	icon: string;
+}
+
+const { id = 'candidates', heading, cards, specs, icon } = Astro.props;
+---
+
+<section id={id}>
+	<h2>{heading}</h2>
+	<slot />
+	<div class="product-list">
+		{cards.map(({ product, conditionLabel }) => (
+			<div class="product-card">
+				<div class="thumb" set:html={icon} />
+				<div class="product-body">
+					<p class="condition-label">{conditionLabel}</p>
+					<p class="brand-name">{product.brand}</p>
+					<p class="model-name">{product.model}</p>
+					<p class="spec-line">{specs.map((s) => <span>{s.label} <b>{product[s.key]}</b></span>)}</p>
+					<div class="shop-buttons">
+						<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
+					</div>
+				</div>
+			</div>
+		))}
+	</div>
+</section>

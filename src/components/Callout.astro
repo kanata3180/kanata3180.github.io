@@ -1,0 +1,13 @@
+---
+interface Props {
+	kicker: string;
+	marginBottom?: string;
+}
+
+const { kicker, marginBottom = '3.2rem' } = Astro.props;
+---
+
+<div class="verdict" style={`margin-bottom: ${marginBottom};`}>
+	<p class="kicker">{kicker}</p>
+	<slot />
+</div>

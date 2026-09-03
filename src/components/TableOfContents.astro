@@ -1,0 +1,21 @@
+---
+interface Item {
+	href: string;
+	label: string;
+}
+
+interface Props {
+	items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="toc">
+	<p class="toc-label">目次</p>
+	<ol>
+		{items.map((item) => (
+			<li><a href={item.href}>{item.label}</a></li>
+		))}
+	</ol>
+</div>

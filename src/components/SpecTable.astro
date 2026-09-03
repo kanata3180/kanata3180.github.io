@@ -1,0 +1,78 @@
+---
+interface SpecField {
+	key: string;
+	label: string;
+	numeric?: boolean;
+	best?: string | string[];
+}
+
+interface Props {
+	id?: string;
+	heading?: string;
+	caption: string;
+	products: any[];
+	specFields: SpecField[];
+	transpose?: boolean;
+	rowLabel?: string;
+	renderRowHeader?: (product: any) => string;
+}
+
+const {
+	id = 'spec',
+	heading = '詳細スペック比較',
+	caption,
+	products,
+	specFields,
+	transpose = false,
+	rowLabel,
+	renderRowHeader = (p: any) => `${p.brand} ${p.model}`,
+} = Astro.props;
+
+function isBest(field: SpecField, product: any) {
+	if (!field.best) return false;
+	return Array.isArray(field.best) ? field.best.includes(product.id) : field.best === product.id;
+}
+---
+
+<section id={id}>
+	<h2>{heading}</h2>
+	<div class="table-wrap">
+		<table>
+			<caption>{caption}</caption>
+			{transpose ? (
+				<>
+					<thead>
+						<tr><th scope="col">{rowLabel ?? '製品'}</th>{specFields.map((f) => <th scope="col">{f.label}</th>)}</tr>
+					</thead>
+					<tbody>
+						{products.map((p) => (
+							<tr>
+								<th scope="row">{renderRowHeader(p)}</th>
+								{specFields.map((field) => (
+									<td class:list={[field.numeric && 'num', isBest(field, p) && 'best']}>{p[field.key]}</td>
+								))}
+							</tr>
+						))}
+					</tbody>
+				</>
+			) : (
+				<>
+					<thead>
+						<tr><th scope="col">{rowLabel ?? '項目'}</th>{products.map((p) => <th scope="col">{p.model}</th>)}</tr>
+					</thead>
+					<tbody>
+						{specFields.map((field) => (
+							<tr>
+								<th scope="row">{field.label}</th>
+								{products.map((p) => (
+									<td class:list={[field.numeric && 'num', isBest(field, p) && 'best']}>{p[field.key]}</td>
+								))}
+							</tr>
+						))}
+					</tbody>
+				</>
+			)}
+		</table>
+	</div>
+	<slot />
+</section>

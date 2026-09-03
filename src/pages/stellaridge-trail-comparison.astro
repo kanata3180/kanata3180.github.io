@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import ProductCardList from '../components/ProductCardList.astro';
+import SpecTable from '../components/SpecTable.astro';
+import Callout from '../components/Callout.astro';
 import { stellaridgeTrail1, stellaridgeTrail2, stellaridge1, stellaridge2 } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
@@ -60,81 +64,40 @@ const specFields = [
 			ステラリッジ テント トレールは、長辺側に入口を設けることで広い前室を確保した派生ラインで、トレール1・トレール2の2サイズが展開されている。標準ラインとの違いは前室の広さだけでなく、重量・価格・対応シーズンにも及ぶ。ここでは標準ラインの1型・2型と並べて、その差を整理した。
 		</p>
 
-		<div class="toc">
-			<p class="toc-label">目次</p>
-			<ol>
-				<li><a href="#candidates">トレール2サイズの比較</a></li>
-				<li><a href="#spec">詳細スペック比較</a></li>
-				<li><a href="#standard">標準ラインとの重量・価格差</a></li>
-				<li><a href="#verdict">結論</a></li>
-			</ol>
-		</div>
+		<TableOfContents items={[
+			{ href: '#candidates', label: 'トレール2サイズの比較' },
+			{ href: '#spec', label: '詳細スペック比較' },
+			{ href: '#standard', label: '標準ラインとの重量・価格差' },
+			{ href: '#verdict', label: '結論' },
+		]} />
 
-		<div class="verdict" style="margin-bottom: 3.2rem;">
-			<p class="kicker">データ出典についての注記</p>
+		<Callout kicker="データ出典についての注記">
 			<p>本記事の2製品は、いずれもモンベル公式オンラインストアの商品ページ（品番1122823／1122824）に出典を統一している。標準ラインと異なり、<strong>レインフライは本体に付属せず別売</strong>（トレール1：¥16,000、トレール2：¥17,000）となっている点に注意したい。</p>
 			<p>また、トレールシリーズは<strong>スノーフライに非対応</strong>で、対応シーズンも春～秋（標準ラインは春～冬、冬は別売スノーフライで対応可能）に限定される。積雪期の使用を想定するなら標準ラインを選ぶ必要がある。</p>
-		</div>
+		</Callout>
 
-		<section id="candidates">
-			<h2>トレール2サイズの比較</h2>
-			<div class="product-list">
-				{cardConfigs.map(({ product, conditionLabel }) => (
-					<div class="product-card">
-						<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20L12 6l9 14H3z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
-						<div class="product-body">
-							<p class="condition-label">{conditionLabel}</p>
-							<p class="brand-name">{product.brand}</p>
-							<p class="model-name">{product.model}</p>
-							<p class="spec-line"><span>本体重量 <b>{product.weightBody}</b></span><span>本体価格 <b>{product.priceLabel}</b></span></p>
-							<div class="shop-buttons">
-								<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
-							</div>
-						</div>
-					</div>
-				))}
-			</div>
-		</section>
+		<ProductCardList
+			heading="トレール2サイズの比較"
+			cards={cardConfigs}
+			specs={[{ label: '本体重量', key: 'weightBody' }, { label: '本体価格', key: 'priceLabel' }]}
+			icon={`<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20L12 6l9 14H3z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>`}
+		/>
 
-		<section id="spec">
-			<h2>詳細スペック比較</h2>
-			<div class="table-wrap">
-				<table>
-					<caption>{stellaridgeTrail1.verifiedDate}時点のモンベル公式サイト調査データ</caption>
-					<thead>
-						<tr><th scope="col">項目</th>{products.map((p) => <th scope="col">{p.model}</th>)}</tr>
-					</thead>
-					<tbody>
-						{specFields.map((field) => (
-							<tr>
-								<th scope="row">{field.label}</th>
-								{products.map((p) => (
-									<td>{p[field.key]}</td>
-								))}
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		</section>
+		<SpecTable caption={`${stellaridgeTrail1.verifiedDate}時点のモンベル公式サイト調査データ`} products={products} specFields={specFields} />
 
-		<section id="standard">
-			<h2>標準ラインとの重量・価格差</h2>
-			<div class="table-wrap">
-				<table>
-					<caption>同クラスの標準ライン（1型・2型）との比較</caption>
-					<thead>
-						<tr><th scope="col">項目</th><th scope="col">{stellaridge1.model}</th><th scope="col">{stellaridgeTrail1.model}</th><th scope="col">{stellaridge2.model}</th><th scope="col">{stellaridgeTrail2.model}</th></tr>
-					</thead>
-					<tbody>
-						<tr><th scope="row">本体重量</th><td>{stellaridge1.weightBody}</td><td>{stellaridgeTrail1.weightBody}</td><td>{stellaridge2.weightBody}</td><td>{stellaridgeTrail2.weightBody}</td></tr>
-						<tr><th scope="row">収納サイズ（本体）</th><td>{stellaridge1.packedSize}</td><td>{stellaridgeTrail1.packedSize}</td><td>{stellaridge2.packedSize}</td><td>{stellaridgeTrail2.packedSize}</td></tr>
-						<tr><th scope="row">本体価格</th><td>{stellaridge1.priceLabel}</td><td>{stellaridgeTrail1.priceLabel}</td><td>{stellaridge2.priceLabel}</td><td>{stellaridgeTrail2.priceLabel}</td></tr>
-					</tbody>
-				</table>
-			</div>
+		<SpecTable
+			id="standard"
+			heading="標準ラインとの重量・価格差"
+			caption="同クラスの標準ライン（1型・2型）との比較"
+			products={[stellaridge1, stellaridgeTrail1, stellaridge2, stellaridgeTrail2]}
+			specFields={[
+				{ key: 'weightBody', label: '本体重量' },
+				{ key: 'packedSize', label: '収納サイズ（本体）' },
+				{ key: 'priceLabel', label: '本体価格' },
+			]}
+		>
 			<p>トレール1は本体重量0.89kgと標準2型（0.89kg）に並ぶ重さでありながら、収納サイズは標準1型と同じΦ13.5×29cm。同様にトレール2は本体重量0.98kgで標準2型より約90g重いが、収納サイズは標準2型と同じΦ14.5×30cmに収まっている。広い前室を確保する分、同じ収納サイズのクラスでも一段階重くなる設計と言える。</p>
-		</section>
+		</SpecTable>
 
 		<section id="verdict">
 			<h2>結論</h2>

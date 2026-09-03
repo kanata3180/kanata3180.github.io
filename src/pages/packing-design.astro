@@ -1,6 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import ProductCardList from '../components/ProductCardList.astro';
+import SpecTable from '../components/SpecTable.astro';
 import { zpacksSlimStuffSack, seaToSummitUltrasil, hmgRolltopStuffSack, betaLight45 } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
@@ -19,11 +22,6 @@ const specFields = [
 	{ key: 'weight', label: '重量', numeric: true, best: 'zpacks-slim-stuff-sack' },
 	{ key: 'priceLabel', label: '価格' },
 ];
-
-function isBest(field, product) {
-	if (!field.best) return false;
-	return Array.isArray(field.best) ? field.best.includes(product.id) : field.best === product.id;
-}
 ---
 
 <BaseLayout
@@ -58,15 +56,12 @@ function isBest(field, product) {
 			「ジャンル別」に分けていたスタッフバッグを、「シーン別・使用タイミング別」に再設計しました。テントを取り出すために他の荷物を出す必要がある、という設営時の不便を解消するのが目的です。{betaLight45.model}の実ポケット構成に当てはめて検証しています。
 		</p>
 
-		<div class="toc">
-			<p class="toc-label">目次</p>
-			<ol>
-				<li><a href="#packing-map">パッキングマップ</a></li>
-				<li><a href="#candidates">テント用スタッフバッグ候補</a></li>
-				<li><a href="#spec">詳細スペック比較</a></li>
-				<li><a href="#verdict">結論</a></li>
-			</ol>
-		</div>
+		<TableOfContents items={[
+			{ href: '#packing-map', label: 'パッキングマップ' },
+			{ href: '#candidates', label: 'テント用スタッフバッグ候補' },
+			{ href: '#spec', label: '詳細スペック比較' },
+			{ href: '#verdict', label: '結論' },
+		]} />
 
 		<section id="packing-map">
 			<h2>パッキングマップ</h2>
@@ -89,48 +84,16 @@ function isBest(field, product) {
 			<p>行動中に使う物は外部ポケットに分散させることでスタッフバッグ化せず、主室内のバッグ数をジャンル別運用時の5個以上から3個まで削減した。ウォーターバッグを主室からサイドポケットへ移すことで、給水・調理時に主室を開ける必要がなくなる。</p>
 		</section>
 
-		<section id="candidates">
-			<h2>テント用スタッフバッグ候補</h2>
+		<ProductCardList
+			heading="テント用スタッフバッグ候補"
+			cards={cardConfigs}
+			specs={[{ label: '直径×高さ', key: 'dimensions' }, { label: '容量', key: 'capacity' }, { label: '重量', key: 'weight' }]}
+			icon={`<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="4" width="10" height="16" rx="4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg>`}
+		>
 			<p>夜露で湿ったテントをパッキングした際、湿気が就寝セット等に広がらないようにする観点で比較検討した。</p>
-			<div class="product-list">
-				{cardConfigs.map(({ product, conditionLabel }) => (
-					<div class="product-card">
-						<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="4" width="10" height="16" rx="4" stroke="currentColor" stroke-width="1.6" fill="none"/></svg></div>
-						<div class="product-body">
-							<p class="condition-label">{conditionLabel}</p>
-							<p class="brand-name">{product.brand}</p>
-							<p class="model-name">{product.model}</p>
-							<p class="spec-line"><span>直径×高さ <b>{product.dimensions}</b></span><span>容量 <b>{product.capacity}</b></span><span>重量 <b>{product.weight}</b></span></p>
-							<div class="shop-buttons">
-								<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
-							</div>
-						</div>
-					</div>
-				))}
-			</div>
-		</section>
+		</ProductCardList>
 
-		<section id="spec">
-			<h2>詳細スペック比較</h2>
-			<div class="table-wrap">
-				<table>
-					<caption>{zpacksSlimStuffSack.verifiedDate}時点の調査データ</caption>
-					<thead>
-						<tr><th scope="col">製品</th>{specFields.map((f) => <th scope="col">{f.label}</th>)}</tr>
-					</thead>
-					<tbody>
-						{products.map((p) => (
-							<tr>
-								<th scope="row">{p.brand} {p.model}</th>
-								{specFields.map((field) => (
-									<td class:list={[field.numeric && 'num', isBest(field, p) && 'best']}>{p[field.key]}</td>
-								))}
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		</section>
+		<SpecTable caption={`${zpacksSlimStuffSack.verifiedDate}時点の調査データ`} products={products} specFields={specFields} transpose />
 
 		<section id="verdict">
 			<h2>結論</h2>

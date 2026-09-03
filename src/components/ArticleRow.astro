@@ -1,0 +1,26 @@
+---
+import Thumbnail from './Thumbnail.astro';
+
+interface Props {
+	article: {
+		slug: string;
+		title: string;
+		category: string;
+		excerpt: string;
+	};
+	base: string;
+}
+
+const { article, base } = Astro.props;
+---
+
+<a class="article-row" href={`${base}${article.slug}/`} data-title={article.title} data-category={article.category}>
+	<div class="thumb-static">
+		<Thumbnail category={article.category} />
+	</div>
+	<div>
+		<span class="cat-tag">{article.category}</span>
+		<p class="row-title">{article.title}</p>
+		<p class="row-excerpt">{article.excerpt}</p>
+	</div>
+</a>

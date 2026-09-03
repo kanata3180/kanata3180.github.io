@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AuthorBox from '../components/AuthorBox.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import ProductCardList from '../components/ProductCardList.astro';
+import SpecTable from '../components/SpecTable.astro';
+import Callout from '../components/Callout.astro';
 import { bdDistance8, bdDistance15, bdDistance22 } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
@@ -22,11 +26,6 @@ const specFields = [
 	{ key: 'madeIn', label: '製造国' },
 	{ key: 'features', label: '主な機能' },
 ];
-
-function isBest(field, product) {
-	if (!field.best) return false;
-	return Array.isArray(field.best) ? field.best.includes(product.id) : field.best === product.id;
-}
 ---
 
 <BaseLayout
@@ -61,62 +60,25 @@ function isBest(field, product) {
 			Black Diamond ディスタンスシリーズは、ランニングベストとバックパックの中間に位置するハイブリッドパックで、8L・15L・22Lの3容量が展開されている。同じシリーズ内でどの容量を選ぶべきか、用途別に整理した。
 		</p>
 
-		<div class="toc">
-			<p class="toc-label">目次</p>
-			<ol>
-				<li><a href="#candidates">3容量の比較</a></li>
-				<li><a href="#spec">詳細スペック比較</a></li>
-				<li><a href="#verdict">結論</a></li>
-			</ol>
-		</div>
+		<TableOfContents items={[
+			{ href: '#candidates', label: '3容量の比較' },
+			{ href: '#spec', label: '詳細スペック比較' },
+			{ href: '#verdict', label: '結論' },
+		]} />
 
-		<div class="verdict" style="margin-bottom: 3.2rem;">
-			<p class="kicker">データ出典についての注記</p>
+		<Callout kicker="データ出典についての注記">
 			<p>本記事の3製品は、いずれもBlue Sheepオンラインストア（Black Diamond日本正規代理店。2026年にLost Arrowから移管）の商品ページに出典を統一している。</p>
 			<p>また、各モデルには型番末尾が異なる<strong>ウィメンズ版</strong>（BD56708〜710001004）も同価格で用意されている。ウィメンズ版は対応胸囲がメンズ版よりひとまわり小さく設定されており（例：ディスタンス22はメンズS67-85cm／M80-100cm／L90-112cmに対し、ウィメンズはS60-75cm／M67-85cm／L80-100cm）、肩ベルト形状も女性向けに最適化されている。重量はメンズ版と同一表記だった（M：ディスタンス15が330g、ディスタンス22が400g）。</p>
-		</div>
+		</Callout>
 
-		<section id="candidates">
-			<h2>3容量の比較</h2>
-			<div class="product-list">
-				{cardConfigs.map(({ product, conditionLabel }) => (
-					<div class="product-card">
-						<div class="thumb"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 5v2l-3 3 2 2v10h12V12l2-2-3-3V5Q12 8 7 5Z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg></div>
-						<div class="product-body">
-							<p class="condition-label">{conditionLabel}</p>
-							<p class="brand-name">{product.brand}</p>
-							<p class="model-name">{product.model}</p>
-							<p class="spec-line"><span>容量 <b>{product.capacity}</b></span><span>重量 <b>{product.weight}</b></span></p>
-							<div class="shop-buttons">
-								<span class="shop-btn-pending">Amazon商品リンク：準備中</span>
-							</div>
-						</div>
-					</div>
-				))}
-			</div>
-		</section>
+		<ProductCardList
+			heading="3容量の比較"
+			cards={cardConfigs}
+			specs={[{ label: '容量', key: 'capacity' }, { label: '重量', key: 'weight' }]}
+			icon={`<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 5v2l-3 3 2 2v10h12V12l2-2-3-3V5Q12 8 7 5Z" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>`}
+		/>
 
-		<section id="spec">
-			<h2>詳細スペック比較</h2>
-			<div class="table-wrap">
-				<table>
-					<caption>{bdDistance8.verifiedDate}時点のBlue Sheep公式サイト調査データ</caption>
-					<thead>
-						<tr><th scope="col">項目</th>{products.map((p) => <th scope="col">{p.model}</th>)}</tr>
-					</thead>
-					<tbody>
-						{specFields.map((field) => (
-							<tr>
-								<th scope="row">{field.label}</th>
-								{products.map((p) => (
-									<td class:list={[field.numeric && 'num', isBest(field, p) && 'best']}>{p[field.key]}</td>
-								))}
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		</section>
+		<SpecTable caption={`${bdDistance8.verifiedDate}時点のBlue Sheep公式サイト調査データ`} products={products} specFields={specFields} />
 
 		<section id="verdict">
 			<h2>結論</h2>
