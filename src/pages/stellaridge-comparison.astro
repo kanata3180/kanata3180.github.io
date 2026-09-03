@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import AuthorBox from '../components/AuthorBox.astro';
 import { stellaridge1, stellaridge2, stellaridge3, stellaridge4, stellaridge6 } from '../data/products/index.js';
 
 const base = import.meta.env.BASE_URL;
@@ -153,16 +154,6 @@ const specFields = [
 			</div>
 		</section>
 
-		<section style="margin-top: 3.2rem;">
-			<div class="author-box">
-				<div class="author-avatar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 20l5-11 4 6 3-5 6 10H3z" fill="currentColor"/></svg></div>
-				<div>
-					<p class="author-label">Editor's Profile</p>
-					<p class="author-name">かなた</p>
-					<p class="author-bio">近畿地方在住。大峰山脈を拠点に、3シーズンから雪山まで登山を続けています。夏は信州アルプスまで足を伸ばし、テント泊装備でパックウェイト10kg前後の山行も。行動中の身軽さとテントでの睡眠の質を両立させたく、装備・パッキング・行程を毎回シミュレーションしてから臨み、その過程を記録しています。</p>
-					<div class="author-tags"><span>大峰山脈拠点</span><span>テント泊中心</span><span>夏は信州アルプスも</span></div>
-				</div>
-			</div>
-		</section>
+		<AuthorBox />
 	</main>
 </BaseLayout>
